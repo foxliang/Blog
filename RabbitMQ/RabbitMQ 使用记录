@@ -4,6 +4,8 @@
 
 1.创建队列，发送消息
 
+
+```
 <?php
 
 $routingkey = 'key';
@@ -34,12 +36,16 @@ for ($i = 0; $i < 100; $i++) {
     }
     $ex->publish($message, $routingkey);
 }
+```
+
 这样就产生了50条消息，但是没有消费者，所以没有被消费
 
 
 
 2.创建消费者，消费信息
 
+
+```
 <?php
 
 set_time_limit(0);
@@ -75,6 +81,7 @@ function processMessage($envelope, $queue) {
     $msg = $envelope->getBody();
     echo $msg . "\n"; //处理消息
 }
+```
 
 运行之后 可在 http://127.0.0.1:15672/  看到这个队列的详情情况
 
