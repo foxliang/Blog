@@ -5,7 +5,7 @@
 1.创建队列，发送消息
 
 
-```
+```javascript
 <?php
 
 $routingkey = 'key';
@@ -45,7 +45,7 @@ for ($i = 0; $i < 100; $i++) {
 2.创建消费者，消费信息
 
 
-```
+```javascript
 <?php
 
 set_time_limit(0);
