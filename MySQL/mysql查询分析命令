@@ -64,7 +64,28 @@ table_locks_waited: 表示需要等待的表锁数。此值越高则说明存在
 | Threads_running | 1 | <—正在忙的线程（正在查询数据，传输数据等等操作）
 +——————-+——-+
 
+
+7.关于数据库
+
+show databases; 显示所有数据库
+
+use databasename; 选择数据库
+
+show tables; 显示表
+
+flush privileges //刷新数据库
+
+use dbname； 打开数据库：
+
+DELETE FROM table:删除表数据  truncate table;//不保留表记录值
+
+DROP TABLE table:删除数据表
+
+show create table from  :显示表结构详细信息
+
+
 8.查看所有数据库容量大小
+
 select 
 table_schema as '数据库',
 sum(table_rows) as '记录数',
@@ -75,8 +96,8 @@ group by table_schema
 order by sum(data_length) desc, sum(index_length) desc;
 
 
-
 9.查看所有数据库各表容量大小
+
 select 
 table_schema as '数据库',
 table_name as '表名',
@@ -89,6 +110,7 @@ order by data_length desc, index_length desc;
 
 
 10.查看指定数据库容量大小
+
 例：查看mysql库容量大小
 
 select 
@@ -103,6 +125,7 @@ where table_schema='mysql';
 
 
 11.查看指定数据库各表容量大小
+
 例：查看mysql库各表容量大小
 
 select 
