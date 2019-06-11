@@ -1,3 +1,7 @@
+"""
+在屏幕上显示跑马灯文字
+"""
+
 import os
 import time
 
