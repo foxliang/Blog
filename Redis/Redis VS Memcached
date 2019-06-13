@@ -35,3 +35,7 @@ Redis的密钥长度最大为2GB，而Memcached的密钥长度最大为250字节
 6、线程
 
 Redis是单线程的；而，Memcached是多线程的。
+
+7、value大小
+
+Redis最大可以达到1GB，而Memcached只有1MB
