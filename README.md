@@ -7,5 +7,5 @@ Study Language in order to apply it.
 
 学以致用。
 
-<a title="Hits" target="_blank" href="https://github.com/weilyf2017/Blog"><img src="https://hits.blog.org/Blog/hits.svg"></a>
+<a title="Hits" target="_blank" href="https://github.com/weilyf2017/Blog"><img src="https://hits.b3log.org/weilyf2017/Blog.svg"></a>
 
