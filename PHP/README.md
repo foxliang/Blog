@@ -1,4 +1,4 @@
-******PHP****** 是什么？
+#PHP 是什么？
 
     PHP（全称：PHP：Hypertext Preprocessor，即"PHP：超文本预处理器"）是一种通用开源脚本语言。
 
@@ -7,7 +7,7 @@
     PHP 可免费下载使用。
 
 
-******PHP****** 能做什么？
+#PHP 能做什么？
 
     PHP 可以生成动态页面内容
 
@@ -26,7 +26,7 @@
     通过 PHP，您不再限于输出 HTML。您可以输出图像、PDF 文件，甚至 Flash 电影。您还可以输出任意的文本，比如 XHTML 和 XML。
 
 
-为什么使用 ******PHP******？
+#为什么使用 PHP？
 
     PHP 可在不同的平台上运行（Windows、Linux、Unix、Mac OS X 等）
 
