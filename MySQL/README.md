@@ -12,3 +12,5 @@ MySQL 是一个关系型数据库管理系统，由瑞典 MySQL AB 公司开发�
 
 
 官网：https://www.mysql.com/
+
+教程：https://www.runoob.com/mysql/mysql-tutorial.html
