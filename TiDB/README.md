@@ -1,28 +1,37 @@
-# CodeIgniter
+# TiDB 简介
+TiDB 是 PingCAP 公司设计的开源分布式 HTAP (Hybrid Transactional and Analytical Processing) 数据库，结合了传统的 RDBMS 和 NoSQL 的最佳特性。TiDB 兼容 MySQL，支持无限的水平扩展，具备强一致性和高可用性。TiDB 的目标是为 OLTP (Online Transactional Processing) 和 OLAP (Online Analytical Processing) 场景提供一站式的解决方案。
 
-CodeIgniter 是一个小巧但功能强大的 PHP 框架，作为一个简单而“优雅”的工具包，它可以为开发者们建立功能完善的 Web 应用程序。
+## TiDB 具备如下特性：
 
-首先是整体目录中有个application文件夹，这个就是整个框架的真正灵魂所在了，包含了程序主体所在，在这个文件夹中首先映入我眼帘的就是
+### 高度兼容 MySQL
 
-models
+大多数情况下，无需修改代码即可从 MySQL 轻松迁移至 TiDB，分库分表后的 MySQL 集群亦可通过 TiDB 工具进行实时迁移。
 
-views
+### 水平弹性扩展
 
-controllers
+通过简单地增加新节点即可实现 TiDB 的水平扩展，按需扩展吞吐或存储，轻松应对高并发、海量数据场景。
 
-没错，这就是这个框架的MVC，还有几个重要的文件夹
+### 分布式事务
 
-config 配置文件（config.php 程序的全局配置文件、database.php 数据库配置文件）
+TiDB 100% 支持标准的 ACID 事务。
 
-libraries 库文件
+### 真正金融级高可用
 
-logs 日志文件（注意：如果要写入日志，需要给w权限）
+相比于传统主从 (M-S) 复制方案，基于 Raft 的多数派选举协议可以提供金融级的 100% 数据强一致性保证，且在不丢失大多数副本的前提下，可以实现故障的自动恢复 (auto-failover)，无需人工介入。
 
-了解这些就差不多了，详细的看看手册吧。
+### 一站式 HTAP 解决方案
+
+TiDB 作为典型的 OLTP 行存数据库，同时兼具强大的 OLAP 性能，配合 TiSpark，可提供一站式 HTAP 解决方案，一份存储同时处理 OLTP & OLAP，无需传统繁琐的 ETL 过程。
+
+### 云原生 SQL 数据库
+
+TiDB 是为云而设计的数据库，支持公有云、私有云和混合云，使部署、配置和维护变得十分简单。
+
+TiDB 的设计目标是 100% 的 OLTP 场景和 80% 的 OLAP 场景，更复杂的 OLAP 分析可以通过 TiSpark 项目来完成。
+
+TiDB 对业务没有任何侵入性，能优雅的替换传统的数据库中间件、数据库分库分表等 Sharding 方案。同时它也让开发运维人员不用关注数据库 Scale 的细节问题，专注于业务开发，极大的提升研发的生产力。
 
 
-[官网地址](http://codeigniter.org.cn/)
+官网：https://pingcap.com/index.html
 
-[Github地址](https://github.com/bcit-ci/CodeIgniter)
-
-[用户指南](http://codeigniter.org.cn/user_guide/)
+GitHub:https://github.com/pingcap
