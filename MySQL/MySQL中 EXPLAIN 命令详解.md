@@ -1,4 +1,4 @@
-explain显示了mysql如何使用索引来处理select语句以及连接表。可以帮助选择更好的索引和写出更优化的查询语句。
+## explain显示了mysql如何使用索引来处理select语句以及连接表。可以帮助选择更好的索引和写出更优化的查询语句。
 
 使用方法，在select语句前加上explain就可以了：
 
@@ -6,6 +6,7 @@ explain显示了mysql如何使用索引来处理select语句以及连接表。�
 
 explain select id,mobile,gender from tbl_user where status = 1 and flag_check=1
 
+![image](https://img-blog.csdnimg.cn/20190709105109766.png)
 
 当使用EXTENDED关键字时，EXPLAIN产生附加信息，可以用SHOW WARNINGS浏览。该信息显示优化器限定SELECT语句中的表和列名，重写并且执行优化规则后SELECT语句是什么样子，并且还可能包括优化过程的其它注解。
 
