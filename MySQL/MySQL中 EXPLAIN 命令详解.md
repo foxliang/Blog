@@ -12,21 +12,29 @@ explain select id,mobile,gender from tbl_user where status = 1 and flag_check=1
 
 EXPLAIN的每个输出行提供一个表的相关信息，并且每个行包括下面的列：
 
-##### id：SELECT识别符。这是SELECT的查询序列号。
+#### id：SELECT识别符。这是SELECT的查询序列号。
 
-##### select_type：SELECT类型。
+#### select_type：SELECT类型。
 
 SIMPLE： 简单SELECT(不使用UNION或子查询)
-PRIMARY： 最外面的SELECT
-UNION：UNION中的第二个或后面的SELECT语句
-DEPENDENT UNION：UNION中的第二个或后面的SELECT语句，取决于外面的查询
-UNION RESULT：UNION的结果
-SUBQUERY：子查询中的第一个SELECT
-DEPENDENT SUBQUERY：子查询中的第一个SELECT，取决于外面的查询
-DERIVED：导出表的SELECT(FROM子句的子查询)
-table：表名
 
-##### type：联接类型
+PRIMARY： 最外面的SELECT
+
+UNION：UNION中的第二个或后面的SELECT语句
+
+DEPENDENT UNION：UNION中的第二个或后面的SELECT语句，取决于外面的查询
+
+UNION RESULT：UNION的结果
+
+SUBQUERY：子查询中的第一个SELECT
+
+DEPENDENT SUBQUERY：子查询中的第一个SELECT，取决于外面的查询
+
+DERIVED：导出表的SELECT(FROM子句的子查询)
+
+#### table：表名
+
+#### type：联接类型
 
 system：表仅有一行(=系统表)。这是const联接类型的一个特例。
 
@@ -50,23 +58,23 @@ index：该联接类型与ALL相同，除了只有索引树被扫描。这通常
 
 all：对于每个来自于先前的表的行组合，进行完整的表扫描。如果表是第一个没标记const的表，这通常不好，并且通常在它情况下很差。通常可以增加更多的索引而不要使用ALL，使得行能基于前面的表中的常数值或列值被检索出。
 
-##### possible_keys：possible_keys列指出MySQL能使用哪个索引在该表中找到行。
+#### possible_keys：possible_keys列指出MySQL能使用哪个索引在该表中找到行。
 
 注意，该列完全独立于EXPLAIN输出所示的表的次序。这意味着在possible_keys中的某些键实际上不能按生成的表次序使用。
 
-##### key：key列显示MySQL实际决定使用的键(索引)。
+#### key：key列显示MySQL实际决定使用的键(索引)。
 
 如果没有选择索引，键是NULL。要想强制MySQL使用或忽视possible_keys列中的索引，在查询中使用FORCE INDEX、USE INDEX或者IGNORE INDEX。
 
-##### key_len：key_len列显示MySQL决定使用的键长度。
+#### key_len：key_len列显示MySQL决定使用的键长度。
 
 如果键是NULL，则长度为NULL。注意通过key_len值我们可以确定MySQL将实际使用一个多部关键字的几个部分。
 
-##### ref：ref列显示使用哪个列或常数与key一起从表中选择行。
+#### ref：ref列显示使用哪个列或常数与key一起从表中选择行。
 
-##### rows：rows列显示MySQL认为它执行查询时必须检查的行数。
+#### rows：rows列显示MySQL认为它执行查询时必须检查的行数。
 
-##### Extra：该列包含MySQL解决查询的详细信息。
+#### Extra：该列包含MySQL解决查询的详细信息。
 
 Distinct：MySQL发现第1个匹配行后，停止为当前的行组合搜索更多的行。
 
@@ -88,8 +96,10 @@ Using index for group-by：类似于访问表的Using index方式，Using index 
 
 通过相乘EXPLAIN输出的rows列的所有值，你能得到一个关于一个联接如何的提示。这应该粗略地告诉你MySQL必须检查多少行以执行查询。当你使用max_join_size变量限制查询时，也用这个乘积来确定执行哪个多表SELECT语句。
 
-可以看出explain命令输出内容当中比较重要的是：
+### 可以看出explain命令输出内容当中比较重要的是：
 
 1.type：展示了表的查询/连接类型，体现查询效率；
+
 2.key/key_len：实际使用了什么索引，使用了哪些部分索引；
+
 3.Extra：对执行计划步骤额外的说明，采用了哪些查询特性。
