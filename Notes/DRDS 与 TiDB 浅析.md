@@ -4,13 +4,15 @@
 
 ## DRDS vs  TiDB
 
-### 起源 DRDS
+### 起源 
 
-### 数据库中间件Cobar、MyCat、Amoeba
+DRDS
 
-### Tidb
+数据库中间件Cobar、MyCat、Amoeba
 
-### Google Spanner/F1
+Tidb
+
+Google Spanner/F1
 
 ### 架构
 
@@ -40,7 +42,6 @@ TiDb
 由于按照范围对数据进行分片，在某些范围数据被集中访问时易造成热点问题，业务上可以通过对主键进行散列编码打散数据或者热点数据通过cache方式解决该问题
 
  
-
 ### 应用限制
 DRDS
 
@@ -56,7 +57,6 @@ TiDB
 
 自增主键保证唯一但不保证连续
 
- 
 
 ### 支持的事务模型
 DRDS
@@ -79,7 +79,6 @@ TiDB参考Percolator 事务模型，事务下沉到TiKV（存储引擎）
 
 TiDB提供的事务隔离级别（Snapshot Isolation）与MySQL提供的事务隔离级别保持一致
 
- 
 
 ### 高可用保障
 DRDS
