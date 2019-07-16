@@ -31,9 +31,11 @@ MySQL官方对索引的定义为：索引（Index）是帮助MySQL高效获取�
 每个红色节点的两个子节点都是黑色的；
 
 从任意节点到其每个叶子的所有路径都包含相同的黑色节点。
+
 ![image](https://img-blog.csdnimg.cn/20190716173628784.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM1MzQ5MTE0,size_16,color_FFFFFF,t_70)
 
 ![image](https://img-blog.csdnimg.cn/20190716173639120.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM1MzQ5MTE0,size_16,color_FFFFFF,t_70)
+
 ![image](https://img-blog.csdnimg.cn/20190716173651488.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM1MzQ5MTE0,size_16,color_FFFFFF,t_70)
 #### 红黑树相比于BST和AVL树有什么优点？
 
