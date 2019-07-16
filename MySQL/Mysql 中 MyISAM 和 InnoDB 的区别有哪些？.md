@@ -7,7 +7,6 @@
 ### MyISAM：在MySQL 5.1 及之前的版本，MyISAM是默认引擎。
 MyISAM提供的大量的特性，包括全文索引、压缩、空间函数（GIS）等，但MyISAM并不支持事务以及行级锁，而且一个毫无疑问的缺陷是崩溃后无法安全恢复。正是由于MyISAM引擎的缘故，即使MySQL支持事务已经很长时间了，在很多人的概念中MySQL还是非事务型数据库。尽管这样，它并不是一无是处的。对于只读的数据，或者表比较小，可以忍受修复操作，则依然可以使用MyISAM（但请不要默认使用MyISAM，而是应该默认使用InnoDB）
 
-
 #### 区别：
 
 1. InnoDB支持事务，MyISAM不支持，对于InnoDB每一条SQL语言都默认封装成事务，自动提交，这样会影响速度，所以最好把多条SQL语言放在begin和commit之间，组成一个事务。  
@@ -29,6 +28,5 @@ MyISAM提供的大量的特性，包括全文索引、压缩、空间函数（GI
 3. 系统奔溃后，MyISAM恢复起来更困难，能否接受。
 
 4. MySQL5.5版本开始Innodb已经成为Mysql的默认引擎(之前是MyISAM)，说明其优势是有目共睹的，如果你不知道用什么，那就用InnoDB，至少不会差。
-5. 
 
-注：MySQL8要放弃MyISAM，因为Innodb已兼容MyISAM。
+注：MySQL8要放弃MyISAM，因为Innodb已兼容MyISAM了。
