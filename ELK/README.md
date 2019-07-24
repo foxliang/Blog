@@ -10,6 +10,15 @@
 
 3、Kibana可以为 Logstash 和 ElasticSearch 提供的日志分析友好的 Web 界面，可以帮助汇总、分析和搜索重要数据日志。
 
+
 官网：https://www.elastic.co/cn/
 
 下载地址：https://www.elastic.co/cn/downloads/
+
+中文社区：https://elasticsearch.cn/
+
+Elasticsearch: 权威指南：https://www.elastic.co/guide/cn/elasticsearch/guide/current/index.html
+
+Elasticsearch-PHP：https://www.elastic.co/guide/cn/elasticsearch/php/current/index.html
+
+Kibana 用户手册：https://www.elastic.co/guide/cn/kibana/current/index.html
