@@ -1,4 +1,4 @@
-# ElasticSearch采用REST API， 所有的操作都可通过HTTP API完成，例如增删改查、别名配置等。
+## ElasticSearch采用REST API，所有的操作都可通过HTTP API完成，例如增删改查、别名配置等。
 
 
 ```math
