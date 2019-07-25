@@ -50,3 +50,30 @@ PATH：API路径（例如_count将返回集群中文档的数量），PATH可以
 QUERY_STRING： 一些可选的查询请求参数，例如?pretty参数可使请求返回的JSON数据更加美观易读。
 
 BODY：一个JSON格式的请求主体（如果请求需要的话）。
+
+示例
+
+1.统计Elasticserach集群中文档数命令：
+
+```
+curl -XGET http://localhost:9200/_count?pretty
+```
+
+返回：
+
+```
+{
+  "count" : 86547,
+  "_shards" : {
+    "total" : 5,
+    "successful" : 5,
+    "skipped" : 0,
+    "failed" : 0
+  }
+}
+```
+
+
+
+
+
