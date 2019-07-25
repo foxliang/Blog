@@ -37,7 +37,6 @@ curl请求组成（HTTP）
 
 ```
 curl -X<VERB> '<PROTOCOL>://<HOST>:<PORT>/<PATH>?<QUERY_STRING>' -d '<BODY>'
-
 ```
 VERB：HTTP方法，包括GET、POST、PUT、HEAD、DELETE。
 
@@ -74,8 +73,3 @@ curl -XGET http://localhost:9200/_count?pretty
   }
 }
 ```
-
-
-
-
-
