@@ -110,7 +110,6 @@ http://10.9.183.17:9200/user/info/kPjEKGwBjYq9m-uKR-ty \
 
 ```
  curl -s -XGET http://10.9.183.17:9200/user/_search?pretty
-
 ```
 返回：
 
