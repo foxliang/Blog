@@ -54,7 +54,7 @@ BODY：一个JSON格式的请求主体（如果请求需要的话）。
 
 示例
 
-1.统计Elasticserach集群中文档数命令：
+#### 1.统计Elasticserach集群中文档数命令：
 
 ```
 curl -XGET http://localhost:9200/_count?pretty
@@ -74,7 +74,7 @@ curl -XGET http://localhost:9200/_count?pretty
 }
 ```
 
-2.创建一个index为user的索引，name为fox的数据
+#### 2.创建一个index为user的索引，name为fox的数据
 
 ```
 curl -X POST \
@@ -90,7 +90,7 @@ http://10.9.183.17:9200/user/info \
 {"_index":"user","_type":"info","_id":"kPjEKGwBjYq9m-uKR-ty","_version":1,"result":"created","_shards":{"total":2,"successful":2,"failed":0},"_seq_no":2,"_primary_term":1}
 ```
 
-3.修改user的索引，name为Fox的数据
+#### 3.修改user的索引，name为Fox的数据
 
 ```
 curl -X PUT \
@@ -106,7 +106,7 @@ http://10.9.183.17:9200/user/info/kPjEKGwBjYq9m-uKR-ty \
 {"_index":"user","_type":"info","_id":"kPjEKGwBjYq9m-uKR-ty","_version":2,"result":"updated","_shards":{"total":2,"successful":2,"failed":0},"_seq_no":4,"_primary_term":1}
 ```
 
-4.查询user的索引，url之后加pretty 是为了美化返回结果
+#### 4.查询user的索引，url之后加pretty 是为了美化返回结果
 
 ```
  curl -s -XGET http://10.9.183.17:9200/user/_search?pretty
