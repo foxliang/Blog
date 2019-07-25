@@ -35,8 +35,10 @@ Elasticsearch官方提供了多种程序语言的客户端，例如Groovy、Java
 
 curl请求组成（HTTP）
 
+```
 curl -X<VERB> '<PROTOCOL>://<HOST>:<PORT>/<PATH>?<QUERY_STRING>' -d '<BODY>'
 
+```
 VERB：HTTP方法，包括GET、POST、PUT、HEAD、DELETE。
 
 PROTOCOL：http或者https协议（只有在Elasticsearch前面有https代理的时候可用）。
