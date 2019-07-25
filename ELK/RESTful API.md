@@ -73,3 +73,103 @@ curl -XGET http://localhost:9200/_count?pretty
   }
 }
 ```
+
+2.创建一个index为user的索引，name为fox的数据
+
+```
+curl -X POST \
+http://10.9.183.17:9200/user/info \
+-H 'Content-Type: application/json' \
+-d '{
+    "name" : "fox"
+}'
+```
+返回：
+
+```
+{"_index":"user","_type":"info","_id":"kPjEKGwBjYq9m-uKR-ty","_version":1,"result":"created","_shards":{"total":2,"successful":2,"failed":0},"_seq_no":2,"_primary_term":1}
+```
+
+3.修改user的索引，name为Fox的数据
+
+```
+curl -X PUT \
+http://10.9.183.17:9200/user/info/kPjEKGwBjYq9m-uKR-ty \
+-H 'Content-Type: application/json' \
+-d '{
+    "name" : "Fox"
+}'
+```
+返回：
+
+```
+{"_index":"user","_type":"info","_id":"kPjEKGwBjYq9m-uKR-ty","_version":2,"result":"updated","_shards":{"total":2,"successful":2,"failed":0},"_seq_no":4,"_primary_term":1}
+```
+
+4.查询user的索引，url之后加pretty 是为了美化返回结果
+
+```
+ curl -s -XGET http://10.9.183.17:9200/user/_search?pretty
+
+```
+返回：
+
+```
+{
+  "took" : 1,
+  "timed_out" : false,
+  "_shards" : {
+    "total" : 1,
+    "successful" : 1,
+    "skipped" : 0,
+    "failed" : 0
+  },
+  "hits" : {
+    "total" : {
+      "value" : 4,
+      "relation" : "eq"
+    },
+    "max_score" : 1.0,
+    "hits" : [
+      {
+        "_index" : "user",
+        "_type" : "info",
+        "_id" : "evjCKGwBjYq9m-uKxevJ",
+        "_score" : 1.0,
+        "_source" : {
+          "query" : {
+            "match_all" : { }
+          }
+        }
+      },
+      {
+        "_index" : "user",
+        "_type" : "info",
+        "_id" : "f_jDKGwBjYq9m-uKGuud",
+        "_score" : 1.0,
+        "_source" : {
+          "name" : "fox"
+        }
+      },
+      {
+        "_index" : "user",
+        "_type" : "info",
+        "_id" : "Z_jFKGwBjYq9m-uK5exQ",
+        "_score" : 1.0,
+        "_source" : {
+          "name" : "fox2"
+        }
+      },
+      {
+        "_index" : "user",
+        "_type" : "info",
+        "_id" : "kPjEKGwBjYq9m-uKR-ty",
+        "_score" : 1.0,
+        "_source" : {
+          "name" : "Fox"
+        }
+      }
+    ]
+  }
+}
+```
