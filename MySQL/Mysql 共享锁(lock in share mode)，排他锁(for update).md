@@ -6,19 +6,23 @@
 #### 共享锁事务之间的读取
 session1:
 
+```
 start transaction;
 select * from test where id = 1 lock in share mode;
+```
 结果：
 
-
+![image](https://img-blog.csdnimg.cn/20190731140214666.png)
 
 session2:
 
+```
 start transaction;
 select * from test where id = 1 lock in share mode;
+```
 结果：
 
-
+![image](https://img-blog.csdnimg.cn/20190731140214666.png)
 
 <!--more-->
 
@@ -26,32 +30,45 @@ select * from test where id = 1 lock in share mode;
 
 session3:
 
+```
 start transaction;
 select * from test where id = 1 for update;
+```
 结果：
 
+![image](https://img-blog.csdnimg.cn/20190731140303837.png)
 
 
 在session3中则无法获取数据，直到超时或其它事物commit
 
+```
 Lock wait timeout exceeded; try restarting transaction
+```
 
 #### 共享锁之间的更新
 当session1执行了修改语句：
 session1:
 
+```
 update test set name = 'php7' where id = 1;
+```
 可以很多获取执行结果。
 当session2再次执行修改id=1的语句时：
 session2:
 
+```
 update test set name = 'mysql8' where id = 1;
+```
 就会出现死锁或者锁超时，错误如下：
 
+```
 Deadlock found when trying to get lock; try restarting transaction
+```
 或者：
 
+```
 Lock wait timeout exceeded; try restarting transaction
+```
 必须等到session1完成commit动作后，session2才会正常执行，如果此时多个session并发执行，可想而知出现死锁的几率将会大增。
 
 session3则更不可能
@@ -75,42 +92,58 @@ for update
 同样以不同的session来举例
 session1:
 
+```
 start transaction;
 select * from test where id = 1 for update;
+```
 结果：
 
-
+![image](https://img-blog.csdnimg.cn/20190731140214666.png)
 
 session2:
 
+```
 start transaction;
 select * from test where id = 1 for update;
+```
 结果：
 
-
+![image](https://img-blog.csdnimg.cn/20190731140754173.png)
 
 当session1执行完成后，再次执行session2，此时session2也会卡住，无法立刻获取查询的数据。直到出现超时
 
+```
 Lock wait timeout exceeded; try restarting transaction
+```
 或session1 commit才会执行
 
 那么再使用session3 加入共享锁尝试
 
+```
 select * from test where id = 1 lock in share mode;
+```
 结果也是如此，和session2一样，超时或等待session1 commit
 
+```
 Lock wait timeout exceeded; try restarting transaction
+```
 #### 排他锁事务之间的修改
 当在session1中执行update语句：
 
+```
 update test set name = 123 where id = 1;
+```
 可以正常获取结果
 
+```
 Query OK, 1 row affected (0.00 sec)
 Rows matched: 1  Changed: 1  Warnings: 0
+```
 此时在session2中执行修改
 
+```
 update test set name = '456' where id = 1;
+```
 则会卡住直接超时或session1 commit,才会正常吐出结果
 
 session3也很明显和session2一样的结果，这里就不多赘述
