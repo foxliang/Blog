@@ -40,3 +40,5 @@ Hello, World!
 官网：https://golang.org
 
 中文网：https://studygolang.com/
+
+GO指南：https://tour.go-zh.org/list
