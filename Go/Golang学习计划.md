@@ -10,11 +10,8 @@
 ### 熟悉标准库
 ### 资源
 
-//安装教程
-https://golang.org/doc/install
+安装教程：https://golang.org/doc/install
 
-//Golang官方语言规范
-https://golang.org/ref/spec
+Golang官方语言规范：https://golang.org/ref/spec
 
-//标准库
-https://golang.org/pkg/
+标准库：https://golang.org/pkg/
