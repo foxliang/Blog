@@ -21,3 +21,14 @@ func main() {
    fmt.Println("Hello, World!")
 }
 ```
+
+结果：
+
+```
+$ go run test.go
+Hello, World!
+```
+
+官网：https://golang.org
+
+中文网：https://studygolang.com/
