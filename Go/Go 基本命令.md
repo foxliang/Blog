@@ -189,9 +189,12 @@ go tool yacc -o gopher.go -p parser gopher.y
 
 所以我们可以通过如下的命令来生成，编译，测试。如果gopher.y文件有修改，那么就重新执行go generate重新生成文件就好。
 
-### $ go generate
-### $ go build
-### $ go test
+$ go generate
+
+$ go build
+
+$ go test
+
 ### godoc
 在Go1.2版本之前还支持go doc命令，但是之后全部已到了godoc这个命令下，需要这样安装go get golang.org/x/tools/cmd/godoc
 
