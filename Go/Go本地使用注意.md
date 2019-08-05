@@ -10,15 +10,11 @@ GOPATH:D:\gopath
 
 go代码建立在`D:\gopath\src`，然后在里面创建不同的文件夹来安排自己的项目或者代码，同一个目录下不能存在多个`package`和`main`，不然会报错
 
-## 3.VS code 使用
+## 3.[VS code 使用](https://github.com/weilyf2017/Blog/blob/master/Notes/vs%20code%E4%BD%BF%E7%94%A8.md)
 
-vscode是微软基于Electron和web技术构建的开源编辑器, 是一款很强大的编辑器。开源地址:https://github.com/Microsoft/vscode
+vscode是微软基于Electron和web技术构建的开源编辑器, 是一款很强大的编辑器。安装过程略。
 
-1、安装Visual Studio Code 最新版
-
-官方网站：https://code.visualstudio.com/ 下载Visual Studio Code 最新版，安装过程略。
-
-2、安装Go插件
+### 安装Go插件
 
 点击右边的 Extensions 图标 搜索Go插件 在插件列表中，选择 Go，进行安装，安装之后，系统会提示重启 Visual Studio Code。
 
