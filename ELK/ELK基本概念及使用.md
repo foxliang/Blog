@@ -43,5 +43,47 @@ curl -XPOST "http://localhost:9200/test/_doc" -H 'Content-Type: application/json
 }'
 ```
 
+### ////批量数据处理 添加 删除
+bulk 与其他的请求体格式稍有不同，如下所示：
+```
+{ action: { metadata }}\n
+{ request body        }\n
+{ action: { metadata }}\n
+{ request body        }\n
+'
+```
+ 这种格式类似一个有效的单行 JSON 文档 流 ，它通过换行符(\n)连接到一起。注意两个要点：
+
+每行一定要以换行符(\n)结尾， 包括最后一行 。这些换行符被用作一个标记，可以有效分隔行。
+这些行不能包含未转义的换行符，因为他们将会对解析造成干扰。这意味着这个 JSON 不 能使用 pretty 参数打印。
+
+1.指定index
+```
+curl -XPOST "http://localhost:9200/zhuita-test-2019-08-02/_doc/_bulk" -H 'Content-Type: application/json' -d'
+{"name" : "fox4","date":1564724394000 }
+{"name" : "fox5","date":1564724494000 }
+{"name" : "fox6","date":1564724594000 }
+'
+```
+2.指定通用模式 
+```curl -XPOST "/_bulk" -H 'Content-Type: application/json' -d'
+{ "index": { "_index": "zhuita-test-2019-08-02", "_type": "_doc" }}
+{ "name" : "fox1","date":1564724294000 } 
+{ "index": { "_index": "zhuita-test-2019-08-02", "_type": "_doc" }}
+{ "name" : "fox2","date":1564724394000 } 
+'
+```
+3.为了把所有的操作组合在一起，一个完整的 bulk 请求 有以下形式:
+```curl -XPOST "/_bulk" -H 'Content-Type: application/json' -d'
+{ "delete": { "_index": "website", "_type": "blog", "_id": "123" }} 
+{ "create": { "_index": "website", "_type": "blog", "_id": "123" }}
+{ "title":    "My first blog post" }
+{ "index":  { "_index": "website", "_type": "blog" }}
+{ "title":    "My second blog post" }
+{ "update": { "_index": "website", "_type": "blog", "_id": "123", "_retry_on_conflict" : 3} }
+{ "doc" : {"title" : "My updated blog post"} } 
+'
+```
+
 ### 在kibana查看分析
 ![image](https://img-blog.csdnimg.cn/20190730102745977.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM1MzQ5MTE0,size_16,color_FFFFFF,t_70)
