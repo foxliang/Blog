@@ -15,3 +15,5 @@
 Golang官方语言规范：https://golang.org/ref/spec
 
 标准库：https://golang.org/pkg/
+
+go学习：https://github.com/weilyf2017/build-web-application-with-golang/blob/master/zh/preface.md
