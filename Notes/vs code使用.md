@@ -1,4 +1,4 @@
-# vscode
+# VS Code
 是微软基于Electron和web技术构建的开源编辑器, 是一款很强大的编辑器。
 
 开源地址:https://github.com/Microsoft/vscode
@@ -8,6 +8,7 @@
 官方网站：https://code.visualstudio.com/ 下载Visual Studio Code 最新版，安装过程略。
 
 ## 2.下面是经常使用的插件
+
 插件名称 | 插件描述
 ---|---
 GitLens | 非常方便的查看文件代码的 commit 信息（提交时间，提交人等）。
