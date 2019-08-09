@@ -10,6 +10,7 @@ MySQL 是一个关系型数据库管理系统，由瑞典 MySQL AB 公司开发�
 - MySQL 支持大型数据库，支持 5000 万条记录的数据仓库，32 位系统表文件最大可支持 4GB，64 位系统支持最大的表文件为8TB。
 - MySQL 是可以定制的，采用了 GPL 协议，你可以修改源码来开发自己的 MySQL 系统。
 
+### 数据库排名：
 ![image](https://github.com/weilyf2017/Blog/blob/master/images/DB-Engines%20Ranking.png)
 
 官网：https://www.mysql.com/
