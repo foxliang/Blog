@@ -102,7 +102,7 @@ rm -f /Users/astaxie/develop/gopath/bin/mathapp
 
 所以go fmt是gofmt的上层一个包装的命令，我们想要更多的个性化的格式化可以参考 gofmt
 
-### gofmt的参数介绍
+### go fmt的参数介绍
 
 -l 显示那些需要格式化的文件
 
@@ -195,7 +195,7 @@ $ go build
 
 $ go test
 
-### godoc
+### go doc
 在Go1.2版本之前还支持go doc命令，但是之后全部已到了godoc这个命令下，需要这样安装go get golang.org/x/tools/cmd/godoc
 
 很多人说go不需要任何的第三方文档，例如chm手册之类的（其实我已经做了一个了，chm手册），因为它内部就有一个很强大的文档工具。
