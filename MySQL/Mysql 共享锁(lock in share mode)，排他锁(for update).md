@@ -1,3 +1,9 @@
+```
+SELECT…FOR UPDATE （加写锁）
+
+SELECT…LOCK IN SHARE MODE （加读锁）
+```
+
 ## 共享锁(lock in share mode)
 #### 简介
 允许不同事务之前共享加锁读取，但不允许其它事务修改或者加入排他锁
