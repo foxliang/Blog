@@ -46,7 +46,7 @@ Python 本身也是由诸多其他语言发展而来的,这包括 ABC、Modula-3
 
 10.可嵌入: 你可以将Python嵌入到C/C++程序，让你的程序的用户获得"脚本化"的能力。
 
-
+[100天从新手到大师](https://github.com/weilyf2017/Python-100-Days)
 
 官网：https://www.python.org/
 
