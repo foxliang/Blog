@@ -49,3 +49,34 @@ func main() {
 1*8=8 2*8=16 3*8=24 4*8=32 5*8=40 6*8=48 7*8=56 8*8=64 
 1*9=9 2*9=18 3*9=27 4*9=36 5*9=45 6*9=54 7*9=63 8*9=72 9*9=81 
 ```
+
+## 3.计算函数执行时间
+
+```
+package main
+
+import (
+    "fmt"
+    "time"
+)
+
+func main() {
+    start := time.Now()
+    test()
+    end := time.Now()
+    result := end.Sub(start)
+    fmt.Printf("该函数执行完成耗时: %s\n", result)
+}
+
+func test() {
+    sum := 0
+    for i := 0; i < 100000000; i++ {
+        sum += i
+    }
+}
+```
+
+输出：
+```
+该函数执行完成耗时: 181.4952ms
+```
