@@ -5,6 +5,8 @@ vim 分三种模式： 一般模式 ，编辑模式 ，命令模式。
 
 模式切换用 esc 键，比如按 i 进入编辑模式，编辑成功之后按 esc 键退回一般模式，按 shift + : 进入命令模式。
 
+[Linux下选择vim编辑器](https://github.com/weilyf2017/Blog/blob/master/Liunx/Linux%E7%BC%96%E8%BE%91%E5%99%A8%E7%9A%84%E9%80%89%E6%8B%A9%E4%BD%BF%E7%94%A8.md)
+
 ### 一般模式常用操作：
 ```
 x（小写）删除光标所在位置的下一个字符
