@@ -80,3 +80,32 @@ func test() {
 ```
 该函数执行完成耗时: 181.4952ms
 ```
+
+## 4.搭建一个简单的网站程序
+
+```
+package main
+
+import (
+    "io"
+    "log"
+    "net/http"
+)
+
+func helloHandler(w http.ResponseWriter, r *http.Request) {
+    io.WriteString(w, "Hello, world!")
+}
+
+func main() {
+    http.HandleFunc("/hello", helloHandler)
+    err := http.ListenAndServe(":8080", nil)
+    if err != nil {
+        log.Fatal("ListenAndServe: ", err.Error())
+    }
+}
+```
+
+运行此程序，并访问 http://127.0.0.1:8080/hello：
+```
+Hello, world!
+```
