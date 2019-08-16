@@ -20,7 +20,8 @@ go学习：https://github.com/weilyf2017/build-web-application-with-golang/blob/
 
 ## 第二阶段
 
-echo框架
+### 学习使用echo框架
+Echo是个快速的HTTP路由器（零动态内存分配），也是Go的微型Web框架。其具备快速HTTP路由器、支持扩展中间件，同时还支持静态文件服务、WebSocket以及支持制定绑定函数、制定相应渲染函数，并允许使用任意的HTML模版引擎。
 
 https://echo.labstack.com/
 
@@ -28,12 +29,11 @@ https://echo.labstack.com/
 https://github.com/labstack/echo
 
 
+这两个和zookeeper是类似的，采用raft协议，强一致性。 zookeeper用的是paxos协议
+
 https://github.com/hashicorp/consul
 
 https://github.com/etcd-io/etcd
 
+这篇文章有介绍raft是如何工作的:http://thesecretlivesofdata.com/raft/ 
 
-这两个和zookeeper是类似的，采用raft协议，强一致性。 zookeeper用的是paxos协议
-
-http://thesecretlivesofdata.com/raft/ 
-这篇文章有介绍raft是如何工作的
