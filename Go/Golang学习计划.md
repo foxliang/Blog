@@ -17,3 +17,21 @@ Golang官方语言规范：https://golang.org/ref/spec
 标准库：https://golang.org/pkg/
 
 go学习：https://github.com/weilyf2017/build-web-application-with-golang/blob/master/zh/preface.md
+
+## 第二阶段
+
+
+https://echo.labstack.com/
+
+Fisher:
+https://github.com/labstack/echo
+
+
+https://github.com/hashicorp/consul
+https://github.com/etcd-io/etcd
+
+
+这两个和zookeeper是类似的，采用raft协议，强一致性。 zookeeper用的是paxos协议
+
+http://thesecretlivesofdata.com/raft/ 
+这篇文章有介绍raft是如何工作的
