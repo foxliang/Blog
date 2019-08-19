@@ -1,8 +1,9 @@
-常用配置项
+# 常用配置项
 在工作中，我们与 Nginx 打交道更多的是通过其配置文件来进行。那么掌握这些配置项各自的作用就很有必要了。
 
 首先，nginx.conf 的内容通常是这样的：
 
+```
 ...              
 ...            #核心摸块
 
@@ -38,9 +39,10 @@ mail {     # mail 模块
 
 }
 
+```
 我们依次看一下每个模块一般有哪些配置项：
 
-核心模块
+### 核心模块
 user admin; #配置用户或者组。
 
 worker_processes 4; #允许生成的进程数，默认为1 
@@ -48,7 +50,8 @@ worker_processes 4; #允许生成的进程数，默认为1
 pid /nginx/pid/nginx.pid; #指定 nginx 进程运行文件存放地址 
 
 error_log log/error.log debug; #错误日志路径，级别。
-事件模块
+### 事件模块
+```
 events { 
     accept_mutex on; #设置网路连接序列化，防止惊群现象发生，默认为on 
     
@@ -58,7 +61,9 @@ events {
     
     worker_connections 1024; #最大连接数，默认为512
 }
+```
 http 模块
+```
 http {
     include       mime.types;   #文件扩展名与文件类型映射表
     
@@ -97,6 +102,7 @@ http {
 
     }
 }
+```
 配置项解析
 worker_processes
 worker_processes 用来设置 Nginx 服务的进程数。该值推荐使用 CPU 内核数。
@@ -148,7 +154,7 @@ Nginx服务器在响应这些种类的客户端请求时，不使用 Gzip 功能
 
 常用的配置项大致这些，对于不同的业务场景，有的需要额外的其他配置项，这里不做展开。
 
-其他
+### 其他
 http 配置里有 location 这一项，它是用来根据请求中的 uri 来为其匹配相应的处理规则。
 
 location 查找规则
@@ -218,6 +224,7 @@ location ~ /images/abc/ {
 负载均衡配置
 Nginx 的负载均衡需要用到 upstream 模块，可通过以下配置来实现：
 
+```
 upstream test-upstream {
     ip_hash; # 使用 ip_hash 算法分配
  
@@ -232,4 +239,5 @@ server {
     }
     
 }
+```
 上面的例子定义了一个 test-upstream 的负载均衡配置，通过 proxy_pass 反向代理指令将请求转发给该模块进行分配处理。
