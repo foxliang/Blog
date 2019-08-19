@@ -105,25 +105,35 @@ http {
 ```
 配置项解析
 worker_processes
+
 worker_processes 用来设置 Nginx 服务的进程数。该值推荐使用 CPU 内核数。
+
 worker_cpu_affinity
+
 worker_cpu_affinity 用来为每个进程分配CPU的工作内核，参数有多个二进制值表示，每一组代表一个进程，每组中的每一位代表该进程使用CPU的情况，1代表使用，0代表不使用。所以我们使用 worker_cpu_affinity 0001 0010 0100 1000;来让进程分别绑定不同的核上。默认情况下worker进程不绑定在任何一个CPU上。
+
 worker_rlimit_nofile
+
 设置毎个进程的最大文件打开数。如果不设的话上限就是系统的 ulimit –n的数字，一般为65535。
 
 worker_connections
+
 设置一个进程理论允许的最大连接数，理论上越大越好，但不可以超过 worker_rlimit_nofile 的值。
 
 use epoll
+
 设置事件驱动模型使用 epoll。epoll 是 Nginx 支持的高性能事件驱动库之一。是公认的非 常优秀的事件驱动模型。
 
 accept_mutex off
+
 关闭网络连接序列化，当其设置为开启的时候，将会对多个 Nginx 进程接受连接进行序列化，防止多个进程对连接的争抢。当服务器连接数不多时，开启这个参数会让负载有一定程度的降低。但是当服务器的吞吐量很大时，为了效率，请关闭这个参数；并且关闭这个参数的时候也可以让请求在多个 worker 间的分配更均衡。所以我们设置 accept_mutex off;
 
 multi_accept on
+
 设置一个进程可同时接受多个网络连接
 
 Sendfile on
+
 Sendfile是 Linux2.0 以后的推出的一个系统调用,它能简化网络传输过程中的步骤，提高服务器性能。
 
 不用 sendfile的传统网络传输过程：
@@ -135,21 +145,27 @@ Sendfile是 Linux2.0 以后的推出的一个系统调用,它能简化网络传�
 硬盘 >> kernel buffer (快速拷贝到 kernelsocket buffer) >>协议栈
 
 tcp_nopush on;
+
 设置数据包会累积一下再一起传输，可以提高一些传输效率。 tcp_nopush 必须和 sendfile 搭配使用。
 
 tcp_nodelay on;
+
 小的数据包不等待直接传输。默认为on。 看上去是和 tcp_nopush 相反的功能，但是两边都为 on 时 nginx 也可以平衡这两个功能的使用。
 
 keepalive_timeout
+
 HTTP 连接的持续时间。设的太长会使无用的线程变的太多。这个根据服务器访问数量、处理速度以及网络状况方面考虑。
 
 send_timeout
+
 设置 Nginx 服务器响应客户端的超时时间，这个超时时间只针对两个客户端和服务器建立连接后，某次活动之间的时间，如果这个时间后，客户端没有任何活动，Nginx服务器将关闭连接
 
 gzip on
+
 启用 gzip，对响应数据进行在线实时压缩,减少数据传输量。
 
 gzip_disable "msie6"
+
 Nginx服务器在响应这些种类的客户端请求时，不使用 Gzip 功能缓存应用数据，gzip_disable “msie6”对IE6浏览器的数据不进行 GZIP 压缩。
 
 常用的配置项大致这些，对于不同的业务场景，有的需要额外的其他配置项，这里不做展开。
@@ -157,6 +173,7 @@ Nginx服务器在响应这些种类的客户端请求时，不使用 Gzip 功能
 ### 其他
 http 配置里有 location 这一项，它是用来根据请求中的 uri 来为其匹配相应的处理规则。
 
+```
 location 查找规则
 
 location  = / {
@@ -209,6 +226,7 @@ location ~ /images/abc/ {
     [ config H ]
 }
 
+```
 正则查找优先级从高到低依次如下：
 
 “ = ” 开头表示精确匹配，如 A 中只匹配根目录结尾的请求，后面不能带任何字符串。
