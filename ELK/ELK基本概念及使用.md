@@ -1,4 +1,7 @@
-自己总结的：[ELK使用](https://github.com/weilyf2017/Blog/blob/master/Notes/ELK%E4%BD%BF%E7%94%A8.ppt)
+自己总结的：
+[ELK使用](https://github.com/weilyf2017/Blog/blob/master/Notes/ELK%E4%BD%BF%E7%94%A8.ppt)
+
+[ELK之Restful API](https://github.com/weilyf2017/Blog/blob/master/ELK/ELK---RESTful-API.md)
 
 引言：
 对于刚接触ES的童鞋，经常搞不明白ES的各个概念的含义。尤其对“索引”二字更是与关系型数据库混淆的不行。本文通过对比关系型数据库，将ES中常见的增、删、改、查操作进行图文呈现。能加深你对ES的理解。同时，也列举了kibana下的图形化展示。
