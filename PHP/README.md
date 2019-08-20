@@ -1,4 +1,4 @@
-# PHP 是什么？
+# [PHP 是什么？](https://www.php.net/)
 
     PHP（全称：PHP：Hypertext Preprocessor，即"PHP：超文本预处理器"）是一种通用开源脚本语言。
 
