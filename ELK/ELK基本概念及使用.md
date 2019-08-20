@@ -1,4 +1,4 @@
-自己总结的：
+
 [ELK使用](https://github.com/weilyf2017/Blog/blob/master/Notes/ELK%E4%BD%BF%E7%94%A8.ppt)
 
 [ELK之Restful API](https://github.com/weilyf2017/Blog/blob/master/ELK/ELK---RESTful-API.md)
