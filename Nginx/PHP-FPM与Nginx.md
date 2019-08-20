@@ -8,7 +8,7 @@
 PHP-FPM 即 PHP-FastCGI Process Manager， 它是 FastCGI 的实现，并提供了进程管理的功能。进程包含 master 进程和 worker 进程两种；master 进程只有一个，负责监听端口，接收来自服务器的请求，而 worker 进程则一般有多个（具体数量根据实际需要进行配置），每个进程内部都会嵌入一个 PHP 解释器，是代码真正执行的地方。
 
 ## Nginx 与 php-fpm 通信机制
-当我们访问一个网站（如 www.test.com）的时候，处理流程是这样的：
+当我们访问一个网站（如 www.test.com）的时候， 处理流程是这样的：
 ```
   www.test.com
         |
@@ -29,7 +29,8 @@ www.test.com/index.php 请求到达 127.0.0.1:9000
         |
         |
      等待处理...
-     ```
+     
+```
 ## Nginx 与 php-fpm 的结合
 在 Linux 上，nginx 与 php-fpm 的通信有 tcp socket 和 unix socket 两种方式。
 
