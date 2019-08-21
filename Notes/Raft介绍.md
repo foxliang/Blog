@@ -5,3 +5,6 @@ https://github.com/hashicorp/consul
 https://github.com/etcd-io/etcd
 
 这篇文章有介绍raft是如何工作的:http://thesecretlivesofdata.com/raft/ 
+
+
+知乎-raft搜索：https://www.zhihu.com/search?type=content&q=raft
