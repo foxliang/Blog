@@ -33,3 +33,21 @@ $ go run server.go
 在浏览器上输入：http://127.0.0.1:1323/
 
 ![image](https://img-blog.csdnimg.cn/20190821164619218.png)
+
+
+# 2.路由
+echo框架的路由定义如下：
+
+```
+//定义post请求, url为：/users, 绑定saveUser控制器函数
+e.POST("/users", saveUser)
+
+//定义get请求，url模式为：/users/:id  （:id是参数，例如: /users/10, 会匹配这个url模式），绑定getUser控制器函数
+e.GET("/users/:id", getUser)
+
+//定义put请求
+e.PUT("/users/:id", updateUser)
+
+//定义delete请求
+e.DELETE("/users/:id", deleteUser)
+```
