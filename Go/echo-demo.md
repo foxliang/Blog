@@ -1,6 +1,8 @@
 [Echo框架](https://github.com/weilyf2017/Blog/blob/master/Go/GO-echo%E6%A1%86%E6%9E%B6%E6%9C%AC%E5%9C%B0%E5%AE%89%E8%A3%85%E4%BD%BF%E7%94%A8.md)
 
-# 1.创建 server.go 文件
+# 1.编写 Hello, World!
+
+创建 server.go 文件
 
 ```
 package main
