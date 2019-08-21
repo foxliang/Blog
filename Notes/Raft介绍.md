@@ -8,3 +8,5 @@ https://github.com/etcd-io/etcd
 
 
 知乎-raft搜索：https://www.zhihu.com/search?type=content&q=raft
+
+知乎-Paxos、Raft分布式一致性最佳实践：https://zhuanlan.zhihu.com/paxos
