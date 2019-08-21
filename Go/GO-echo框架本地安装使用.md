@@ -35,9 +35,7 @@ $ go get -u github.com/labstack/echo/...
 
 再次下载
 
-![image](https://img-blog.csdnimg.cn/20190821131105489.png0)
+![image](https://img-blog.csdnimg.cn/20190821131105489.png)
 
-
- 
 
 好了，开启你们的echo之旅吧，顺带说一句，以后再碰到无法安装 golang.org/x/***/ 之类的错误，只需要到 https://github.com/golang/*** 去下载，放到${GOROOT}/src/golang/x/**目录下就OK了
