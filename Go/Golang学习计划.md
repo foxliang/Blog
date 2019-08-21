@@ -29,11 +29,5 @@ https://echo.labstack.com/
 https://github.com/labstack/echo
 
 [本地安装使用](https://github.com/weilyf2017/Blog/blob/master/Go/GO-echo%E6%A1%86%E6%9E%B6%E6%9C%AC%E5%9C%B0%E5%AE%89%E8%A3%85%E4%BD%BF%E7%94%A8.md)
-这两个和zookeeper是类似的，采用raft协议，强一致性。 zookeeper用的是paxos协议
 
-https://github.com/hashicorp/consul
-
-https://github.com/etcd-io/etcd
-
-这篇文章有介绍raft是如何工作的:http://thesecretlivesofdata.com/raft/ 
 
