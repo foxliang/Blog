@@ -20,7 +20,7 @@ go学习：https://github.com/weilyf2017/build-web-application-with-golang/blob/
 
 ## 第二阶段
 
-### 学习使用echo框架
+### 学习使用Echo框架
 Echo是个快速的HTTP路由器（零动态内存分配），也是Go的微型Web框架。其具备快速HTTP路由器、支持扩展中间件，同时还支持静态文件服务、WebSocket以及支持制定绑定函数、制定相应渲染函数，并允许使用任意的HTML模版引擎。
 
 https://echo.labstack.com/
@@ -28,6 +28,6 @@ https://echo.labstack.com/
 
 https://github.com/labstack/echo
 
-[本地安装使用](https://github.com/weilyf2017/Blog/blob/master/Go/GO-echo%E6%A1%86%E6%9E%B6%E6%9C%AC%E5%9C%B0%E5%AE%89%E8%A3%85%E4%BD%BF%E7%94%A8.md)
+[Echo本地安装使用](https://github.com/weilyf2017/Blog/blob/master/Go/Echo%E6%A1%86%E6%9E%B6%E6%9C%AC%E5%9C%B0%E5%AE%89%E8%A3%85%E4%BD%BF%E7%94%A8.md)
 
 
