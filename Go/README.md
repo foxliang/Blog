@@ -37,7 +37,7 @@ $ go run test.go
 Hello, World!
 ```
 
-官网：https://golang.org
+官网：https://golang.org / https://golang.google.cn/ 
 
 中文网：https://studygolang.com/
 
