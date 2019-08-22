@@ -39,6 +39,8 @@ Hello, World!
 
 官网：https://golang.org / https://golang.google.cn/ 
 
-中文网：https://studygolang.com/
+Github：https://github.com/golang
+
+Go语言中文网：https://studygolang.com/
 
 GO指南：https://tour.go-zh.org/list
