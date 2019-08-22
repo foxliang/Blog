@@ -71,3 +71,34 @@ func getUser(c echo.Context) error {
 	return c.String(http.StatusOK, id)
 }
 ```
+3.定义get请求，url模式为：/users/:id
+
+```
+package main
+
+import (
+	"net/http"
+	"github.com/labstack/echo"
+)
+
+func main() {
+	e := echo.New()
+	e.GET("/users/:id", getUser)
+	e.Logger.Fatal(e.Start(":1323"))
+}
+
+// e.GET("/users/:id", getUser)
+func getUser(c echo.Context) error {
+	// User ID 来自于url `users/:id`
+	id := c.Param("id")
+	return c.String(http.StatusOK, id)
+}
+```
+
+执行此方法并访问：http://127.0.0.1:1323/users/fox
+
+输出
+```
+fox
+
+```
