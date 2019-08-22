@@ -29,10 +29,10 @@ $ git config --global user.email "电子邮箱"
 将代码仓库clone到本地，其实就是将代码复制到你的机器里，并交由Git来管理：
 
 ```
-$ git clone git@github.com:someone/symfony-docs-chs.git
+$ git clone git@github.com:someone/test.git
 ```
     
-你可以修改复制到本地的代码了（symfony-docs-chs项目里都是rst格式的文档）。当你觉得完成了一定的工作量，想做个阶段性的提交：
+你可以修改复制到本地的代码了。当你觉得完成了一定的工作量，想做个阶段性的提交：
 
 向这个本地的代码仓库添加当前目录的所有改动：
 
