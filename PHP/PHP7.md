@@ -43,9 +43,9 @@ function sumOfInts(int ...$ints)
     return array_sum($ints);
 }
 var_dump(sumOfInts(2, '3', 4.1)); // int(9)
-```
+
 # 严格模式
-```
+
 declare(strict_types=1);
 
 function add(int $x, int $y)
