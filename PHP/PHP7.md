@@ -1,3 +1,15 @@
+php7发布已经升级到7.2.里面发生了很多的变化。
+
+参考资料：
+
+http://php.net/manual/zh/migration70.new-features.php
+
+http://php.net/manual/zh/migration71.new-features.php
+
+http://php.net/manual/zh/migration72.new-features.php
+
+PHP7.0
+
 # PHP7 内核架构
 ![image](https://github.com/weilyf2017/Blog/blob/master/images/PHP7%E5%86%85%E6%A0%B8%E6%9E%B6%E6%9E%84.png)
 
