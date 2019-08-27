@@ -47,14 +47,14 @@ elasticsearch.username: "elastic"
 elasticsearch.password: "123456"
 ```
 ## 5 ，这个时候再重启kibana 登录就需要输出账号密码了
-![image](https://img-blog.csdnimg.cn/201908271118127.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM1MzQ5MTE0,size_16,color_FFFFFF,t_70)
+![image](https://img-blog.csdnimg.cn/201908271118127.png)
 
 ## 6，这里还能添加不同的用户和权限，来管理elasticsearch和kibana
-![image](https://img-blog.csdnimg.cn/20190827112229991.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM1MzQ5MTE0,size_16,color_FFFFFF,t_70)
+![image](https://img-blog.csdnimg.cn/20190827112229991.png)
 
 ## 7，我这边配置了一个账号test，角色test，权限只有discover的账户
 
-![image](https://img-blog.csdnimg.cn/20190827112420704.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM1MzQ5MTE0,size_16,color_FFFFFF,t_70)
+![image](https://img-blog.csdnimg.cn/20190827112420704.png)
  
 
 好了 我本地的测试已经结束了。
@@ -63,6 +63,6 @@ elasticsearch.password: "123456"
 
 https://www.elastic.co/cn/subscriptions
 
-![image](https://img-blog.csdnimg.cn/20190827111231533.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM1MzQ5MTE0,size_16,color_FFFFFF,t_70)
+![image](https://img-blog.csdnimg.cn/20190827111231533.png)
 
 ## 注意：这个功能不是免费的，这个只是本人自学研究，商业使用还是要咨询官方，毕竟只是开源没有免费。
