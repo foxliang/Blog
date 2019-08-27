@@ -2,20 +2,26 @@ ELK这里想要区分账号给不同的权限访问 需要打开 x-pack（30天
 
 ## 1，在 elasticsearch.yml 中 修改/加入
 
+```
 xpack.security.enabled: true
 
+```
 然后重启elasticsearch
 
 ## 2，设置用户名和密码
+```
 bin/elasticsearch-setup-passwords interactive
+```
 这时候可能会提示权限不够，win10中需用管理员身份
 
 ## 3，再次执行设置用户名和密码的命令,这里需要为4个用户分别设置密码，elastic, kibana, logstash_system,beats_system
 
 
 ## 4，修改kibana配置文件,config下的kibana.yml,添加如下内容
+```
 elasticsearch.username: "elastic"
 elasticsearch.password: "123456"
+```
 ## 5 ，这个时候再重启kibana 登录就需要输出账号密码了
 
 
