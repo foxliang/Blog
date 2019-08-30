@@ -1,5 +1,5 @@
 ## ElasticSearch采用REST API，所有的操作都可通过HTTP API完成，例如增删改查、别名配置等。
-[RESTful API 设计的总结](https://github.com/weilyf2017/Blog/blob/master/Notes/RESTful%20API%20%E8%AE%BE%E8%AE%A1%E7%9A%84%E6%80%BB%E7%BB%93.md)
+[RESTful API 设计的总结](https://github.com/foxliang/Blog/blob/master/Notes/RESTful%20API%20%E8%AE%BE%E8%AE%A1%E7%9A%84%E6%80%BB%E7%BB%93.md)
 
 ```math
 Elasticsearch是一个基于Apache Lucene(TM)的开源搜索引擎。
