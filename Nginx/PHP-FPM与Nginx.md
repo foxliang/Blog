@@ -39,7 +39,7 @@ tcp socket 的优点是可以跨服务器，当 nginx 和 php-fpm 不在同一�
 Unix socket 又叫 IPC(inter-process communication 进程间通信) socket，用于实现同一主机上的进程间通信，这种方式需要在 nginx配置文件中填写 php-fpm 的 socket 文件位置。
 
 两种方式的数据传输过程如下图所示：
-![image](https://github.com/weilyf2017/Blog/blob/master/images/php-fpm%E9%80%9A%E4%BF%A1.png)
+![image](https://github.com/foxliang/Blog/blob/master/images/php-fpm%E9%80%9A%E4%BF%A1.png)
 
 ### 二者的不同：
 
