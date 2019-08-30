@@ -14,5 +14,5 @@ MyCat-web  1.0
 
 都启动成功 访问 http://127.0.0.1:8082/mycat/ 查看
 
-自己总结的：[MyCAT使用](https://github.com/weilyf2017/Blog/blob/master/Notes/MyCAT%E4%BD%BF%E7%94%A8.ppt)
+自己总结的：[MyCAT使用](https://github.com/foxliang/Blog/blob/master/Notes/MyCAT%E4%BD%BF%E7%94%A8.ppt)
 
