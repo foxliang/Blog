@@ -10,7 +10,7 @@ GOPATH:D:\gopath
 
 go代码建立在`D:\gopath\src`，然后在里面创建不同的文件夹来安排自己的项目或者代码，同一个目录下不能存在多个`package`和`main`，不然会报错
 
-## 3.[VS code 使用](https://github.com/weilyf2017/Blog/blob/master/Notes/vs%20code%E4%BD%BF%E7%94%A8.md)
+## 3.[VS code 使用](https://github.com/foxliang/Blog/blob/master/Notes/vs%20code%E4%BD%BF%E7%94%A8.md)
 
 vscode是微软基于Electron和web技术构建的开源编辑器, 是一款很强大的编辑器。安装过程略。
 
