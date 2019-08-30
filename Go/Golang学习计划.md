@@ -4,9 +4,9 @@
 
 目标
 
-### [安装Golang](https://github.com/weilyf2017/build-web-application-with-golang/blob/master/zh/01.1.md)
-### [熟悉语法（各种类型、特性）](https://github.com/weilyf2017/Blog/blob/master/Go/go%E8%AF%AD%E8%A8%80%E7%B1%BB%E5%9E%8B.md)
-### [熟悉各种Go命令（编译，文档查看等）](https://github.com/weilyf2017/Blog/blob/master/Go/Go%20%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4.md)
+### [安装Golang](https://github.com/foxliang/build-web-application-with-golang/blob/master/zh/01.1.md)
+### [熟悉语法（各种类型、特性）](https://github.com/foxliang/Blog/blob/master/Go/go%E8%AF%AD%E8%A8%80%E7%B1%BB%E5%9E%8B.md)
+### [熟悉各种Go命令（编译，文档查看等）](https://github.com/foxliang/Blog/blob/master/Go/Go%20%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4.md)
 ### [熟悉标准库](https://studygolang.com/pkgdoc)
 ### 资源
 
@@ -16,7 +16,7 @@ Golang官方语言规范：https://golang.org/ref/spec
 
 标准库：https://golang.org/pkg/
 
-Go学习：https://github.com/weilyf2017/build-web-application-with-golang/blob/master/zh/preface.md
+Go学习：https://github.com/foxliang/build-web-application-with-golang/blob/master/zh/preface.md
 
 ## 第二阶段
 
@@ -28,6 +28,6 @@ Echo是个快速的HTTP路由器（零动态内存分配），也是Go的微型W
 
 Github：https://github.com/labstack/echo
 
-[Echo本地安装使用](https://github.com/weilyf2017/Blog/blob/master/Go/Echo%E6%A1%86%E6%9E%B6%E6%9C%AC%E5%9C%B0%E5%AE%89%E8%A3%85%E4%BD%BF%E7%94%A8.md)
+[Echo本地安装使用](https://github.com/foxliang/Blog/blob/master/Go/Echo%E6%A1%86%E6%9E%B6%E6%9C%AC%E5%9C%B0%E5%AE%89%E8%A3%85%E4%BD%BF%E7%94%A8.md)
 
 
