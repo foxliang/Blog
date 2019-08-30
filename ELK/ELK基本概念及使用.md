@@ -1,7 +1,7 @@
 
-[ELK使用](https://github.com/weilyf2017/Blog/blob/master/Notes/ELK%E4%BD%BF%E7%94%A8.ppt)
+[ELK使用](https://github.com/foxliang/Blog/blob/master/Notes/ELK%E4%BD%BF%E7%94%A8.ppt)
 
-[ELK之Restful API](https://github.com/weilyf2017/Blog/blob/master/ELK/ELK---RESTful-API.md)
+[ELK之Restful API](https://github.com/foxliang/Blog/blob/master/ELK/ELK---RESTful-API.md)
 
 引言：
 对于刚接触ES的童鞋，经常搞不明白ES的各个概念的含义。尤其对“索引”二字更是与关系型数据库混淆的不行。本文通过对比关系型数据库，将ES中常见的增、删、改、查操作进行图文呈现。能加深你对ES的理解。同时，也列举了kibana下的图形化展示。
@@ -20,7 +20,7 @@
 
 ## Mysql与Elasticsearch核心概念对比示意图
 
-![image](https://img-blog.csdnimg.cn/20190730100818355.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM1MzQ5MTE0,size_16,color_FFFFFF,t_70)
+![image](https://img-blog.csdnimg.cn/20190730100818355.png)
 
 ### ////新建一个索引，定义date为日期格式来做排序字段
  
@@ -114,4 +114,4 @@ curl -XPOST "http://localhost:9200/zhuita-test-2019-08-02/_doc/_bulk" -H 'Conten
 ```
 
 ### 在kibana查看分析
-![image](https://img-blog.csdnimg.cn/20190730102745977.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM1MzQ5MTE0,size_16,color_FFFFFF,t_70)
+![image](https://img-blog.csdnimg.cn/20190730102745977.png)
