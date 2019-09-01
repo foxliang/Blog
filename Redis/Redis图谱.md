@@ -1,1 +1,1 @@
-![image](https://github.com/weilyf2017/Blog/blob/master/images/redis.png)
+![image](https://github.com/foxliang/Blog/blob/master/images/redis.png)
