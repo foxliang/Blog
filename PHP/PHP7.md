@@ -66,7 +66,7 @@ fun(3);//Fatal error
 ```
 
 ## PHP7 内核架构
-![image](https://github.com/weilyf2017/Blog/blob/master/images/PHP7%E5%86%85%E6%A0%B8%E6%9E%B6%E6%9E%84.png)
+![image](https://github.com/foxliang/Blog/blob/master/images/PHP7%E5%86%85%E6%A0%B8%E6%9E%B6%E6%9E%84.png)
 
 ### zend引擎
 词法/语法分析、AST编译和 opcodes 的执行均在 Zend 引擎中实现。此外，PHP的变量设计、内存管理、进程管理等也在引擎层实现。
