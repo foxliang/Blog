@@ -17,11 +17,11 @@ Google Spanner/F1
 
 DRDS架构
 
-![image](https://img-blog.csdnimg.cn/20190710114301221.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM1MzQ5MTE0,size_16,color_FFFFFF,t_70)
+![image](https://img-blog.csdnimg.cn/20190710114301221.png)
 
 TiDB架构
 
-![image](https://img-blog.csdnimg.cn/20190710114316893.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM1MzQ5MTE0,size_16,color_FFFFFF,t_70)
+![image](https://img-blog.csdnimg.cn/20190710114316893.png)
 
 ### 分片机制
 DRDS
