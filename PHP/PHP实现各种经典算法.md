@@ -1,5 +1,5 @@
-冒泡排序算法
-
+# 冒泡排序算法
+```
     public function test() {
         $arr = array(43, 54, 62, 21, 66, 32, 78, 36, 76, 39);
         var_dump($arr);
@@ -23,9 +23,9 @@
         }
         return $arr;
     }
-    
-快速排序
-
+```
+# 快速排序
+```
  public function quick_sort($arr) {
         //先判断是否需要继续进行
         $length = count($arr);
@@ -60,9 +60,9 @@
         $arr = $this->quick_sort($arr);
         var_dump($arr);
     }
-    
-二分查找
-
+```
+# 二分查找
+```
     public function bin_search($arr, $low, $high, $k) {
         if ($low <= $high) {
             $mid = intval(($low + $high) / 2);
@@ -84,9 +84,9 @@
         $arr = $this->bin_search($arr, 0, 8, 4);
         var_dump($arr);
     }
-    
-顺序查找
-
+```
+# 顺序查找
+```
    public function seq_search($arr, $n, $k) {
         $array[$n] = $k;
         for ($i = 0; $i < $n; $i++) {
@@ -108,10 +108,10 @@
         $arr = $this->seq_search($arr, 4, 4);
         var_dump($arr);
     }
+```
 
-
-线性表的删除
-
+# 线性表的删除
+```
     public function delete_array_element($array, $i) {
         $len = count($array);
         for ($j = $i; $j < $len; $j ++) {
@@ -130,9 +130,9 @@
         $arr = $this->delete_array_element($arr, 4);
         var_dump($arr);
     }
-    
-字符串翻转
-
+```
+# 字符串翻转
+```
     public function strrev($str) {
         $rev_str = '';
         if ($str == '') {
@@ -151,3 +151,4 @@
         $arr = $this->strrev($arr);
         var_dump($arr);
     }
+```
