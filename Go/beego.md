@@ -1,7 +1,7 @@
 # Beego Framework
 一个使用 Go 的思维来帮助您构建并开发 Go 应用程序的开源框架
 
-#### 下载安装
+### 下载安装
 
 beego 包含一些示例应用程序以帮您学习并使用 beego 应用框架。
 
@@ -15,12 +15,12 @@ $ go get -u github.com/beego/bee
 ```
 为了更加方便的操作，请将 $GOPATH/bin 加入到你的 $PATH 变量中。请确保在此之前您已经添加了 $GOPATH 变量。
 
-# 如果您还没添加 $GOPATH 变量
+#### 如果您还没添加 $GOPATH 变量
 ```
 $ echo 'export GOPATH="$HOME/go"' >> ~/.profile # 或者 ~/.zshrc, ~/.cshrc, 您所使用的sh对应的配置文件
 ```
 
-# 如果您已经添加了 $GOPATH 变量
+#### 如果您已经添加了 $GOPATH 变量
 ```
 $ echo 'export PATH="$GOPATH/bin:$PATH"' >> ~/.profile # 或者 ~/.zshrc, ~/.cshrc, 您所使用的sh对应的配置文件
 $ exec $SHELL
