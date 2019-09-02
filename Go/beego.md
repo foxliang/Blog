@@ -1,5 +1,6 @@
 # Beego Framework
-一个使用 Go 的思维来帮助您构建并开发 Go 应用程序的开源框架
+
+beego 是一个快速开发 Go 应用的 HTTP 框架，他可以用来快速开发 API、Web 及后端服务等各种应用，是一个 RESTful 的框架，主要设计灵感来源于 tornado、sinatra 和 flask 这三个框架，但是结合了 Go 本身的一些特性（interface、struct 嵌入等）而设计的一个框架。
 
 ### 下载安装
 
