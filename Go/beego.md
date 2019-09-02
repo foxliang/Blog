@@ -26,7 +26,7 @@ $ echo 'export GOPATH="$HOME/go"' >> ~/.profile # 或者 ~/.zshrc, ~/.cshrc, 您
 $ echo 'export PATH="$GOPATH/bin:$PATH"' >> ~/.profile # 或者 ~/.zshrc, ~/.cshrc, 您所使用的sh对应的配置文件
 $ exec $SHELL
 ```
-想要快速建立一个应用来检测安装？
+#### 想要快速建立一个应用来检测安装？
 
 ```
 $ cd $GOPATH/src
@@ -34,7 +34,7 @@ $ bee new hello
 $ cd hello
 $ bee run
 ```
-Windows 平台下输入：
+#### Windows 平台下输入：
 
 ```
 >cd %GOPATH%/src
