@@ -1,11 +1,11 @@
 package main
 
 import (
-	"fmt"
+    "fmt"
     "os"
     "github.com/mikemintang/go-curl"
     "time"
-	"regexp"
+    "regexp"
     "strconv"
     "encoding/csv"
 )
@@ -14,9 +14,9 @@ import (
 
 func http() {
     //创建csv文件
-	f, err := os.Create("./douban.csv")
-	if err != nil {
-		// panic(err)
+    f, err := os.Create("./douban.csv")
+    if err != nil {
+       panic(err)
     }
     defer f.Close()
 
