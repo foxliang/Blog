@@ -42,5 +42,5 @@ Github：https://github.com/labstack/echo
 
 ### 编写一个进度条
 
-[本地demo](https://github.com/foxliang/Blog/blob/master/Go/Echo%E6%A1%86%E6%9E%B6%E6%9C%AC%E5%9C%B0%E5%AE%89%E8%A3%85%E4%BD%BF%E7%94%A8.md)
+[本地demo]()
 
