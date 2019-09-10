@@ -2,12 +2,11 @@ package main
 
 import (
 	"fmt"
-        "time"
+    	"time"
 	"os"
 	"io"
 	"bufio"
 	"path/filepath"
-	"unsafe"
 )
 
 func main() {
@@ -20,7 +19,7 @@ func main() {
 
 func read (filePth string, bufSize int){
 	total_size := getFileSize(filePth)
-        // fmt.Println("文件总大小: ", total_size) // 总字节数
+    	// fmt.Println("文件总大小: ", total_size) // 总字节数
 	file,err := os.Open(filePth)
 	if err != nil{
 		fmt.Println(err)
@@ -30,7 +29,7 @@ func read (filePth string, bufSize int){
 	//按照字节数读取
 	buf := make([] byte,bufSize)
 	bfRd := bufio.NewReader(file)
-	var int_size int = *(*int)(unsafe.Pointer(&total_size))
+	var int_size int = int(total_size)
 	var one_size int 
 	fmt.Printf("%d%%", 0)     // 输出一行结果
 	for {
