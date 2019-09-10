@@ -1,3 +1,4 @@
+```
 package main
 
 import (
@@ -18,3 +19,4 @@ func main() {
 		fmt.Printf("第%2d月，有%10d对兔子。\n", i, rabbit[i-1])
 	}
 }
+```
