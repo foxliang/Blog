@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-    "time"
+        "time"
 	"os"
 	"io"
 	"bufio"
@@ -20,7 +20,7 @@ func main() {
 
 func read (filePth string, bufSize int){
 	total_size := getFileSize(filePth)
-    // fmt.Println("文件总大小: ", total_size) // 总字节数
+        // fmt.Println("文件总大小: ", total_size) // 总字节数
 	file,err := os.Open(filePth)
 	if err != nil{
 		fmt.Println(err)
