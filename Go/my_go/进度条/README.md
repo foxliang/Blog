@@ -1,6 +1,7 @@
 1.分块读取文件
 
 显示进度条（在一行上展示）
+
 [第一种](https://github.com/foxliang/Blog/blob/master/Go/my_go/%E8%BF%9B%E5%BA%A6%E6%9D%A1/main.go)
 ```
 $go run test.go
