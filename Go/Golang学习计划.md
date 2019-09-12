@@ -46,4 +46,4 @@ Github：https://github.com/labstack/echo
 
 ### 编写一个服务器（仿apache）
 
-可以展示其他内容到页面上
+可以展示其他内容到页面上(进度,显示文件夹，文件路径，下载文件)
