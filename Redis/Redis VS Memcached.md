@@ -1,4 +1,4 @@
-Redis与Memcached的相似之处：
+## Redis与Memcached的相似之处：
 
 ●　Redis和Memcached都是内存数据存储系统，都用作内存中的键值数据存储。
 
@@ -8,7 +8,7 @@ Redis与Memcached的相似之处：
 
 
 
-Redis与Memcached的区别：
+## Redis与Memcached的区别：
 
 1、类型
 
