@@ -4,9 +4,9 @@
 分块读取文件
 ```
 $go run test.go
-开始 :  2019-09-10 15:01:11
-100%
-结束，总共耗时:  833.7819ms
+开始 :  2019-09-12 10:26:57
+100% [########]
+结束，总共耗时:  836.9265ms
 ```
 
 [第二种](https://github.com/foxliang/Blog/blob/master/Go/my_go/%E8%BF%9B%E5%BA%A6%E6%9D%A1/test2.go)
