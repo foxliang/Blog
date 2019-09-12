@@ -57,7 +57,6 @@ $ bee run
 ![image](https://github.com/foxliang/Blog/blob/master/images/beego.png)
 
 
-
 网站：https://beego.me/
 
 Github：https://github.com/beego/bee

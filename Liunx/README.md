@@ -11,9 +11,6 @@ Linux 能运行主要的 UNIX 工具软件、应用程序和网络协议。它�
 目前 Linux 不仅在家庭与企业中使用，并且在政府中也很受欢迎。
 
 
-
-
-
 官网：https://www.linux.org/
 
 教程：https://www.runoob.com/linux/linux-tutorial.html

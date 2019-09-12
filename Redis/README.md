@@ -1,6 +1,5 @@
 # Redis
 
-
 Redis 是完全开源免费的，遵守BSD协议，是一个高性能的key-value数据库。
 
 Redis 与其他 key - value 缓存产品有以下三个特点：
@@ -29,11 +28,9 @@ Redis运行在内存中但是可以持久化到磁盘，所以在对不同数据
 
 ## Redis数据类型
 
-
 Redis支持五种数据类型：string（字符串），hash（哈希），list（列表），set（集合）及zset(sorted set：有序集合)。
 
 **String**（字符串）
-
 
 string 是 redis 最基本的类型，你可以理解成与 Memcached 一模一样的类型，一个 key 对应一个 value。
 
@@ -41,12 +38,9 @@ string 类型是二进制安全的。意思是 redis 的 string 可以包含任�
 
 string 类型是 Redis 最基本的数据类型，string 类型的值最大能存储 512MB。
 
-
 注意：一个键最大能存储512MB。
 
-
 **Hash**（哈希）
-
 
 Redis hash 是一个键值(key=>value)对集合。
 
@@ -58,12 +52,9 @@ Redis hash 是一个 string 类型的 field 和 value 的映射表，hash 特别
 
 Redis 列表是简单的字符串列表，按照插入顺序排序。你可以添加一个元素到列表的头部（左边）或者尾部（右边）。
 
-
 列表最多可存储 232 - 1 元素 (4294967295, 每个列表可存储40多亿)。
 
-
 **Set**（集合）
-
 
 Redis的Set是string类型的无序集合。
 
@@ -75,9 +66,7 @@ sadd 命令
 
 集合中最大的成员数为 232 - 1(4294967295, 每个集合可存储40多亿个成员)。
 
-
 **zset**(sorted set：有序集合)
-
 
 Redis zset 和 set 一样也是string类型元素的集合,且不允许重复的成员。
 

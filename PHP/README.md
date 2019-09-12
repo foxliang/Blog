@@ -6,7 +6,6 @@
 
     PHP 可免费下载使用。
 
-
 # PHP 能做什么？
 
     PHP 可以生成动态页面内容
@@ -25,7 +24,6 @@
 
     通过 PHP，您不再限于输出 HTML。您可以输出图像、PDF 文件，甚至 Flash 电影。您还可以输出任意的文本，比如 XHTML 和 XML。
 
-
 # 为什么使用 PHP？
 
     PHP 可在不同的平台上运行（Windows、Linux、Unix、Mac OS X 等）
@@ -38,7 +36,6 @@
 
     PHP 易于学习，并可高效地运行在服务器端
     
-
 **学习地址**
 
 [菜鸟编程](https://www.runoob.com/php/php-tutorial.html/)
