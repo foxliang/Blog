@@ -2,11 +2,12 @@ package main
 
 import (
 	"fmt"
-    	"time"
+        "time"
 	"os"
 	"io"
 	"bufio"
 	"path/filepath"
+	"math"
 )
 
 func main() {
@@ -19,7 +20,7 @@ func main() {
 
 func read (filePth string, bufSize int){
 	total_size := getFileSize(filePth)
-    	// fmt.Println("文件总大小: ", total_size) // 总字节数
+        // fmt.Println("文件总大小: ", total_size) // 总字节数
 	file,err := os.Open(filePth)
 	if err != nil{
 		fmt.Println(err)
@@ -29,9 +30,9 @@ func read (filePth string, bufSize int){
 	//按照字节数读取
 	buf := make([] byte,bufSize)
 	bfRd := bufio.NewReader(file)
-	var int_size int = int(total_size)
 	var one_size int 
-	fmt.Printf("%d%%", 0)     // 输出一行结果
+	sum := math.Ceil(float64(total_size)/float64(bufSize))
+	i := 0
 	for {
 		n, err := bfRd.Read(buf)  
 		if err != nil { 
@@ -42,10 +43,11 @@ func read (filePth string, bufSize int){
 			return
 		} 
 		one_size += n
+		i++
 		// fmt.Println("单次大小: ", one_size)
-		per := (one_size * 100 / int_size)
-		// fmt.Println("百分比: ", per)
-		fmt.Printf("\r%d%%", per)     // 输出第二行结果
+		per := (one_size * 100 / int(total_size))
+		// fmt.Printf("%d%%\r", per)     //只输出百分比100%
+		fmt.Printf("%d%% [%s]\r",per,getS(i,"#") + getS(int(sum)-i," "))  //100% [########]		
 		time.Sleep(time.Duration(100) * time.Millisecond)  //延迟输出
 	}
 }
@@ -59,3 +61,9 @@ func getFileSize(filename string) int64 {
     return result
 }
 
+func getS(n int,char string) (s string) {
+    for i:=1;i<=n;i++{
+        s+=char
+    }
+    return
+}
