@@ -25,3 +25,5 @@ Swoole2.0 支持了类似 Go 语言的协程，可以使用完全同步的代码
 官网：https://www.swoole.com/
 
 文档：https://wiki.swoole.com/
+
+Github:https://github.com/swoole/swoole-src/blob/master/README-CN.md
