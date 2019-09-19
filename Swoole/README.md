@@ -23,3 +23,5 @@ Swoole2.0 支持了类似 Go 语言的协程，可以使用完全同步的代码
 - 支持CPU亲和性设置/守护进程
 
 官网：https://www.swoole.com/
+
+文档：https://wiki.swoole.com/
