@@ -2,10 +2,12 @@
 
 网址：https://movie.douban.com/top250
 
-1.存到csv文件中
+1.[存到csv文件中](https://github.com/foxliang/Blog/blob/master/Go/my_go/douban/douban.go)
 
-2.存到mysql中
+2.[存到mysql中](https://github.com/foxliang/Blog/blob/master/Go/my_go/douban/test2.go)
 
+表结构：
+```
 CREATE TABLE `douban` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) DEFAULT NULL COMMENT '电影名字',
@@ -14,3 +16,4 @@ CREATE TABLE `douban` (
   `careted_at` datetime DEFAULT NULL COMMENT '时间',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+```
