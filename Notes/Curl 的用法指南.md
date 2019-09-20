@@ -242,4 +242,6 @@ $ curl -X POST https://www.example.com
 上面命令对https://www.example.com发出 POST 请求。
 
 参考链接
+http://www.ruanyifeng.com/blog/2019/09/curl-reference.html
+
 [Curl Cookbook](https://catonmat.net/cookbooks/curl)
