@@ -71,7 +71,7 @@ $ curl -c cookies.txt https://www.google.com
 ```
 $ curl -d'login=emma＆password=123'-X POST https://google.com/login
 ```
-# 或者
+或者
 ```
 $ curl -d 'login=emma' -d 'password=123' -X POST  https://google.com/login
 ```
