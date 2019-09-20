@@ -11,7 +11,7 @@ curl 是常用的命令行工具，用来请求 Web 服务器。它的名字就�
 $ curl https://www.example.com
 上面命令向www.example.com发出 GET 请求，服务器返回的内容会在命令行输出。
 
--A
+### -A
 -A参数指定客户端的用户代理标头，即User-Agent。curl 的默认用户代理字符串是curl/[version]。
 
 
@@ -26,7 +26,7 @@ $ curl -A '' https://google.com
 
 
 $ curl -H 'User-Agent: php/1.0' https://google.com
--b
+### -b
 -b参数用来向服务器发送 Cookie。
 
 
@@ -41,14 +41,14 @@ $ curl -b 'foo1=bar' -b 'foo2=baz' https://google.com
 $ curl -b cookies.txt https://www.google.com
 上面命令读取本地文件cookies.txt，里面是服务器设置的 Cookie（参见-c参数），将其发送到服务器。
 
--c
+### -c
 -c参数将服务器设置的 Cookie 写入一个文件。
 
 
 $ curl -c cookies.txt https://www.google.com
 上面命令将服务器的 HTTP 回应所设置 Cookie 写入文本文件cookies.txt。
 
--d
+### -d
 -d参数用于发送 POST 请求的数据体。
 
 
@@ -70,7 +70,7 @@ $ curl -d '@data.txt' https://google.com/login
 $ curl --data-urlencode 'comment=hello world' https://google.com/login
 上面代码中，发送的数据hello world之间有一个空格，需要进行 URL 编码。
 
--e
+### -e
 -e参数用来设置 HTTP 的标头Referer，表示请求的来源。
 
 
@@ -81,7 +81,7 @@ curl -e 'https://google.com?q=example' https://www.example.com
 
 
 curl -H 'Referer: https://google.com?q=example' https://www.example.com
--F
+### -F
 -F参数用来向服务器上传二进制文件。
 
 
@@ -100,7 +100,7 @@ $ curl -F 'file=@photo.png;type=image/png' https://google.com/profile
 $ curl -F 'file=@photo.png;filename=me.png' https://google.com/profile
 上面命令中，原始文件名为photo.png，但是服务器接收到的文件名为me.png。
 
--G
+### -G
 -G参数用来构造 URL 的查询字符串。
 
 
@@ -111,7 +111,7 @@ $ curl -G -d 'q=kitties' -d 'count=20' https://google.com/search
 
 
 $ curl -G --data-urlencode 'comment=hello world' https://www.example.com
--H
+### -H
 -H参数添加 HTTP 请求的标头。
 
 
@@ -126,14 +126,14 @@ $ curl -H 'Accept-Language: en-US' -H 'Secret-Message: xyzzy' https://google.com
 $ curl -d '{"login": "emma", "pass": "123"}' -H 'Content-Type: application/json' https://google.com/login
 上面命令添加 HTTP 请求的标头是Content-Type: application/json，然后用-d参数发送 JSON 数据。
 
--i
+### -i
 -i参数打印出服务器回应的 HTTP 标头。
 
 
 $ curl -i https://www.example.com
 上面命令收到服务器回应后，先输出服务器回应的标头，然后空一行，再输出网页的源码。
 
--I
+### -I
 -I参数向服务器发出 HEAD 请求，然会将服务器返回的 HTTP 标头打印出来。
 
 
@@ -144,14 +144,14 @@ $ curl -I https://www.example.com
 
 
 $ curl --head https://www.example.com
--k
+### -k
 -k参数指定跳过 SSL 检测。
 
 
 $ curl -k https://www.example.com
 上面命令不会检查服务器的 SSL 证书是否正确。
 
--L
+### -L
 -L参数会让 HTTP 请求跟随服务器的重定向。curl 默认不跟随重定向。
 
 
@@ -163,21 +163,21 @@ $ curl -L -d 'tweet=hi' https://api.twitter.com/tweet
 $ curl --limit-rate 200k https://google.com
 上面命令将带宽限制在每秒 200K 字节。
 
--o
+### -o
 -o参数将服务器的回应保存成文件，等同于wget命令。
 
 
 $ curl -o example.html https://www.example.com
 上面命令将www.example.com保存成example.html。
 
--O
+### -O
 -O参数将服务器回应保存成文件，并将 URL 的最后部分当作文件名。
 
 
 $ curl -O https://www.example.com/foo/bar.html
 上面命令将服务器回应保存成文件，文件名为bar.html。
 
--s
+### -s
 -s参数将不输出错误和进度信息。
 
 
@@ -188,14 +188,14 @@ $ curl -s https://www.example.com
 
 
 $ curl -s -o /dev/null https://google.com
--S
+### -S
 -S参数指定只输出错误信息，通常与-s一起使用。
 
 
 $ curl -s -o /dev/null https://google.com
 上面命令没有任何输出，除非发生错误。
 
--u
+### -u
 -u参数用来设置服务器认证的用户名和密码。
 
 
@@ -212,7 +212,7 @@ $ curl https://bob:12345@google.com/login
 $ curl -u 'bob' https://google.com/login
 上面命令只设置了用户名，执行后，curl 会提示用户输入密码。
 
--v
+### -v
 -v参数输出通信的整个过程，用于调试。
 
 
@@ -221,7 +221,7 @@ $ curl -v https://www.example.com
 
 
 $ curl --trace - https://www.example.com
--x
+### -x
 -x参数指定 HTTP 请求的代理。
 
 
@@ -234,7 +234,7 @@ $ curl -x socks5://james:cats@myproxy.com:8080 https://www.example.com
 $ curl -x james:cats@myproxy.com:8080 https://www.example.com
 上面命令中，请求的代理使用 HTTP 协议。
 
--X
+### -X
 -X参数指定 HTTP 请求的方法。
 
 
@@ -242,6 +242,6 @@ $ curl -X POST https://www.example.com
 上面命令对https://www.example.com发出 POST 请求。
 
 参考链接
+
 http://www.ruanyifeng.com/blog/2019/09/curl-reference.html
 
-[Curl Cookbook](https://catonmat.net/cookbooks/curl)
