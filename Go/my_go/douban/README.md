@@ -1,4 +1,4 @@
-# 使用GO 爬虫--爬取豆瓣电影top
+# 使用GO 简单爬虫--爬取豆瓣电影top
 
 网址：https://movie.douban.com/top250
 
