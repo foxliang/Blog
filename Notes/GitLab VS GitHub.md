@@ -5,7 +5,10 @@
 而 GitLab 则是一个更年轻的公司，它比 GitHub“小 6 岁”，但是前途可期。
 
 ```
-一位名叫 Jayaprakash D B 的网友说：“GitHub 是一项协作服务平台，它提供协作代码存储库来托管、审阅、管理项目和构建软件。它还提供以下功能：错误跟踪、任务管理。GitLab 不仅仅是 GitHub，它提供诸如容器、业务流程、各种报告等服务。它是一个完整的 DevOps 工具。
+一位名叫 Jayaprakash D B 的网友说：“GitHub 是一项协作服务平台，它提供协作代码存储库来托管、审阅、管理项目和构建软件。
+它还提供以下功能：错误跟踪、任务管理。
+GitLab 不仅仅是 GitHub，它提供诸如容器、业务流程、各种报告等服务。
+它是一个完整的 DevOps 工具。
 ```
 他列出了 GitLab 与 GitHub 相比的主要优势：
 
@@ -53,4 +56,4 @@ Tower Git Client 的联合创始人和 CEO Tobias Günther 说得更好，
 最后来一张图
 
 
-![image](https://github.com/weilyf2017/Blog/blob/master/images/PHP%E5%AD%A6%E4%B9%A0%E6%8A%80%E8%83%BD%E5%9B%BE%E8%B0%B1.jpg)
+![image](https://github.com/foxliang/Blog/blob/master/images/GitHubVSGitLab.png)
