@@ -13,5 +13,5 @@ select id,name from user where BINARY  name='fox';
 select id,name from user where name='fox';
 ```
 
-![image](https://img-blog.csdnimg.cn/20191104100252507.png)
+![image](https://img-blog.csdnimg.cn/20191104100748679.png)
 
