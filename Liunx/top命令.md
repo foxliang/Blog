@@ -1,4 +1,5 @@
 ## top命令
+```
 [root@localhost ~]# top
 top - 11:12:18 up 4 days, 11:02,  3 users,  load average: 0.00, 0.01, 0.05
 Tasks: 108 total,   2 running, 106 sleeping,   0 stopped,   0 zombie
@@ -10,6 +11,7 @@ KiB Swap:  2097148 total,  2095580 free,     1568 used.   420808 avail Mem
    903 root      20   0  553164  14764   4128 S  0.3  1.5   1:39.11 tuned                                            
      1 root      20   0  193628   6448   3684 S  0.0  0.6   0:33.31 systemd                                          
      2 root      20   0       0      0      0 S  0.0  0.0   0:00.09 kthreadd 
+```
 参数说明
 
 第一行
