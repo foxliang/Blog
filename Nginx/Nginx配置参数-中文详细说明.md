@@ -1,29 +1,29 @@
-#定义Nginx运行的用户和用户组
+## 定义Nginx运行的用户和用户组
 ```
 user www www;
 ```
 
-#nginx进程数,建议设置为等于CPU总核心数.
+## nginx进程数,建议设置为等于CPU总核心数.
 ```
 worker_processes 8;
 ```
 
-#全局错误日志定义类型,[ debug | info | notice | warn | error | crit ]
+## 全局错误日志定义类型,[ debug | info | notice | warn | error | crit ]
 ```
 error_log /var/log/nginx/error.log info;
 ```
 
-#进程文件
+## 进程文件
 ```
 pid /var/run/nginx.pid;
 ```
 
-#一个nginx进程打开的最多文件描述符数目,理论值应该是最多打开文件数（系统的值ulimit -n）与nginx进程数相除,但是nginx分配请求并不均匀,所以建议与ulimit -n的值保持一致.
+## 一个nginx进程打开的最多文件描述符数目,理论值应该是最多打开文件数（系统的值ulimit -n）与nginx进程数相除,但是nginx分配请求并不均匀,所以建议与ulimit -n的值保持一致.
 ```
 worker_rlimit_nofile 65535;
 ```
 
-#工作模式与连接数上限
+## 工作模式与连接数上限
 ```
 events
 {
@@ -34,7 +34,7 @@ events
 }
 ```
 
-#设定http服务器
+## 设定http服务器
 ```
 http
 {
