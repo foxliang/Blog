@@ -112,7 +112,7 @@ http
         '"$http_user_agent" $http_x_forwarded_for';
         #定义本虚拟主机的访问日志
         access_log /var/log/nginx/access.log access;
-        #
+        
         #设定查看Nginx状态的地址.StubStatus模块能够获取Nginx自上次启动以来的工作状态，此模块非核心模块，需要在Nginx编译安装时手工指定才能使用
         location /NginxStatus {
             stub_status on;
