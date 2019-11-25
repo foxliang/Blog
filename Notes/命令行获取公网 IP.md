@@ -1,6 +1,7 @@
-本文收集了一些获取公网 ip 的方法,也欢迎你评论分享
+## 本文收集了一些获取公网 ip 的方法,也欢迎你评论分享
 
-curl ipinfo.io
+#### curl ipinfo.io
+```
 $ curl ipinfo.io
 {
   "ip": "36.10.25.4",
@@ -10,18 +11,26 @@ $ curl ipinfo.io
   "loc": "30.2936,120.1614",
   "org": "AS4134 CHINANET-BACKBONE"
 }
-curl httpbin.org/ip
+```
+#### curl httpbin.org/ip
+```
 $ curl httpbin.org/ip
 {
   "origin": "36.10.25.4"
 }
-curl myip.ipip.net
+```
+#### curl myip.ipip.net
+```
 $ curl myip.ipip.net
 当前 IP：36.10.25.4  来自于：中国 北京 北京  鹏博士
-curl ip.sb
+```
+#### curl ip.sb
+```
 $ curl ip.sb
 36.10.25.4
-curl -s ifcfg.cn/echo |python -m json.tool
+```
+#### curl -s ifcfg.cn/echo |python -m json.tool
+```
 $ curl -s ifcfg.cn/echo |python -m json.tool
 
 {
@@ -41,16 +50,24 @@ $ curl -s ifcfg.cn/echo |python -m json.tool
     "path": "/echo",
     "host": "ifcfg.cn"
 }
-curl ifconfig.me
+```
+#### curl ifconfig.me
+```
 $ curl ifconfig.me
 36.10.25.4
+```
+#### curl ifconfig.io
+```
 curl ifconfig.io
-curl ifconfig.io
+```
 
+#### curl https://whatip.ga
+```
 curl https://whatip.ga
-curl https://whatip.ga
+```
 
-curl http://ip.taobao.com/service/getIpInfo2.php?ip=myip
+#### curl http://ip.taobao.com/service/getIpInfo2.php?ip=myip
+```
 $ curl -s http://ip.taobao.com/service/getIpInfo2.php?ip=myip|python -m json.to
 ol
 {
@@ -71,3 +88,4 @@ ol
         "ip": "36.10.25.44"
     }
 }
+```
