@@ -59,6 +59,7 @@ $ curl ifconfig.me
 #### curl ifconfig.io
 ```
 curl ifconfig.io
+127.0.0.1
 ```
 
 #### curl https://whatip.ga
