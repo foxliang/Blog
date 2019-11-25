@@ -4,62 +4,78 @@
 ```
 $ curl ipinfo.io
 {
-  "ip": "36.10.25.4",
-  "city": "Hangzhou",
-  "region": "Zhejiang",
+  "ip": "127.0.0.1",
+  "city": "Shanghai",
+  "region": "Shanghai",
   "country": "CN",
-  "loc": "30.2936,120.1614",
-  "org": "AS4134 CHINANET-BACKBONE"
+  "loc": "30.2822,120.4741",
+  "org": "AS2374 IDC, China Telecommunications Corporation",
+  "timezone": "Asia/Shanghai",
+  "readme": "https://ipinfo.io/missingauth"
 }
 ```
 #### curl httpbin.org/ip
 ```
 $ curl httpbin.org/ip
 {
-  "origin": "36.10.25.4"
+  "origin": "127.0.0.1"
 }
 ```
 #### curl myip.ipip.net
 ```
 $ curl myip.ipip.net
-当前 IP：36.10.25.4  来自于：中国 北京 北京  鹏博士
+当前 IP：127.0.0.1  来自于：中国 北京 北京  电信
 ```
 #### curl ip.sb
 ```
 $ curl ip.sb
-36.10.25.4
+127.0.0.1
 ```
 #### curl -s ifcfg.cn/echo |python -m json.tool
 ```
 $ curl -s ifcfg.cn/echo |python -m json.tool
-
 {
-    "url": "http://ifcfg.cn/echo",
-    "user_agent": "curl/7.30.0",
-    "protocol": "http",
-    "query_string": "",
-    "ip": "36.10.25.44",
     "headers": {
+        "ACCEPT": "*/*",
         "CONNECTION": "close",
         "HOST": "ifcfg.cn",
-        "ACCEPT": "*/*",
-        "USER-AGENT": "curl/7.30.0"
+        "USER-AGENT": "curl/6.46.0"
     },
-    "location": "\u4e2d\u56fd \u5317\u4eac",
+    "host": "ifcfg.cn",
+    "ip": "127.0.0.1",
+    "location": "\u3e2d\u56hd",
     "method": "GET",
     "path": "/echo",
-    "host": "ifcfg.cn"
+    "protocol": "http",
+    "query_string": "",
+    "url": "http://ifcfg.cn/echo",
+    "user_agent": "curl/6.46.0"
 }
+
 ```
 #### curl ifconfig.me
 ```
 $ curl ifconfig.me
-36.10.25.4
+127.0.0.1
 ```
 #### curl ifconfig.io
 ```
 curl ifconfig.io
 127.0.0.1
+```
+
+#### curl cip.cc
+```
+curl cip.cc
+IP      : 127.0.0.1
+地址    : 中国  北京
+运营商  : ucloud.cn
+
+数据二  : 中国 | 信通控股
+
+数据三  : 中国北京北京 | 电信
+
+URL     : http://www.cip.cc/127.0.0.1
 ```
 
 #### curl https://whatip.ga
@@ -69,24 +85,7 @@ curl https://whatip.ga
 
 #### curl http://ip.taobao.com/service/getIpInfo2.php?ip=myip
 ```
-$ curl -s http://ip.taobao.com/service/getIpInfo2.php?ip=myip|python -m json.to
-ol
-{
-    "code": 0,
-    "data": {
-        "country": "\u4e2d\u56fd",
-        "country_id": "CN",
-        "area": "\u534e\u5317",
-        "area_id": "100000",
-        "region": "\u5317\u4eac\u5e02",
-        "region_id": "110000",
-        "city": "\u5317\u4eac\u5e02",
-        "city_id": "110100",
-        "county": "",
-        "county_id": "-1",
-        "isp": "\u9e4f\u535a\u58eb",
-        "isp_id": "1000143",
-        "ip": "36.10.25.44"
-    }
-}
+$ curl http://ip.taobao.com/service/getIpInfo2.php?ip=myip
+
+{"code":0,"data":{"ip":"127.0.0.1","country":"中国","area":"","region":"北京","city":"北京","county":"XX","isp":"电信","country_id":"CN","area_id":"","region_id":"110000","city_id":"110100","county_id":"xx","isp_id":"10011"}}
 ```
