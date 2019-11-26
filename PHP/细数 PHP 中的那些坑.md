@@ -1,6 +1,7 @@
 PHP作为“宇宙中最好的编程语言”，被黑只会加速它的改进，所以偶尔黑一下也无妨嘛~正所谓世界上只有两种语言，一种是被人黑的，另一种是没人用的。
 
 ### 字符串 == 比较类型强转隐患
+```
 // php 5
 var_dump(md5('240610708') == md5('QNKCDZO'));//bool(true)
 var_dump(md5('aabg7XSs') == md5('aabC9RqS'));//bool(true)
@@ -114,8 +115,10 @@ $fn(null);
 $fn(5);
 $fn();  // TypeError: Too few arguments to function {closure}()
 clipboard.png
+```
 
-PDO bindParam 要求第二个参数是一个引用变量
+### PDO bindParam 要求第二个参数是一个引用变量
+```
 $dbh = new PDO('mysql:host=localhost;dbname=test', "test");
  
 $query = <<<QUERY
@@ -146,7 +149,9 @@ foreach( $bind_params as $key => &$value ) { //注意这里
 }
 
 return $statement->execute($params);
-PHP 引用
+```
+### PHP 引用
+```
 参考鸟哥一条微博
 clipboard.png
 
@@ -207,10 +212,9 @@ Array
     [3] => new two
     [4] => new three
 )
-浮点数精度问题
-clipboard.png
-
-
+```
+### 浮点数精度问题
+```
 var_dump(15702>=(157.02*100));//bool(false)
 var_dump(11111>=(111.11*100));//bool(true)
 var_dump(bcsub(15702,(157.02*100)) >= 0);//bool(true)
@@ -303,7 +307,9 @@ function getReferer($link)
     }
     return '其他';
 }
-PHP 不同版本 curl 文件上传
+```
+### PHP 不同版本 curl 文件上传
+```
 //PHP的cURL支持通过给CURL_POSTFIELDS传递关联数组（而不是字符串）来生成multipart/form-data的POST请求 https://blog.zsxsoft.com/post/5
 if (class_exists('\CURLFile')) {
     $field = array('fieldname' => new \CURLFile(realpath($filepath)));
@@ -367,7 +373,9 @@ function remove_utf8_bom($text)
 // ps:PHP导出Excel 可能会乱码，需要写入 BOM头
 $content = pack('H*','EFBBBF');
 fwrite($fp, $content);
-PHP解析大整数
+```
+### PHP解析大整数
+```
 $shopId = 17978812896666957068;
 var_dump($shopId);//float(1.7978812896667E+19)
 $shopId= number_format(17978812896666957068);
@@ -383,8 +391,10 @@ var_dump($shopId);
 // 输出
 // string(20) "17978812896666957068"
 超过PHP最大表示范围的纯整数，在MySQL中可以使用bigint/varchar保存，MySQL在查询出来的时候会将其使用string类型保存的。 对于赋值，在PHP里，如果遇到有大整数需要赋值的话，不要尝试用整型类型去赋值$var = '17978812896666957068';
-#
-curl获取网页内容出现乱码
+```
+
+### curl获取网页内容出现乱码
+```
 curl_setopt($ch,CURLOPT_ENCODING,'gzip')//）如果抓取的网页进行了gzip压缩 加入gzip解析
 $data = file_get_contents("compress.zlib://".$url); //​​​​  Header 里 Accept-Encoding:gzip 是告诉对方服务器使用 Gzip 进行传输。 ​​​​
 trim 中文乱码
@@ -411,7 +421,9 @@ function trim_cn($str, $trim, $charset = 'UTF-8') {
     }
     return mb_substr($str, $o, ($len-$l-$o), $charset);;
 }
-__callStatic
+```
+### __callStatic
+```
 //在对象中调用一个不可访问方法时，__call() 会被调用
 //在静态上下文中调用一个不可访问方法时，__callStatic() 会被调用 目标方法非 public 时__callStatic 才会起作用。 
 class A{
@@ -427,13 +439,16 @@ class A{
 }
 
 A::test();//test 方法
-mb_substr字符编码
+```
+### mb_substr字符编码
+```
 $str = '北京市朝阳区';
 var_dump(mb_substr($str,0,3));//预期输出是：string(9) "北京市"，但是输出确是：string(3) "北"
 //mb_substr这个函数在操作的时候如果没有传字符编码，则按照默认的内部编码操作字符串。PHP5.6之前的默认编码都是ISO-8859-1，5.6之后的才是UTF8，UTF8模式下，一个中文字符占3个字节，而ISO-8859-1则是按照一个字节进行处理，所以自然取出来的是异常的字符串。
 var_dump(mb_substr($str,0,3,'UTF-8'));//string(9) "北京市"
 url参数中的+替换为空格
 $name=str_replace('%20','+',$_GET['name']);
+```
 //安全 base64
  function urlsafeB64Decode($input)
     {
