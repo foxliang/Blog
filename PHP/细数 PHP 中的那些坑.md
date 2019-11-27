@@ -449,7 +449,8 @@ var_dump(mb_substr($str,0,3,'UTF-8'));//string(9) "北京市"
 url参数中的+替换为空格
 $name=str_replace('%20','+',$_GET['name']);
 ```
-//安全 base64
+### 安全 base64
+```
  function urlsafeB64Decode($input)
     {
         $remainder = strlen($input) % 4;
@@ -464,7 +465,9 @@ $name=str_replace('%20','+',$_GET['name']);
         return str_replace('=', '', strtr(base64_encode($input), '+/', '-_'));
     }
 array Undefined offset
-# php -a
+```
+### php -a
+```
 php > $a=[];
 php > echo $a[1];
 PHP Notice:  Undefined offset: 1 in php shell code on line 1
@@ -472,7 +475,9 @@ php > $a=null;
 php > echo $a[1];
 php > $a=4;
 php > echo $a[1];
-数组比较
+```
+### 数组比较
+```
 array("foo", "bar") != array("bar", "foo");  //这个时候，array就是数组
 array("foo" => 1, "bar" => 2) == array("bar" => 2, "foo" => 1);  //这个时候，array又变成了无序hash表
  
@@ -481,7 +486,9 @@ $first  = array("foo" => 123, "bar" => 456);
 $second = array("foo" => 456, "bar" => 123);
 var_dump(array_diff($first, $second));
 ==> array()
-数组序列化
+```
+### 数组序列化
+```
 $arrA = array('a', 'b', 'c');
 echo json_encode($arrA) . "\n";
 
@@ -503,7 +510,9 @@ function strip_control_characters($str){
     return preg_replace('/[\x00-\x1F\x7F-\x9F]/u', '', $str);
 } 
 删除BOM解决：sed -i '1 s/^\xef\xbb\xbf//' file
-32位系统2038年问题
+```
+### 32位系统2038年问题
+```
 1、日期字符串转换为时间戳
 $obj = new DateTime("2050-12-31 23:59:59");
 echo $obj->format("U"); // 2556115199
@@ -520,14 +529,7 @@ echo $obj->format("Y/m/d H:i:s"); // 换种方式输入时间字符串2050/12/31
 
 var_dump(strtotime("2050-12-31 23:59:59"));//false
 
+```
 
+[十个 PHP 开发者最容易犯的错误](https://segmentfault.com/a/1190000014126990 )
 
-
-
-
-
-
-
-
-
-https://segmentfault.com/a/1190000014126990 十个 PHP 开发者最容易犯的错误
