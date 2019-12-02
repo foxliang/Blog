@@ -14,7 +14,7 @@ IPv4地址可被写作任何表示一个32位整数值的形式，但为了方�
 
 因为在点分十进制的表达形式下，共有4个字节的IP地址被分位四段，每一段就有一个字节，而一个字节有8位，那么，8位能表示的数字范围是 0 - 255。
 
-https://github.com/foxliang/Blog/blob/master/images/Ipv4.jpeg
+![image](https://github.com/foxliang/Blog/blob/master/images/Ipv4.jpeg)
 
 所以，一个IPv4的地址，格式为nnn.nnn.nnn.nnn，其中 0<=nnn<=255，而每个 n 都是十进制数。可省略前导零。
 
@@ -29,7 +29,7 @@ Pv6具有比IPv4大得多的编码地址空间。这是因为IPv6采用128位的
 
 IPv6二进位制下为128位长度，以16位为一组，每组以冒号“:”隔开，可以分为8组
 
-https://github.com/foxliang/Blog/blob/master/images/Ipv6.png
+![image](https://github.com/foxliang/Blog/blob/master/images/Ipv6.png)
 
 IPv6文本格式为 xxxx:xxxx:xxxx:xxxx:xxxx:xxxx:xxxx:xxxx，其中每个 x 都是十六进制数，表示 4 位。例如：
 
@@ -37,7 +37,8 @@ IPv6文本格式为 xxxx:xxxx:xxxx:xxxx:xxxx:xxxx:xxxx:xxxx，其中每个 x 都
 
 ## IPv4 VS IPv6
 
-https://github.com/foxliang/Blog/blob/master/images/IPv4vsIPv6.png
+![image](https://github.com/foxliang/Blog/blob/master/images/IPv4vsIPv6.png)
+
 
 #### 地址
 
@@ -89,7 +90,8 @@ IPv6 有类似的概念，但还有重要差别。地址是公用或临时的，
 
 -4.更高的安全性。在使用ipv6的网络中用户可以对网络层的数据进行加密并对IP报文进行校验，这极大地增强了网络安全。
 
-https://github.com/foxliang/Blog/blob/master/images/IPv62.png
+![image](https://github.com/foxliang/Blog/blob/master/images/IPv62.png)
+
 
 参考：
 
