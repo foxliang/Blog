@@ -1,4 +1,4 @@
-关于PHP的浮点数, 我之前写过一篇文章: 关于PHP浮点数你应该知道的(All ‘bogus’ about the float in PHP)
+关于PHP的浮点数, 我之前写过一篇文章:[关于PHP浮点数你应该知道的(All ‘bogus’ about the float in PHP)](http://www.laruence.com/2011/12/19/2399.html) 
 
 不过, 我当时遗漏了一点, 也就是对于如下的这个常见问题的回答:
 
