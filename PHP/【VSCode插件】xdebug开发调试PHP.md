@@ -11,7 +11,9 @@ PHPStorm 也可以进行 Xdebug 调试，VScode 也可以进行配置调试，�
 下载xdebug 扩展，根据phpinfo 中的信息去下载不同的版本
 
 ![image](https://github.com/foxliang/Blog/blob/master/images/xdebug/xdebug2.png)
-xdebug扩展
+
+
+#### [xdebug扩展](https://xdebug.org/download)
 
 ![image](https://github.com/foxliang/Blog/blob/master/images/xdebug/xdebug3.png)
 
