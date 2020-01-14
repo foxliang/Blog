@@ -1,4 +1,4 @@
-Redis
+# Redis
 下载地址：https://download.csdn.net/download/qq_35349114/12101406
 
 也可以直接到github下载 ：https://github.com/MicrosoftArchive/redis/releases
@@ -24,7 +24,7 @@ Redis
 
  ![image](https://github.com/foxliang/Blog/blob/master/images/win10%E5%AE%89%E8%A3%85Redis%E5%92%8C%E5%8F%AF%E8%A7%86%E5%8C%96%E5%AE%A2%E6%88%B7%E7%AB%AF/4.png)
 
-可视化工具
+## 可视化工具
 
 github地址：https://github.com/caoxinyu/RedisClient
 
