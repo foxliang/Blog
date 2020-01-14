@@ -17,12 +17,17 @@ Redis
 
 运行命令 启动redis客户端
 
+```
  redis-cli.exe -h 127.0.0.1 -p 6379
+```
 
 
  ![image](https://github.com/foxliang/Blog/blob/master/images/win10%E5%AE%89%E8%A3%85Redis%E5%92%8C%E5%8F%AF%E8%A7%86%E5%8C%96%E5%AE%A2%E6%88%B7%E7%AB%AF/4.png)
 
 可视化工具
+
+github地址：https://github.com/caoxinyu/RedisClient
+
 连接到本地ip：127.0.0.1
 
 
