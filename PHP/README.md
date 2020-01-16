@@ -58,5 +58,7 @@ mysql
 
 [LeetCode](https://leetcode-cn.com/problemset/all/)
 
+[PHP是世界上最好的语言](https://github.com/foxliang/Blog/blob/master/PHP/note/PHP%E6%98%AF%E4%B8%96%E7%95%8C%E4%B8%8A%E6%9C%80%E5%A5%BD%E7%9A%84%E8%AF%AD%E8%A8%80.md)
+
 
 
