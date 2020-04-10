@@ -16,7 +16,7 @@
 ```
 php代码：
 ```
-    public function unlock2($key){
+    public function unlock($key){
         $redis = new Redis(); #实例化redis类
         $redis->connect('127.0.0.1'); #连接服务器
         $lua = <<<EOD
