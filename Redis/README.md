@@ -77,6 +77,7 @@ zset的成员是唯一的,但分数(score)却可以重复。
 
 # 集群方式
 1.主从+哨兵
+
 2.cluster模式
 
 官网：https://redis.io/
