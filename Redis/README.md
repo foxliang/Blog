@@ -75,6 +75,10 @@ Redis zset 和 set 一样也是string类型元素的集合,且不允许重复的
 zset的成员是唯一的,但分数(score)却可以重复。
 
 
+# 集群方式
+1.主从+哨兵
+2.cluster模式
+
 官网：https://redis.io/
 
 redis命令参考：http://redisdoc.com/index.html
