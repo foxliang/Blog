@@ -19,7 +19,7 @@ php代码：
     public function unlock($key){
         $redis = new Redis(); #实例化redis类
         $redis->connect('127.0.0.1'); #连接服务器
-        $lua = <<<EOD
+        $lua = "
             local key = KEYS[1];
             local value = ARGV[1];
             if redis.call('get',key)==value then
@@ -27,7 +27,7 @@ php代码：
             else
                 return 0
             end
-        EOD;
+        ";
         $arr = [$key,$redis->get($key)];
         return $redis->eval($lua,$arr,1);
     }
