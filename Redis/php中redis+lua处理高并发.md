@@ -1,6 +1,7 @@
 # 使用:
 在php的redis中使用lua
 
+```
     $redis->eval()函数
 
     eval($lua,$data,$num);
@@ -12,7 +13,8 @@
     $num表示第二个参数数组中 有几个是参数(数组其他剩下来的是附加参数) 
 
     其中 lua中使用参数用的是 KEYS[1]  KEYS[2]  使用附加参数是 ARGV[1] 
-
+```
+php代码：
 ```
     public function unlock2($key){
         $redis = new Redis(); #实例化redis类
