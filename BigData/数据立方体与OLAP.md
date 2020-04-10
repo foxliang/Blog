@@ -1,9 +1,10 @@
-数据立方体
+## 数据立方体
 　　关于数据立方体（Data Cube），这里必须注意的是数据立方体只是多维模型的一个形象的说法。立方体其本身只有三维，但多维模型不仅限于三维模型，可以组合更多的维度，但一方面是出于更方便地解释和描述，同时也是给思维成像和想象的空间；另一方面是为了与传统关系型数据库的二维表区别开来，于是就有了数据立方体的叫法。所以本文中也是引用立方体，也就是把多维模型以三维的方式为代表进行展现和描述，其实上Google图片搜索“OLAP”会有一大堆的数据立方体图片，这里我自己画了一个：
-  OLAP
+![image](https://github.com/foxliang/Blog/blob/master/images/Data-Cube.png)
+ ## OLAP
 　　OLAP（On-line Analytical Processing，联机分析处理）是在基于数据仓库多维模型的基础上实现的面向分析的各类操作的集合。可以比较下其与传统的OLTP（On-line Transaction Processing，联机事务处理）的区别来看一下它的特点：
 
-OLAP与OLTP
+#### OLAP与OLTP
 数据处理类型	OLTP	OLAP
 面向对象	业务开发人员	分析决策人员
 功能实现	日常事务处理	面向分析决策
