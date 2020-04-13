@@ -20,13 +20,13 @@ php代码：
         $redis = new Redis(); #实例化redis类
         $redis->connect('127.0.0.1'); #连接服务器
         $lua = "
-            local key = KEYS[1];
-            local value = ARGV[1];
-            if redis.call('get',key)==value then
-                return redis.call('del',key)
-            else
-                return 0
-            end
+            local key=KEYS[1];
+	    local value=ARGV[1];
+	    if redis.call('get',key)==value then
+	        return redis.call('del',key)
+	    else
+	        return 0
+	    end
         ";
         $arr = [$key,$redis->get($key)];
         return $redis->eval($lua,$arr,1);
