@@ -8,40 +8,42 @@ PHP FIG，FIG 是 Framework Interoperability Group（框架可互用性小组）
 
 全部规范（已废弃/未通过的没有链接）：
 
-PSR-0 自动加载规范（已弃用）
+- PSR-0 自动加载规范（已弃用）
 
-PSR-1 基础编码规范
+- PSR-1 [基础编码规范](https://learnku.com/docs/psr/basic-coding-standard/1605)
 
- PSR-2 编码风格规范
+- PSR-2 [编码风格规范](https://learnku.com/docs/psr/psr-2-coding-style-guide/1606)
 
-PSR-3 日志接口规范
+- PSR-3 [日志接口规范](https://learnku.com/docs/psr/psr-3-logger-interface/1607)
 
-PSR-4 自动加载规范
+- PSR-4 [自动加载规范](https://learnku.com/docs/psr/psr-4-autoloader/1608)
 
-PSR-5 PHPDoc 标准（未通过）
+- PSR-5 PHPDoc 标准（未通过）
 
-PSR-6 缓存接口规范
+- PSR-6 [缓存接口规范](https://learnku.com/docs/psr/psr-6-cache/1614)
 
-PSR-7 HTTP 消息接口规范
+- PSR-7 [HTTP 消息接口规范](https://learnku.com/docs/psr/psr-7-http-message/1616)
 
-PSR-8 Huggable 接口（未通过）
+- PSR-8 Huggable 接口（未通过）
 
-PSR-9 项目安全问题公示（未通过）
+- PSR-9 项目安全问题公示（未通过）
 
-PSR-10 项目安全上报方法（未通过）
+- PSR-10 项目安全上报方法（未通过）
 
-PSR-11 容器接口
+- PSR-11 [容器接口](https://learnku.com/docs/psr/psr-11-container/1621)
 
-PSR-12 编码规范扩充
+- PSR-12 [编码规范扩充](https://learnku.com/docs/psr/psr-12-extended-coding-style-guide/5789)
 
-PSR-13 超媒体链接
+- PSR-13 [超媒体链接](https://learnku.com/docs/psr/psr-13-links/1624)
 
-PSR-14 事件分发器
+- PSR-14 [事件分发器](https://learnku.com/docs/psr/psr-14-event-dispatcher/1620)
 
-PSR-15 HTTP 请求处理器
+- PSR-15 [HTTP 请求处理器](https://learnku.com/docs/psr/psr-15-request-handlers/1626)
 
-PSR-16 缓存接口
+- PSR-16 [缓存接口](https://learnku.com/docs/psr/psr-16-simple-cache/1628)
 
-PSR-17 HTTP 工厂
+- PSR-17 [HTTP 工厂](https://learnku.com/docs/psr/PSR-17-http-factory/2506)
 
-PSR-18 HTTP 客户端
+- PSR-18 [HTTP 客户端](https://learnku.com/docs/psr/PSR-18-http-client/2507)
+
+转：https://learnku.com/docs/psr
