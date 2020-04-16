@@ -10,7 +10,7 @@ package main
 import "fmt"
 
 //生成0-100的数字发送到ch1
-func f1(ch chan int) {
+func f1(ch chan<- int) {
 	for i := 0; i < 100; i++ {
 		ch <- i
 	}
@@ -18,7 +18,7 @@ func f1(ch chan int) {
 }
 
 //从ch1中取出数据计算它的平方，把结果发送到ch2中
-func f2(ch1 chan int, ch2 chan int) {
+func f2(ch1 <-chan int, ch2 chan<- int) {
 	//从通过中取值方式1
 	for {
 		tmp, ok := <-ch1
@@ -39,6 +39,7 @@ func main() {
 		fmt.Println(ret)
 	}
 }
+
 ```
 结果：
 ```
