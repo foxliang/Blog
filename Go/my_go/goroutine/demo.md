@@ -1,5 +1,7 @@
 # goroutine实现并发 
-sync 进行监工 保证所有worker都执行完
+
+Go语言中的goroutine就是这样一种机制，goroutine的概念类似于线程，但 goroutine是由Go的运行时（runtime）调度和管理的。Go程序会智能地将 goroutine 中的任务合理地分配给每个CPU。Go语言之所以被称为现代化的编程语言，就是因为它在语言层面已经内置了调度和上下文切换的机制。
+## sync 进行监工 保证所有worker都执行完
 ```
 package main
 
