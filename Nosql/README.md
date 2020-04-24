@@ -26,7 +26,7 @@ NoSQL用于超大规模数据的存储。（例如谷歌或Facebook每天为他�
 - 最终一致是不直观的程序
 
 
-###b BASE
+### BASE
 BASE：Basically Available, Soft-state, Eventually Consistent。 由 Eric Brewer 定义。
 
 CAP理论的核心是：一个分布式系统不可能同时很好的满足一致性，可用性和分区容错性这三个需求，最多只能同时较好的满足两个。
