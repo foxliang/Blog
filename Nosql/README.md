@@ -40,15 +40,13 @@ Soft-state --软状态/柔性事务。 "Soft state" 可以理解为"无连接"�
 Eventual Consistency -- 最终一致性， 也是是 ACID 的最终目的。
 
 ### ACID vs BASE
-ACID	             BASE
-
-原子性(Atomicity)	基本可用(Basically Available)
-
-一致性(Consistency)	软状态/柔性事务(Soft state)
-
-隔离性(Isolation)	最终一致性 (Eventual consistency)
-
-持久性 (Durable)	 
+ACID	  |   BASE
+---|---
+原子性(Atomicity)|基本可用(Basically Available)
+一致性(Consistency)|	软状态/柔性事务(Soft state)
+隔离性(Isolation)|最终一致性 (Eventual consistency)
+持久性 (Durable)	 |
+           
 
 ### NoSQL 数据库分类
 类型  | 部分代表 | 特点
