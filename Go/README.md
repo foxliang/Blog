@@ -44,3 +44,5 @@ Github：https://github.com/golang
 Go语言中文网：https://studygolang.com/
 
 GO指南：https://tour.go-zh.org/list
+
+李文周的博客（B站有视频学习起来很容易）：https://www.liwenzhou.com/posts/Go/go_menu/
