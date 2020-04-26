@@ -35,6 +35,28 @@ redis-cli -h 127.0.0.1 -p 6379     //连接redis
 
 ## clickhouse安装
 
+1、拉取clickhouse的docker镜像
+
+docker pull yandex/clickhouse-server
+docker pull yandex/clickhouse-clinet
+
+2、启动server端
+
+- 默认直接启动即可
+docker run -d --name clickhouse-server --ulimit nofile=262144:262144 yandex/clickhouse-server
+
+- 如果想指定目录启动，这里以clickhouse-test-server命令为例，可以随意写
+mkdir /work/clickhouse/clickhouse-test-db       ## 创建数据文件目录
+- 使用以下路径启动，在外只能访问clickhouse提供的默认9000端口，只能通过clickhouse-client连接server
+docker run -d --name clickhouse-server --ulimit nofile=262144:262144 --volume=/work/clickhouse/clickhouse_test_db:/var/lib/clickhouse yandex/clickhouse-server
+
+3、本地连接
+
+docker run -it --rm --link clickhouse-server:clickhouse-server yandex/clickhouse-client --host clickhouse-server
+
+
+docker exec -it 镜像id /bin/bash //进入容器内部
+
 ## gin-docker安装
 
 docker build -t gin-docker . //打包 修改mysql的ip
