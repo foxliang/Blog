@@ -58,6 +58,7 @@ docker run -d --name clickhouse-server --ulimit nofile=262144:262144 --volume=/w
 
 docker run -it --rm --link clickhouse-server:clickhouse-server yandex/clickhouse-client --host clickhouse-server
 
+docker run -it -p 9000:9000 yandex/clickhouse-server //以本地9000端口启动
 
 docker exec -it 镜像id /bin/bash //进入容器内部
 
