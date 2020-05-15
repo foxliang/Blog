@@ -2,7 +2,7 @@ CentOS 版本：centos-release-8.1-1.1911.0.9.el8.x86_64
 
 Nginx 版本：nginx/1.14.1
 
-Nginx 介绍
+# Nginx 介绍
 Nginx 是开源、高性能、高可靠的 Web 和反向代理服务器，而且支持热部署，几乎可以做到 7 * 24 小时不间断运行，即使运行几个月也不需要重新启动，还能在不间断服务的情况下对软件版本进行热更新。性能是 Nginx 最重要的考量，其占用内存少、并发能力强、能支持高达 5w 个并发连接数，最重要的是，Nginx 是免费的并可以商业化，配置使用也比较简单。
 
 Nginx 的最重要的几个使用场景：
@@ -17,7 +17,7 @@ API 服务，OpenResty ；
 
 下面我们着重学习一下 Nginx 的使用。
 
-先下载centos
+### 先下载centos
 ```
 docker pull centos
 ```
@@ -39,7 +39,7 @@ docker run -itd -p 8900:80 -p 8901:8080  --privileged --name centos centos /usr
 ```
 docker exec -it f870fe771dc4 /bin/bash
 ```
-下载nginx
+### 下载nginx
 ```
 yum install nginx
 ```
@@ -57,7 +57,7 @@ firewall-cmd --reload      # 重启防火墙，永久打开端口需要reload
 
 firewall-cmd --permanent --zone=public --add-port=8888/tcp
 ```
-# 查看防火墙，添加的端口也可以看到
+#### 查看防火墙，添加的端口也可以看到
 ```
 firewall-cmd --list-all
 ```
@@ -75,7 +75,7 @@ systemctl start nginx
 
  
 
-配置反向代理
+### 配置反向代理
 反向代理是工作中最常用的服务器功能，经常被用来解决跨域问题，下面简单介绍一下如何实现反向代理。
 
 首先进入 Nginx 的主配置文件：
