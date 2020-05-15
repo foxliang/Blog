@@ -45,7 +45,10 @@ yum install nginx
 ```
 来安装 Nginx，然后我们在命令行中 nginx -v 就可以看到具体的 Nginx 版本信息，也就安装完毕了。
 
-
+```
+[root@f870fe771dc4 ~]# nginx -v
+nginx version: nginx/1.14.1
+```
 
 安装之后开启 Nginx，如果系统开启了防火墙，那么需要设置一下在防火墙中加入需要开放的端口，下面列举几个常用的防火墙操作（没开启的话不用管这个）：
 ```
@@ -72,7 +75,7 @@ systemctl start nginx
 然后访问你的 IP，这时候就可以看到 Nginx 的欢迎页面了～ Welcome to nginx！ 👏
 
 
-
+![image](https://github.com/foxliang/Blog/blob/master/images/nginx.png)
  
 
 ### 配置反向代理
