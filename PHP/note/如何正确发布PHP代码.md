@@ -29,8 +29,11 @@
 相关的技术细节特别琐碎，建议大家仔细阅读如下资料：
 
 [realpath_cache](http://jpauli.github.io/2014/06/30/realpath-cache.html)
+
 [PHP’s OPCache extension review](http://jpauli.github.io/2015/03/05/opcache.html)
+
 [Atomic deploys at Etsy](https://codeascraft.com/2013/07/01/atomic-deploys-at-etsy/)
+
 [Cache invalidation for scripts in symlinked folders](https://github.com/zendtech/ZendOptimizerPlus/issues/126)
 
 在采用软链接发布代码的时候，通常遇到的第一个问题多半是新代码不生效！即便调用了 apc_clear_cache 或者 opcache_reset 方法也无效，重启 php-fpm 自然是能够解决问题，不过对脚本语言来说重启太重了！难道除了重启就没有别的办法了么？
