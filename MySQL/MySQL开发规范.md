@@ -103,3 +103,6 @@
 2.10、不要把诸如调用 webservice，访问文件存储，RMQ等放在SQL事务里。当诸如RMQ或者文件存储发生故障时，会拖累数据往数据库的写入。 
 
 2.11、减少使用 order by，和业务沟通能不排序就不排序，或将排序放到程序端去做。尽量降低数据库服务器的CPU开销。
+
+
+参考：[专业的MySQL开发规范](https://blog.ops-coffee.cn/s/zfr5kn1tejvsih-miret3a)
