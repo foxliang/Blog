@@ -1,5 +1,6 @@
 # Snowflake
 ![image](https://github.com/foxliang/Blog/blob/master/images/snowflake.png)
+
 算法描述：指定机器 & 同一时刻 & 某一并发序列，是唯一的。据此可生成一个64 bits的唯一ID（long）。默认采用上图字节分配方式：
 
 ### sign(1bit)
@@ -16,3 +17,5 @@
 
 下面们用golang来实现一下snowFlake
 
+代码：
+https://github.com/foxliang/Blog/blob/master/Go/my_go/snowFlake/main.go
