@@ -73,7 +73,7 @@ panic: invalid memory address or nil pointer dereference
 
 还有就是前端同学们非常不喜欢接口返回值的字段有数据的时候是个列表，没数据的时候是Null，这也是切片未初始化导致的，如果数据库里没查到数据，那么在代码逻辑里就执行不到给切片append数据的循环里，所以就会出现这个问题。这是一个保持接口字段类型一致性的一个很重要的细节。
 
-使用error返回函数错误
+## 使用error返回函数错误
 
 在使用PHP时，函数的错误是通过抛出异常，甚至是通过返回0，false之类的值来表示函数遇到的错误（这种，即使写PHP也不推荐这种做法）
 
@@ -106,7 +106,7 @@ public function updateUserFavorites(User $user, $favoriteData)
 ```
 在Go语言里虽然没有异常机制，但是可以让函数返回error明确遇到的错误。所以除非确定函数不需要返回error，多数情况下我们的函数都是需要返回error的，所以在定义函数时要明确，返回的数据和error的区别，两种返回值的职责范围不一样。要通过函数返回的error是否为空，而不是返回数据是0或者false之类的值判断函数是否执行成功。
 
-谨慎使用map[string]interface{}做参数
+## 谨慎使用map[string]interface{}做参数
 
 写过PHP的同学都知道，PHP里的数组近乎万能，可以用来当列表、字典，而且当字典用时还能保证字典key的遍历顺序，这点是很多语言的字典类型办不到的事情。
 
