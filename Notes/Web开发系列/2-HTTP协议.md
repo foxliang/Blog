@@ -89,6 +89,7 @@ Transfer-Encoding: chunked
 </body>
 </html>
 ```
+
 在上述响应中，首先是协议版本，然后是状态码，然后是状态码的内容，或者说状态码的意思是什么，然后是换行，之后便是各种头部。 再往后便是两个换行，紧接着相应的真正内容。看起来跟请求是不是很像？的确如此。
 
 但是对于响应，我们需要多讲一个东西，那便是状态码：HTTP协议的状态码目前主要有这么几类：
@@ -135,7 +136,9 @@ server.listen()
 while True:
     client, address = server.accept()
     print(client.recv(4096))
-    ```
+   
+   
+```   
 我们新建一个终端执行 http localhost:8088 试试，可以看到服务器有这样的输出：
 ```
 $ python t.py 
