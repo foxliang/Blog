@@ -65,6 +65,7 @@ session 是另一种记录服务器和客户端会话状态的机制
 
 session 是基于 cookie 实现的，session 存储在服务器端，sessionId 会被存储到客户端的cookie 中
 
+![image](https://github.com/foxliang/Blog/blob/master/images/session.png)
 
 
 #### session 认证流程：
@@ -112,7 +113,7 @@ session 是基于 cookie 实现的，session 存储在服务器端，sessionId �
 
 
 ##### token 的身份验证流程：
-
+![image](https://github.com/foxliang/Blog/blob/master/images/token.png)
 
 ```
 客户端使用用户名跟密码请求登录
@@ -136,7 +137,7 @@ token 完全由应用管理，所以它可以避开同源策略
 
 refresh token 是专用于刷新 access token 的 token。如果没有 refresh token，也可以刷新 access token，但每次刷新都要用户输入登录用户名与密码，会很麻烦。有了 refresh token，可以减少这个麻烦，客户端直接用 refresh token 去更新 access token，无需用户进行额外的操作。
 
-
+![image](https://github.com/foxliang/Blog/blob/master/images/refresh_token.png)
 
 Access Token 的有效期比较短，当 Acesss Token 由于过期而失效时，使用 Refresh Token 就可以获取到新的 Token，如果 Refresh Token 也失效了，用户就只能重新登录了。
 
@@ -169,7 +170,7 @@ JWT 是为了在网络应用环境间传递声明而执行的一种基于 JSON �
 jwt.io/www.jsonwebtoken.io/
 
 #### JWT 的原理
-
+![image](https://github.com/foxliang/Blog/blob/master/images/jwt.png)
 
 JWT 认证流程：
 
@@ -252,6 +253,7 @@ JWT： 将 Token 和 Payload 加密后存储于客户端，服务端只需要使
 
 ##### 常见的加密算法
 
+![image](https://github.com/foxliang/Blog/blob/master/images/%E5%B8%B8%E8%A7%81%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95.png)
 
 -哈希算法(Hash Algorithm)又称散列算法、散列函数、哈希函数，是一种从任何一种数据中创建小的数字“指纹”的方法。哈希算法将数据重新打乱混合，重新创建一个哈希值。
 
