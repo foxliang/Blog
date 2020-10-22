@@ -32,25 +32,25 @@ func longestPalindrome(s string) string {
 	}
 	t += "#"
 	s = t
-	arm_len := []int{}
+	armLen := []int{}
 	right, j := -1, -1
 	for i := 0; i < len(s); i++ {
-		var cur_arm_len int
+		var curArmLen int
 		if right >= i {
-			i_sym := j*2 - i
-			min_arm_len := min(arm_len[i_sym], right-i)
-			cur_arm_len = expand(s, i-min_arm_len, i+min_arm_len)
+			iSym := j*2 - i
+			minArmLen := min(armLen[iSym], right-i)
+			curArmLen = expand(s, i-minArmLen, i+minArmLen)
 		} else {
-			cur_arm_len = expand(s, i, i)
+			curArmLen = expand(s, i, i)
 		}
-		arm_len = append(arm_len, cur_arm_len)
-		if i+cur_arm_len > right {
+		armLen = append(armLen, curArmLen)
+		if i+curArmLen > right {
 			j = i
-			right = i + cur_arm_len
+			right = i + curArmLen
 		}
-		if cur_arm_len*2+1 > end-start {
-			start = i - cur_arm_len
-			end = i + cur_arm_len
+		if curArmLen*2+1 > end-start {
+			start = i - curArmLen
+			end = i + curArmLen
 		}
 	}
 	ans := ""
