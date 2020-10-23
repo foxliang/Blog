@@ -18,9 +18,9 @@ Websocket 是一种提供客户端(提供不可靠秘钥)与服务端(校验通�
 
 客户端向服务端发送xhr请求,服务端接收并hold该请求，直到有新消息push到客户端，才会主动断开该连接。然后，客户端处理该response后再向服务端发起新的请求。以此类推。
 
-
+```
 HTTP1.1默认使用长连接，使用长连接的HTTP协议，会在响应头中加入下面这行信息: Connection:keep-alive
-
+```
 
 - 短轮询:
 
@@ -31,7 +31,9 @@ HTTP1.1默认使用长连接，使用长连接的HTTP协议，会在响应头中
 指在一个TCP连接上可以发送多个数据包，在TCP连接保持期间，如果没有数据包发送，则双方就需要发送心跳包来维持此连接。
 
 
+```
 连接过程: 建立连接——数据传输——...——(发送心跳包，维持连接)——...——数据传输——关闭连接
+```
 
 
 - 短连接
@@ -39,13 +41,17 @@ HTTP1.1默认使用长连接，使用长连接的HTTP协议，会在响应头中
 指通信双方有数据交互时，建立一个TCP连接，数据发送完成之后，则断开此连接。
 
 
+```
 连接过程: 建立连接——数据传输——断开连接——...——建立连接——数据传输——断开连接
+```
 
 Tips
 
+```
 这里有一个误解，长连接和短连接的概念本质上指的是传输层的TCP连接，因为HTTP1.1协议以后，连接默认都是长连接。没有短连接说法(HTTP1.0默认使用短连接)，网上大多数指的长短连接实质上说的就是TCP连接。
 
 http使用长连接的好处: 当我们请求一个网页资源的时候，会带有很多js、css等资源文件，如果使用的时短连接的话，就会打开很多tcp连接，如果客户端请求数过大，导致tcp连接数量过多，对服务端造成压力也就可想而知了。
+```
 
 
 - 单工
@@ -62,13 +68,15 @@ http使用长连接的好处: 当我们请求一个网页资源的时候，会�
 
 Tips
 
+```
 单工、半双工和全双工 这三者都是建立在	TCP协议(传输层上)的概念，不要与应用层进行混淆。
+```
 
 ## 什么是Websocket
 
 Websocket 协议也是基于TCP协议的，是一种双全工通信技术、复用HTTP握手通道。
 
-Websocket默认使用请求协议为:ws://,默认端口:80。对TLS加密请求协议为:wss://，端口:443。
+Websocket默认使用请求协议为:ws:// ,默认端口:80。对TLS加密请求协议为:wss:// ，端口:443。
 
 ### 3.1 特点
 
@@ -84,7 +92,7 @@ Websocket默认使用请求协议为:ws://,默认端口:80。对TLS加密请求�
 
 ### 3.2 建立连接过程
 Websocket复用了HTTP的握手通道。指的是，客户端发送HTTP请求，并在请求头中带上Connection: Upgrade 、Upgrade: websocket，服务端识别该header之后，进行协议升级，使用Websocket协议进行数据通信。
-
+![images](https://github.com/foxliang/Blog/blob/master/images/websocket%E5%8F%82%E6%95%B0.png)
 参数说明
 
 - Request URL 请求服务端地址
@@ -99,24 +107,24 @@ RFC 7231 规范定义
 
 
 
-Connection 设置upgrade header,通知服务端，该request类型需要进行升级为websocket。
+- Connection 设置upgrade header,通知服务端，该request类型需要进行升级为websocket。
 
-upgrade_mechanism 规范
-
-
-Host 服务端 hostname
+- upgrade_mechanism 规范
 
 
-Origin 客户端 hostname:port
+- Host 服务端 hostname
 
 
-Sec-WebSocket-Extensions 客户端向服务端发起请求扩展列表(list)，供服务端选择并在响应中返回
+- Origin 客户端 hostname:port
 
 
-Sec-WebSocket-Key 秘钥的值是通过规范中定义的算法进行计算得出，因此是不安全的，但是可以阻止一些误操作的websocket请求。
+- Sec-WebSocket-Extensions 客户端向服务端发起请求扩展列表(list)，供服务端选择并在响应中返回
 
 
-Sec-WebSocket-Accept
+- Sec-WebSocket-Key 秘钥的值是通过规范中定义的算法进行计算得出，因此是不安全的，但是可以阻止一些误操作的websocket请求。
+
+
+- Sec-WebSocket-Accept
 
 计算公式:  	
 
@@ -129,11 +137,11 @@ Sec-WebSocket-Accept
 4. 将值转换为base64
 
 
-Sec-WebSocket-Protocol  指定有限使用的Websocket协议，可以是一个协议列表(list)。服务端在response中返回列表中支持的第一个值。
+- Sec-WebSocket-Protocol  指定有限使用的Websocket协议，可以是一个协议列表(list)。服务端在response中返回列表中支持的第一个值。
 
 
-Sec-WebSocket-Version  指定通信时使用的Websocket协议版本。最新版本:13,历史版本
+- Sec-WebSocket-Version  指定通信时使用的Websocket协议版本。最新版本:13,历史版本
 
 
-Upgrade 通知服务端，指定升级协议类型为websocket
+- Upgrade 通知服务端，指定升级协议类型为websocket
 
