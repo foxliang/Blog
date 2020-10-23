@@ -7,8 +7,9 @@
 如果我要谈论任何编程语言的最佳实践，我需要一些方法来定义 “什么是最佳”。如果你昨天来到我的主题演讲，你会看到 Go 团队负责人 Russ Cox 的这句话：
 ```
 Software engineering is what happens to programming when you add time and other programmers. (软件工程就是你和其他程序员花费时间在编程上所发生的事情。) — Russ Cox
-Russ 作出了软件编程与软件工程的区分。 前者是你自己写的一个程序。 后者是很多人会随着时间的推移而开发的产品。 工程师们来来去去，团队会随着时间增长与缩小，需求会发生变化，功能会被添加，错误也会得到修复。 这是软件工程的本质。
 ```
+Russ 作出了软件编程与软件工程的区分。 前者是你自己写的一个程序。 后者是很多人会随着时间的推移而开发的产品。 工程师们来来去去，团队会随着时间增长与缩小，需求会发生变化，功能会被添加，错误也会得到修复。 这是软件工程的本质。
+
 我可能是这个房间里 Go 最早的用户之一，~但要争辩说我的资历给我的看法更多是假的~。相反，今天我要提的建议是基于我认为的 Go 语言本身的指导原则：
 
 - 简单性
@@ -202,7 +203,9 @@ func WriteLog(ctx context.Context, message string)
 
 例如，如果您的代码在处理数据库请确保每次出现参数时，它都具有相同的名称。 与其使用 d * sql.DB，dbase * sql.DB，DB * sql.DB 和 database * sql.DB 的组合，倒不如统一使用:
 
+```
 db *sql.DB
+```
 这样做使读者更为熟悉; 如果你看到db，你知道它就是 *sql.DB 并且它已经在本地声明或者由调用者为你提供。
 
 类似地，对于方法接收器: 在该类型的每个方法上使用相同的接收者名称。 在这种类型的方法内部可以使读者更容易使用。
@@ -255,11 +258,14 @@ var things []Thing = nil
 var thing = new(Thing)
 ```
 json.Unmarshall(reader, thing)
+
 我们将 players 初始化为 0，但这是多余的，因为 0 是 players 的零值。 因此，要明确地表示使用零值, 我们将上面例子改写为:
 
 var players int
+
 第二个声明如何？ 我们不能省略类型而写作:
 
+```
 var things = nil
 因为 nil 没有类型。 [2]相反，我们有一个选择，如果我们要使用切片的零值则写作:
 
@@ -272,8 +278,10 @@ var things = make([]Thing, 0)
 things := make([]Thing, 0)
 这告诉读者我们已选择明确初始化事物。
 
+```
 下面是第三个声明，
 
+```
 var thing = new(Thing)
 既是初始化了变量又引入了一些 Go 程序员不喜欢的 new 关键字的罕见用法。 如果我们用推荐地简短声明语法，那么就变成了:
 
@@ -282,8 +290,9 @@ thing := new(Thing)
 
 thing := &Thing{}
 与 new(Thing) 相同，这就是为什么一些 Go 程序员对重复感到不满。 然而，这意味着我们使用指向 Thing{} 的指针初始化了 thing，也就是 Thing 的零值。
-
+```
 相反，我们应该认识到 thing 被声明为零值，并使用地址运算符将 thing 的地址传递给 json.Unmarshall
+
 ```
 var thing Thing
 json.Unmarshall(reader, &thing)
@@ -300,9 +309,11 @@ min, max := 0, 1000
 声明并初始化变量时，请使用 :=。
 
 贴士: 使复杂的声明显而易见。 当事情变得复杂时，它看起来就会很复杂。例如
+```
 var length uint32 = 0x80
 这里 length 可能要与特定数字类型的库一起使用，并且 length 明确选择为 uint32 类型而不是短声明形式：
 length := uint32(0x80)
+```
 在第一个例子中，我故意违反了规则, 使用 var 声明带有初始化变量的。 这个决定与我的常用的形式不同，这给读者一个线索,告诉他们一些不寻常的事情将会发生。
 2.6. 成为团队合作者
 我谈到了软件工程的目标，即编写可读及可维护的代码。 因此，您可能会将大部分职业生涯用于你不是唯一作者的项目。 我在这种情况下的建议是遵循项目自身风格。
@@ -469,7 +480,9 @@ Write shy code - modules that don’t reveal anything unnecessary to other modul
 
 我建议改进 utils 或 helpers 包的名称是分析它们的调用位置，如果可能的话，将相关的函数移动到调用者的包中。即使这涉及复制一些 helper 程序代码，这也比在两个程序包之间引入导入依赖项更好。
 
+```
 [A little] duplication is far cheaper than the wrong abstraction. ([一点点] 重复比错误的抽象的性价比高很多。) — Sandy Metz
+```
 在使用 utility 程序的情况下，最好选多个包，每个包专注于单个方面，而不是选单一的整体包。
 
 贴士: 使用复数形式命名 utility 包。例如 strings 来处理字符串。
@@ -681,22 +694,29 @@ APIs should be easy to use and hard to misuse. (API 应该易于使用且难以�
 6.1.1. 警惕采用几个相同类型参数的函数
 简单, 但难以正确使用的 API 是采用两个或更多相同类型参数的 API。 让我们比较两个函数签名：
 
+```
 func Max(a, b int) int
 func CopyFile(to, from string) error
+```
 这两个函数有什么区别？ 显然，一个返回两个数字最大的那个，另一个是复制文件，但这不重要。
 
+```
 Max(8, 10) // 10
 Max(10, 8) // 10
+```
 Max 是可交换的; 参数的顺序无关紧要。 无论是 8 比 10 还是 10 比 8，最大的都是 10。
 
 但是，却不适用于 CopyFile。
 
+```
 CopyFile("/tmp/backup", "presentation.md")
 CopyFile("presentation.md", "/tmp/backup")
+```
 这些声明中哪一个备份了 presentation.md，哪一个用上周的版本覆盖了 presentation.md？ 没有文档，你无法分辨。 如果没有查阅文档，代码审查员也无法知道你写对了顺序。
 
 一种可能的解决方案是引入一个 helper 类型，它会负责如何正确地调用 CopyFile。
 
+```
 type Source string
 
 func (src Source) CopyTo(dest string) error {
@@ -707,6 +727,7 @@ func main() {
     var from Source = "presentation.md"
     from.CopyTo("/tmp/backup")
 }
+```
 通过这种方式，CopyFile 总是能被正确调用 - 还可以通过单元测试 - 并且可以被设置为私有，进一步降低了误用的可能性。
 
 贴士: 具有多个相同类型参数的 API 难以正确使用。
@@ -720,6 +741,7 @@ func main() {
 
 这是 net/http 包中的一个例子
 
+```
 package http
 
 // ListenAndServe listens on the TCP network address addr and then calls
@@ -732,14 +754,18 @@ package http
 func ListenAndServe(addr string, handler Handler) error {
 ListenAndServe 有两个参数，一个用于监听传入连接的 TCP 地址，另一个用于处理 HTTP 请求的 http.Handler。Serve 允许第二个参数为 nil，需要注意的是调用者通常会传递 nil，表示他们想要使用 http.DefaultServeMux 作为隐含参数。
 
+```
 现在，Serve 的调用者有两种方式可以做同样的事情。
 
+```
 http.ListenAndServe("0.0.0.0:8080", nil)
 http.ListenAndServe("0.0.0.0:8080", http.DefaultServeMux)
+```
 两者完全相同。
 
 这种 nil 行为是病毒式的。 http 包也有一个 http.Serve 帮助类，你可以合理地想象一下 ListenAndServe 是这样构建的
 
+```
 func ListenAndServe(addr string, handler Handler) error {
     l, err := net.Listen("tcp", addr)
     if err != nil {
@@ -748,46 +774,59 @@ func ListenAndServe(addr string, handler Handler) error {
     defer l.Close()
     return Serve(l, handler)
 }
+```
 因为 ListenAndServe 允许调用者为第二个参数传递 nil，所以 http.Serve 也支持这种行为。 事实上，http.Serve 实现了如果 handler 是nil，使用 DefaultServeMux 的逻辑。 参数可为 nil 可能会导致调用者认为他们可以为两个参数都使用 nil。 像下面这样:
 
 http.Serve(nil, nil)
 会导致 panic。
 
 贴士: 不要在同一个函数签名中混合使用可为 nil 和不能为 nil 的参数。
+
 http.ListenAndServe 的作者试图在常见情况下让使用 API 的用户更轻松些，但很可能会让该程序包更难以被安全地使用。
 
 使用 DefaultServeMux 或使用 nil 没有什么区别。
 
+```
 const root = http.Dir("/htdocs")
 http.Handle("/", http.FileServer(root))
 http.ListenAndServe("0.0.0.0:8080", nil)
+```
 对比
 
+```
 const root = http.Dir("/htdocs")
 http.Handle("/", http.FileServer(root))
 http.ListenAndServe("0.0.0.0:8080", http.DefaultServeMux)
+```
 这种混乱值得拯救吗？
 
+```
 const root = http.Dir("/htdocs")
 mux := http.NewServeMux()
 http.Handle("/", http.FileServer(root))
 http.ListenAndServe("0.0.0.0:8080", mux)
+```
 贴士: 认真考虑 helper 函数会节省不少时间。 清晰要比简洁好。 贴士: 避免公共 API 使用测试参数 避免在公开的 API 上使用仅在测试范围上不同的值。 相反，使用 Public wrappers 隐藏这些参数，使用辅助方式来设置测试范围中的属性。
 6.2.2. 首选可变参数函数而非 []T 参数
 编写一个带有切片参数的函数或方法是很常见的。
 
+```
 func ShutdownVMs(ids []string) error
+```
 这只是我编的一个例子，但它与我所写的很多代码相同。 这里的问题是他们假设他们会被调用于多个条目。 但是很多时候这些类型的函数只用一个参数调用，为了满足函数参数的要求，它必须打包到一个切片内。
 
 另外，因为 ids 参数是切片，所以你可以将一个空切片或 nil 传递给该函数，编译也没什么错误。 但是这会增加额外的测试负载，因为你应该涵盖这些情况在测试中。
 
 举一个这类 API 的例子，最近我重构了一条逻辑，要求我设置一些额外的字段，如果一组参数中至少有一个非零。 逻辑看起来像这样：
 
+```
 if svc.MaxConnections > 0 || svc.MaxPendingRequests > 0 || svc.MaxRequests > 0 || svc.MaxRetries > 0 {
     // apply the non zero parameters
 }
+```
 由于 if 语句变得很长，我想将签出的逻辑拉入其自己的函数中。 这就是我提出的：
 
+```
 // anyPostive indicates if any value is greater than zero.
 func anyPositive(values ...int) bool {
     for _, v := range values {
@@ -797,18 +836,24 @@ func anyPositive(values ...int) bool {
     }
     return false
 }
+```
 这就能够向读者明确内部块的执行条件：
 
+```
 if anyPositive(svc.MaxConnections, svc.MaxPendingRequests, svc.MaxRequests, svc.MaxRetries) {
         // apply the non zero parameters
 }
+```
 但是 anyPositive 还存在一个问题，有人可能会这样调用它:
 
+```
 if anyPositive() { ... }
+```
 在这种情况下，anyPositive 将返回 false，因为它不会执行迭代而是立即返回 false。对比起如果 anyPositive 在没有传递参数时返回 true, 这还不算世界上最糟糕的事情。
 
 然而，如果我们可以更改 anyPositive 的签名以强制调用者应该传递至少一个参数，那会更好。我们可以通过组合正常和可变参数来做到这一点，如下所示：
 
+```
 // anyPostive indicates if any value is greater than zero.
 func anyPositive(first int, rest ...int) bool {
     if first > 0 {
@@ -821,13 +866,16 @@ func anyPositive(first int, rest ...int) bool {
     }
     return false
 }
+```
 现在不能使用少于一个参数来调用 anyPositive。
 
 6.3. 让函数定义它们所需的行为
 假设我需要编写一个将 Document 结构保存到磁盘的函数的任务。
 
+```
 // Save writes the contents of doc to the file f.
 func Save(f *os.File, doc *Document) error
+```
 我可以指定这个函数 Save，它将 *os.File 作为写入 Document 的目标。但这样做会有一些问题
 
 Save 的签名排除了将数据写入网络位置的选项。假设网络存储可能在以后成为需求，则此功能的签名必须改变，从而影响其所有调用者。
@@ -840,9 +888,11 @@ Save 测试起来也很麻烦，因为它直接操作磁盘上的文件。因此
 
 我们能做什么 ？
 
+```
 // Save writes the contents of doc to the supplied
 // ReadWriterCloser.
 func Save(rwc io.ReadWriteCloser, doc *Document) error
+```
 使用 io.ReadWriteCloser，我们可以应用接口隔离原则来重新定义 Save 以获取更通用文件形式。
 
 通过此更改，任何实现 io.ReadWriteCloser 接口的类型都可以替换以前的 *os.File。
@@ -855,9 +905,11 @@ func Save(rwc io.ReadWriteCloser, doc *Document) error
 
 首先，如果 Save 遵循单一功能原则，它不可能读取它刚刚写入的文件来验证其内容 - 这应该是另一段代码的功能。
 
+```
 // Save writes the contents of doc to the supplied
 // WriteCloser.
 func Save(wc io.WriteCloser, doc *Document) error
+```
 因此，我们可以将我们传递给 Save 的接口的规范缩小到只写和关闭。
 
 其次，通过向 Save 提供一个关闭其流的机制，使其看起来仍然像一个文件，这就提出了在什么情况下关闭 wc 的问题。
@@ -866,9 +918,11 @@ func Save(wc io.WriteCloser, doc *Document) error
 
 这给 Save 的调用者带来了问题，因为它可能希望在写入文档后将其他数据写入流。
 
+```
 // Save writes the contents of doc to the supplied
 // Writer.
 func Save(w io.Writer, doc *Document) error
+```
 一个更好的解决方案是重新定义 Save 仅使用 io.Writer，它只负责将数据写入流。
 
 将接口隔离原则应用于我们的 Save 功能，同时, 就需求而言, 得出了最具体的一个函数 - 它只需要一个可写的东西 - 并且它的功能最通用，现在我们可以使用 Save 将我们的数据保存到实现 io.Writer 的任何事物中。
@@ -878,8 +932,10 @@ func Save(w io.Writer, doc *Document) error
 #### 7. 错误处理
 我已经给出了几个关于错误处理的演示文稿[8]，并在我的博客上写了很多关于错误处理的文章。我在昨天的会议上也讲了很多关于错误处理的内容，所以在这里不再赘述。
 
+```
 https://dave.cheney.net/2014/12/24/inspecting-errors
 https://dave.cheney.net/2016/04/07/constant-errors
+```
 相反，我想介绍与错误处理相关的两个其他方面。
 
 #### 7.1. 通过消除错误来消除错误处理
@@ -891,6 +947,7 @@ https://dave.cheney.net/2016/04/07/constant-errors
 7.1.1. 计算行数
 让我们编写一个函数来计算文件中的行数。
 
+```
 func CountLines(r io.Reader) (int, error) {
     var (
         br    = bufio.NewReader(r)
@@ -911,17 +968,20 @@ func CountLines(r io.Reader) (int, error) {
     }
     return lines, nil
 }
+```
 由于我们遵循前面部分的建议，CountLines 需要一个 io.Reader，而不是一个 *File；它的任务是调用者为我们想要计算的内容提供 io.Reader。
 
 我们构造一个 bufio.Reader，然后在一个循环中调用 ReadString 方法，递增计数器直到我们到达文件的末尾，然后我们返回读取的行数。
 
 至少这是我们想要编写的代码，但是这个函数由于需要错误处理而变得更加复杂。 例如，有这样一个奇怪的结构:
 
+```
 _, err = br.ReadString('\n')
 lines++
 if err != nil {
     break
 }
+```
 我们在检查错误之前增加了行数，这样做看起来很奇怪。
 
 我们必须以这种方式编写它的原因是，如果在遇到换行符之前就读到文件结束，则 ReadString 将返回错误。如果文件中没有换行符，同样会出现这种情况。
@@ -933,6 +993,7 @@ if err != nil {
 
 我认为这是 Russ Cox 观察到错误处理可能会模​​糊函数操作的一个很好的例子。我们来看一个改进的版本。
 
+```
 func CountLines(r io.Reader) (int, error) {
     sc := bufio.NewScanner(r)
     lines := 0
@@ -942,6 +1003,7 @@ func CountLines(r io.Reader) (int, error) {
     }
     return lines, sc.Err()
 }
+```
 这个改进的版本从 bufio.Reader 切换到 bufio.Scanner。
 
 在 bufio.Scanner 内部使用 bufio.Reader，但它添加了一个很好的抽象层，它有助于通过隐藏 CountLines 的操作来消除错误处理。
@@ -959,6 +1021,7 @@ func CountLines(r io.Reader) (int, error) {
 
 在本章前面我们已经看过处理打开、写入和关闭文件的示例。错误处理是存在的，但是接收范围内的，因为操作可以封装在诸如 ioutil.ReadFile 和 ioutil.WriteFile 之类的辅助程序中。但是，在处理底层网络协议时，有必要使用 I/O 原始的错误处理来直接构建响应，这样就可能会变得重复。看一下构建 HTTP 响应的 HTTP 服务器的这个片段。
 
+```
 type Header struct {
     Key, Value string
 }
@@ -988,12 +1051,14 @@ func WriteResponse(w io.Writer, st Status, headers []Header, body io.Reader) err
     _, err = io.Copy(w, body)
     return err
 }
+```
 首先，我们使用 fmt.Fprintf 构造状态码并检查错误。 然后对于每个标题，我们写入键值对，每次都检查错误。 最后，我们使用额外的 \r\n 终止标题部分，检查错误之后将响应主体复制到客户端。 最后，虽然我们不需要检查 io.Copy 中的错误，但我们需要将 io.Copy 返回的两个返回值形式转换为 WriteResponse 的单个返回值。
 
 这里很多重复性的工作。 我们可以通过引入一个包装器类型 errWriter 来使其更容易。
 
 errWriter 实现 io.Writer 接口，因此可用于包装现有的 io.Writer。 errWriter 写入传递给其底层 writer，直到检测到错误。 从此时起，它会丢弃任何写入并返回先前的错误。
 
+```
 type errWriter struct {
     io.Writer
     err error
@@ -1020,19 +1085,23 @@ func WriteResponse(w io.Writer, st Status, headers []Header, body io.Reader) err
     io.Copy(ew, body)
     return ew.err
 }
+```
 将 errWriter 应用于 WriteResponse 可以显着提高代码的清晰度。 每个操作不再需要自己做错误检查。 通过检查 ew.err 字段，将错误报告移动到函数末尾，从而避免转换从 io.Copy 的两个返回值。
 
 #### 7.2. 错误只处理一次
 最后，我想提一下你应该只处理错误一次。 处理错误意味着检查错误值并做出单一决定。
 
+```
 // WriteAll writes the contents of buf to the supplied writer.
 func WriteAll(w io.Writer, buf []byte) {
         w.Write(buf)
 }
+```
 如果你做出的决定少于一个，则忽略该错误。 正如我们在这里看到的那样， w.WriteAll 的错误被丢弃。
 
 但是，针对单个错误做出多个决策也是有问题的。 以下是我经常遇到的代码。
 
+```
 func WriteAll(w io.Writer, buf []byte) error {
     _, err := w.Write(buf)
     if err != nil {
@@ -1041,10 +1110,12 @@ func WriteAll(w io.Writer, buf []byte) error {
     }
     return nil
 }
+```
 在此示例中，如果在 w.Write 期间发生错误，则会写入日志文件，注明错误发生的文件与行数，并且错误也会返回给调用者，调用者可能会记录该错误并将其返回到上一级，一直回到程序的顶部。
 
 调用者可能正在做同样的事情
 
+```
 func WriteConfig(w io.Writer, conf *Config) error {
     buf, err := json.Marshal(conf)
     if err != nil {
@@ -1057,16 +1128,22 @@ func WriteConfig(w io.Writer, conf *Config) error {
     }
     return nil
 }
+```
 因此你在日志文件中得到一堆重复的内容，
 
+```
 unable to write: io.EOF
 could not write config: io.EOF
+```
 但在程序的顶部，虽然得到了原始错误，但没有相关内容。
 
+```
 err := WriteConfig(f, &conf)
 fmt.Println(err) // io.EOF
+```
 我想深入研究这一点，因为作为个人偏好, 我并没有看到 logging 和返回的问题。
 
+```
 func WriteConfig(w io.Writer, conf *Config) error {
     buf, err := json.Marshal(conf)
     if err != nil {
@@ -1079,6 +1156,7 @@ func WriteConfig(w io.Writer, conf *Config) error {
     }
     return nil
 }
+```
 很多问题是程序员忘记从错误中返回。正如我们之前谈到的那样，Go 语言风格是使用 guard clauses 以及检查前提条件作为函数进展并提前返回。
 
 在这个例子中，作者检查了错误，记录了它，但忘了返回。这就引起了一个微妙的错误。
@@ -1092,6 +1170,7 @@ Go 语言中的错误处理规定，如果出现错误，你不能对其他返�
 
 让我们看看使用 fmt.Errorf 的另一种方式。
 
+```
 func WriteConfig(w io.Writer, conf *Config) error {
     buf, err := json.Marshal(conf)
     if err != nil {
@@ -1110,11 +1189,14 @@ func WriteAll(w io.Writer, buf []byte) error {
     }
     return nil
 }
+```
 通过将注释与返回的错误组合起来，就更难以忘记错误的返回来避免意外继续。
 
 如果写入文件时发生 I/O 错误，则 error 的 Error() 方法会报告以下类似的内容;
 
+```
 could not write config: write failed: input/output error
+```
 7.2.2. 使用 github.com/pkg/errors 包装 errors
 fmt.Errorf 模式适用于注释错误 message，但这样做的代价是模糊了原始错误的类型。 我认为将错误视为不透明值对于松散耦合的软件非常重要，因此如果你使用错误值做的唯一事情是原始错误的类型应该无关紧要的面孔
 
@@ -1122,6 +1204,7 @@ fmt.Errorf 模式适用于注释错误 message，但这样做的代价是模糊�
 输出或记录它。
 但是在某些情况下，我认为它们并不常见，您需要恢复原始错误。 在这种情况下，使用类似我的 errors 包来注释这样的错误, 如下
 
+```
 func ReadFile(path string) ([]byte, error) {
     f, err := os.Open(path)
     if err != nil {
@@ -1149,11 +1232,15 @@ func main() {
         os.Exit(1)
     }
 }
+```
 现在报告的错误就是 K＆D [11]样式错误，
 
+```
 could not read config: open failed: open /Users/dfc/.settings.xml: no such file or directory
+```
 并且错误值保留对原始原因的引用。
 
+```
 func main() {
     _, err := ReadConfig()
     if err != nil {
@@ -1162,8 +1249,10 @@ func main() {
         os.Exit(1)
     }
 }
+```
 因此，你可以恢复原始错误并打印堆栈跟踪;
 
+```
 original error: *os.PathError open /Users/dfc/.settings.xml: no such file or directory
 stack trace:
 open /Users/dfc/.settings.xml: no such file or directory
@@ -1179,6 +1268,7 @@ runtime.main
 runtime.goexit
         /Users/dfc/go/src/runtime/asm_amd64.s:1333
 could not read config
+```
 使用 errors 包，你可以以人和机器都可检查的方式向错误值添加上下文。 如果昨天你来听我的演讲，你会知道这个库在被移植到即将发布的 Go 语言版本的标准库中。
 
 #### 8. 并发
@@ -1193,6 +1283,7 @@ Go 语言以 channels 以及 select 和 go 语句来支持并发。如果你已�
 #### 8.1. 保持自己忙碌或做自己的工作
 这个程序有什么问题？
 
+```
 package main
 
 import (
@@ -1214,12 +1305,14 @@ func main() {
     for {
     }
 }
+```
 该程序实现了我们的预期，它提供简单的 Web 服务。 然而，它同时也做了其他事情，它在无限循环中浪费 CPU 资源。 这是因为 main 的最后一行上的 for {} 将阻塞 main goroutine，因为它不执行任何 IO、等待锁定、发送或接收通道数据或以其他方式与调度器通信。
 
 由于 Go 语言运行时主要是协同调度，该程序将在单个 CPU 上做无效地旋转，并可能最终实时锁定。
 
 我们如何解决这个问题？ 这是一个建议。
 
+```
 package main
 
 import (
@@ -1243,10 +1336,12 @@ func main() {
         runtime.Gosched()
     }
 }
+```
 这看起来很愚蠢，但这是我看过的一种常见解决方案。 这是不了解潜在问题的症状。
 
 现在，如果你有更多的经验，你可能会写这样的东西。
 
+```
 package main
 
 import (
@@ -1267,11 +1362,13 @@ func main() {
 
     select {}
 }
+```
 空的 select 语句将永远阻塞。 这是一个有用的属性，因为现在我们不再调用 runtime.GoSched() 而耗费整个 CPU。 但是这也只是治疗了症状，而不是病根。
 
 我想向你提出另一种你可能在用的解决方案。 与其在 goroutine 中运行 http.ListenAndServe，会给我们留下处理 main goroutine 的问题，不如在 main goroutine 本身上运行 http.ListenAndServe。
 
 贴士: 如果 Go 语言程序的 main.main 函数返回，无论程序在一段时间内启动的其他 goroutine 在做什么, Go 语言程序会无条件地退出。
+```
 package main
 
 import (
@@ -1288,6 +1385,7 @@ func main() {
         log.Fatal(err)
     }
 }
+```
 所以这是我的第一条建议：如果你的 goroutine 在得到另一个结果之前无法取得进展，那么让自己完成此工作而不是委托给其他 goroutine 会更简单。
 
 这通常会消除将结果从 goroutine 返回到其启动程序所需的大量状态跟踪和通道操作。
@@ -1296,12 +1394,14 @@ func main() {
 #### 8.2. 将并发性留给调用者
 以下两个 API 有什么区别？
 
+```
 // ListDirectory returns the contents of dir.
 func ListDirectory(dir string) ([]string, error)
 // ListDirectory returns a channel over which
 // directory entries will be published. When the list
 // of entries is exhausted, the channel will be closed.
 func ListDirectory(dir string) chan string
+```
 首先，最明显的不同: 第一个示例将目录读入切片然后返回整个切片，如果出错则返回错误。这是同步发生的，ListDirectory 的调用者会阻塞，直到读取了所有目录条目。根据目录的大小，这可能需要很长时间，并且可能会分配大量内存来构建目录条目。
 
 让我们看看第二个例子。 这个示例更像是 Go 语言风格，ListDirectory 返回一个通道，通过该通道传递目录条目。当通道关闭时，表明没有更多目录条目。由于在 ListDirectory 返回后发生了通道的填充，ListDirectory 可能会启动一个 goroutine 来填充通道。
@@ -1313,7 +1413,9 @@ func ListDirectory(dir string) chan string
 调用者必须持续从通道中读取，直到它被关闭，因为这是调用者知道此通道的是否停止的唯一方式。这是对 ListDirectory 使用的严重限制，即使可能已经收到了它想要的答案，调用者也必须花时间从通道中读取。就中型到大型目录的内存使用而言，它可能更有效，但这种方法并不比原始的基于切片的方法快。
 以上两种实现所带来的问题的解决方案是使用回调，该回调是在执行时在每个目录条目的上下文中调用函数。
 
+```
 func ListDirectory(dir string, fn func(string))
+```
 毫不奇怪，这就是 filepath.WalkDir 函数的工作方式。
 
 贴士: 如果你的函数启动了 goroutine，你必须为调用者提供一种明确停止 goroutine 的方法。 把异步执行函数的决定留给该函数的调用者通常会更容易些。
@@ -1322,6 +1424,7 @@ func ListDirectory(dir string, fn func(string))
 
 这个简单的应用程序在两个不同的端口上提供 http 服务，端口 8080 用于应用程序服务，端口 8001 用于访问 /debug/pprof 终端。
 
+```
 package main
 
 import (
@@ -1338,10 +1441,12 @@ func main() {
     go http.ListenAndServe("127.0.0.1:8001", http.DefaultServeMux) // debug
     http.ListenAndServe("0.0.0.0:8080", mux)                       // app traffic
 }
+```
 虽然这个程序不是很复杂，但它代表了真实应用程序的基础。
 
 该应用程序存在一些问题，因为它随着应用程序的增长而显露出来，所以我们现在来解决其中的一些问题。
 
+```
 func serveApp() {
     mux := http.NewServeMux()
     mux.HandleFunc("/", func(resp http.ResponseWriter, req *http.Request) {
@@ -1358,6 +1463,7 @@ func main() {
     go serveDebug()
     serveApp()
 }
+```
 通过将 serveApp 和 serveDebug 处理程序分解成为它们自己的函数，我们将它们与 main.main 分离。 也遵循了上面的建议，并确保 serveApp 和 serveDebug 将它们的并发性留给调用者。
 
 但是这个程序存在一些可操作性问题。 如果 serveApp 返回，那么 main.main 将返回，导致程序关闭并由你使用的进程管理器来重新启动。
@@ -1367,6 +1473,7 @@ func main() {
 
 我们想要确保的是，如果任何负责提供此应用程序的 goroutine 停止，我们将关闭该应用程序。
 
+```
 func serveApp() {
     mux := http.NewServeMux()
     mux.HandleFunc("/", func(resp http.ResponseWriter, req *http.Request) {
@@ -1388,6 +1495,7 @@ func main() {
     go serveApp()
     select {}
 }
+```
 现在 serverApp 和 serveDebug 检查从 ListenAndServe 返回的错误，并在需要时调用 log.Fatal。因为两个处理程序都在 goroutine 中运行，所以我们将 main goroutine 停在 select{} 中。
 
 这种方法存在许多问题：
@@ -1397,6 +1505,7 @@ log.Fatal 调用 os.Exit，它将无条件地退出程序; defer 不会被调用
 贴士: 只在 main.main 或 init 函数中的使用 log.Fatal。
 我们真正想要的是任何错误发送回 goroutine 的调用者，以便它可以知道 goroutine 停止的原因，可以干净地关闭程序进程。
 
+```
 func serveApp() error {
     mux := http.NewServeMux()
     mux.HandleFunc("/", func(resp http.ResponseWriter, req *http.Request) {
@@ -1424,6 +1533,7 @@ func main() {
         }
     }
 }
+```
 我们可以使用通道来收集 goroutine 的返回状态。通道的大小等于我们想要管理的 goroutine 的数量，这样发送到 done 通道就不会阻塞，因为这会阻止 goroutine 的关闭，导致它泄漏。
 
 由于没有办法安全地关闭 done 通道，我们不能使用 for range 来循环通道直到获取所有 goroutine 发来的报告，而是循环我们开启的多个 goroutine，即通道的容量。
@@ -1432,6 +1542,7 @@ func main() {
 
 事实证明，要求 http.Server 关闭是有点牵扯的，所以我将这个逻辑转给辅助函数。serve 助手使用一个地址和 http.Handler，类似于 http.ListenAndServe，还有一个 stop 通道，我们用它来触发 Shutdown 方法。
 
+```
 func serve(addr string, handler http.Handler, stop <-chan struct{}) error {
     s := http.Server{
         Addr:    addr,
@@ -1479,6 +1590,7 @@ func main() {
         }
     }
 }
+```
 现在，每次我们在 done 通道上收到一个值时，我们关闭 stop 通道，这会导致在该通道上等待的所有 goroutine 关闭其 http.Server。 这反过来将导致其余所有的 ListenAndServe goroutines 返回。 一旦我们开启的所有 goroutine 都停止了，main.main 就会返回并且进程会干净地停止。
 
 贴士: 自己编写这种逻辑是重复而微妙的。 参考下这个包: https://github.com/heptio/workgroup，它会为你完成大部分工作。
