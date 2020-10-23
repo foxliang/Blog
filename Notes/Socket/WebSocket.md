@@ -5,9 +5,9 @@ Websocket 定义 参考规范 rfc6455
 
 
 ##### 规范解释
-
+```
 Websocket 是一种提供客户端(提供不可靠秘钥)与服务端(校验通过该秘钥)进行双向通信的协议。
-
+```
 在没有websocket协议之前，要提供客户端与服务端实时双向推送消息，就会使用polling技术，客户端通过xhr或jsonp 发送消息给服务端，并通过事件回调来接收服务端消息。
 
 这种技术虽然也能保证双向通信，但是有一个不可避免的问题，就是性能问题。客户端不断向服务端发送请求，如果客户端并发数过大，无疑导致服务端压力剧增。因此，websocket就是解决这一痛点而诞生的。
@@ -92,7 +92,9 @@ Websocket默认使用请求协议为:ws:// ,默认端口:80。对TLS加密请求
 
 ### 3.2 建立连接过程
 Websocket复用了HTTP的握手通道。指的是，客户端发送HTTP请求，并在请求头中带上Connection: Upgrade 、Upgrade: websocket，服务端识别该header之后，进行协议升级，使用Websocket协议进行数据通信。
+
 ![images](https://github.com/foxliang/Blog/blob/master/images/websocket%E5%8F%82%E6%95%B0.png)
+
 参数说明
 
 - Request URL 请求服务端地址
@@ -127,15 +129,12 @@ RFC 7231 规范定义
 - Sec-WebSocket-Accept
 
 计算公式:  	
-
+```
 1. 获取客户端请求header的值: Sec-WebSocket-Key
-
 2. 使用魔数magic = '258EAFA5-E914-47DA-95CA-C5AB0DC85B11'
-
 3. 通过SHA1进行加密计算, sha1(Sec-WebSocket-Key + magic)
-
 4. 将值转换为base64
-
+```
 
 - Sec-WebSocket-Protocol  指定有限使用的Websocket协议，可以是一个协议列表(list)。服务端在response中返回列表中支持的第一个值。
 
