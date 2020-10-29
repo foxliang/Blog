@@ -4,7 +4,7 @@
 
 - iptables 是 Linux 机器上管理防火墙规则的工具。
 
--，firewalld 也是 Linux 机器上管理防火墙规则的工具。
+- firewalld 也是 Linux 机器上管理防火墙规则的工具。
 
 你有什么问题吗？如果我告诉你还有另外一种工具，叫做 nftables，这会不会糟蹋你的美好一天呢？
 
@@ -57,3 +57,87 @@ dhcpv6-client http https ssh
 尽管如此，BigMart 的 IT 部门正在尽他们最大努力提供解决方案，他们向你发放了一些具有 WiFi 功能信息亭设备，你在整个商店的战略位置使用这些设备。其想法是，登录到 BigMart.com 产品页面，允许查找商品特征、过道位置和库存水平。信息亭还允许进入 bigmart-data.com，那里储存着许多图像和视频媒体信息。
 
 除此之外，您还需要允许下载软件包更新。最后，您还希望只允许从本地工作站访问 SSH，并阻止其他人登录。
+
+iptables 是一个 Systemd 服务，因此可以这样启动：
+
+```
+# systemctl start iptables
+```
+但是，除非有 /etc/iptables/iptables.rules 文件，否则服务不会启动，Arch iptables 包不包含默认的 iptables.rules 文件。因此，第一次启动服务时使用以下命令：
+
+```
+# touch /etc/iptables/iptables.rules
+# systemctl start iptables
+```
+或者
+
+```
+# cp /etc/iptables/empty.rules /etc/iptables/iptables.rules
+# systemctl start iptables
+```
+和其他服务一样，如果希望启动时自动加载 iptables，必须启用该服务：
+
+```
+# systemctl enable iptables
+```
+
+
+#### 日志
+LOG 目标可以用来记录匹配某个规则的数据包。和 ACCEPT 或 DROP 规则不同，进入 LOG 目标之后数据包会继续沿着链向下走。所以要记录所有丢弃的数据包，只需要在 DROP 规则前加上相应的 LOG 规则。但是这样会比较复杂，影响效率，所以应该创建一个logdrop链。
+
+创建 logdrop 链：
+
+```
+# iptables -N logdrop
+```
+定义规则：
+
+```
+# iptables -A logdrop -m limit --limit 5/m --limit-burst 10 -j LOG
+# iptables -A logdrop -j DROP
+```
+下文会给出 limit 和 limit-burst 选项的解释。
+
+现在任何时候想要丢弃数据包并且记录该事件，只要跳转到 logdrop 链，例如：
+
+```
+# iptables -A INPUT -m conntrack --ctstate INVALID -j logdrop
+```
+限制日志级别
+上述 logdrop 链使用限制（limit）模式来防止 iptables 日志来过大或者造成不必要的硬盘读写。没有限制的话，一个试图链接的错误配置服务、或者一个攻击者，都会使 iptables 日志写满整个硬盘（或者至少是 /var 分区）。
+
+限制模式使用 -m limit，可以使用 --limit 来设置平均速率或者使用 --limit-burst 来设置起始触发速率。在上述 logdrop 例子中：
+
+```
+iptables -A logdrop -m limit --limit 5/m --limit-burst 10 -j LOG
+appends a rule which will log all packets that pass through it. The first 10 consecutive packets will be logged, and from then on only 5 packets per minute will be logged. The "limit burst" count is reset every time the "limit rate" is not broken, i.e. logging activity returns to normal automatically.
+```
+
+添加一条记录所有通过其的数据包的规则。开始的连续10个数据包将会被记录，之后每分钟只会记录5个数据包。The "limit burst" count is reset every time the "limit rate" is not broken，例如，日志记录活动自动恢复到正常。
+
+查看记录的数据包
+记录的数据包作为内核信息，可以在 systemd journal[断开的链接：无效的部分] 看到。
+
+使用以下命令查看所有最近一次启动后所记录的数据包：
+
+```
+# journalctl -k | grep "IN=.*OUT=.*" | less
+```
+使用 syslog-ng
+使用 Arch 默认的 syslog-ng 可以控制 iptables 日志的输出文件：
+
+```
+filter f_everything { level(debug..emerg) and not facility(auth, authpriv); };
+```
+修改为
+
+```
+filter f_everything { level(debug..emerg) and not facility(auth, authpriv) and not filter(f_iptables); };
+```
+iptables 的日志就不会输出到 /var/log/everything.log。
+
+iptables 也可以不输出到 /var/log/iptables.log，只需设置syslog-ng.conf 中的 d_iptables 为需要的日志文件。
+
+```
+destination d_iptables { file("/var/log/iptables.log"); };
+```
