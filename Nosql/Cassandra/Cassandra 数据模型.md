@@ -55,7 +55,7 @@ Cassandra列族具有以下属性 -
 
 通常列族被存储在磁盘上的单个文件中。因此，为了优化性能，重要的是保持您可能在同一列族中一起查询的列，并且超级列在此可以有所帮助。下面是超级列的结构。
 
-![images](https://github.com/foxliang/Blog/blob/master/images/Cassandra%E6%95%B0%E6%8D%AE%E5%A4%8D%E5%88%B6.jpg)
+![images](https://github.com/foxliang/Blog/blob/master/images/cassandra%E8%B6%85%E7%BA%A7%E5%88%97.jpg)
 
 
 卡桑德拉超级列
