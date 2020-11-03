@@ -100,7 +100,9 @@ CI（Continuous Integration），持续集成可以帮助我们自动发现很�
 
 提交代码 Review 前需要确保 CI 执行通过，这也是为了节省 Reviewer 的时间，能够通过自动化解决的事情，尽量不要让 Reviewer 来做，而 Reviewer 发现 CI 未过的 MR 也可以要求 Author 先解决 CI 问题。
 
-#### 2.1.4. Self-Review我们一般代码 Review 都是找他人来进行 Review，其实负责任的 Author 在邀请他人来代码 Review 前也需要自己简单 Review 一遍，即 Self-Review。
+#### 2.1.4. Self-Review
+
+我们一般代码 Review 都是找他人来进行 Review，其实负责任的 Author 在邀请他人来代码 Review 前也需要自己简单 Review 一遍，即 Self-Review。
 
 Self-Review 的目的包括：
 
