@@ -137,7 +137,7 @@ P的数量由环境变量中的GOMAXPROCS决定，通常来说它是和核心数
 三者关系如下图所示：
 
 
-
+![images](https://github.com/foxliang/Blog/blob/master/images/go/GMP.jpg)
 
 
 
