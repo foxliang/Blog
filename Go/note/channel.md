@@ -112,3 +112,16 @@ select语句中除default外，各case执行顺序是随机的
 select语句中如果没有default语句，则会阻塞等待任一case
 select语句中读操作要判断是否成功读取，关闭的channel也可以读取
 ```
+### channle常用的应用范式
+
+- 生产者消费者模式
+
+- 一对多和多对一的通知
+
+- 互斥锁
+
+- ratelimiting
+
+- 限制并发数
+
+- 配合select超时控制
