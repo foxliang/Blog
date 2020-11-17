@@ -1,17 +1,17 @@
 
 这里直接选用 sebp/elk
 
-1.拉镜像
+## 1.拉镜像
 ```
 docker pull sebp/elk
 ```
-2.运行
+## 2.运行并进入容器
 
 ```
 docker run -p 5601:5601 -p 9200:9200 -p 5044:5044 -e ES_MIN_MEM=128m -e ES_MAX_MEM=1024m -it --name elk sebp/elk
 ```
 
-3.浏览器查看 http://127.0.0.1:9200/
+## 3.浏览器查看 http://127.0.0.1:9200/
 
 ```
 {
@@ -36,9 +36,7 @@ docker run -p 5601:5601 -p 9200:9200 -p 5044:5044 -e ES_MIN_MEM=128m -e ES_MAX_M
 
 4.运行代码创建记录
 
-5.查询
+代码文件： [https://github.com/foxliang/Blog/blob/master/Go/my_go/elk/main.go](https://github.com/foxliang/Blog/blob/master/Go/my_go/elk/main.go)
 
-6.搜索
-
-7.删除
+![images](https://github.com/foxliang/Blog/blob/master/images/elk_demo.png)
 
