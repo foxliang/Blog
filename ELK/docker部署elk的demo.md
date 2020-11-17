@@ -34,7 +34,7 @@ docker run -p 5601:5601 -p 9200:9200 -p 5044:5044 -e ES_MIN_MEM=128m -e ES_MAX_M
 ```
 
 
-4.运行代码创建记录
+## 4.运行代码创建记录
 
 代码文件： [https://github.com/foxliang/Blog/blob/master/Go/my_go/elk/main.go](https://github.com/foxliang/Blog/blob/master/Go/my_go/elk/main.go)
 
