@@ -4,14 +4,48 @@ import (
 	"bytes"
 	"context"
 	"encoding/json"
+	"flag"
 	"fmt"
 	"github.com/elastic/go-elasticsearch/v8"
+	"runtime"
 	"strconv"
+	"sync"
 	"time"
 )
 
 func main() {
 	start := time.Now() // 获取当前时间
+
+	runtime.GOMAXPROCS(1)//自定义核数
+	//支持参数
+	var (
+		count int    // 起始数
+		total int    // 截至数
+		index string // index
+		id    string // id
+		title string // title
+	)
+	flag.IntVar(&count, "c", 1, "起始数")
+	flag.IntVar(&total, "e", 1, "截至数")
+	flag.StringVar(&index, "i", "", "index")
+	flag.StringVar(&id, "d", "", "id")
+	flag.StringVar(&title, "t", "", "title")
+	// 解析参数
+	flag.Parse()
+	if index == "" {
+		index = "demo"
+	}
+	if id == "" {
+		id = "id_1"
+	}
+	if title == "" {
+		title = "世界"
+	}
+	fmt.Println("count：", count)
+	fmt.Println("total：", total)
+	fmt.Println("index：", index)
+	fmt.Println("id：", id)
+	fmt.Println("title：", title)
 
 	addresses := []string{"http://127.0.0.1:9200", "http://127.0.0.1:9201"}
 	config := elasticsearch.Config{
@@ -27,20 +61,23 @@ func main() {
 		fmt.Println(err, "Error creating the client")
 	}
 
-	//Get(*es, "demo", "id_99")
-	//Update(*es, "demo", "id_99")
-	//Get(*es, "demo", "id_99")
-	create(*es, "demo", 0, 100)
-	//Search(*es, "demo", "999")
+	//Get(*es, index, id)
+	//Update(*es, index, id)
+	//Get(*es, index, id)
+	create(*es, index, count, total)
+	//Search(*es, index, title)
+
 	elapsed := time.Since(start)
 	fmt.Println("该函数执行完成耗时：", elapsed)
 
 }
 
-func create(es elasticsearch.Client, index string, count int, total int) {
+func create(es elasticsearch.Client, index string, count int, total int) bool {
+	var wg sync.WaitGroup
 	// Create creates a new document in the index.
 	// Returns a 409 response when a document with a same ID already exists in the index.
 	for i := count; i < total; i++ {
+		wg.Add(1)
 		k := strconv.Itoa(i)
 		var buf bytes.Buffer
 		doc := map[string]interface{}{
@@ -51,18 +88,21 @@ func create(es elasticsearch.Client, index string, count int, total int) {
 		}
 		if err := json.NewEncoder(&buf).Encode(doc); err != nil {
 			fmt.Println(err, "Error encoding doc")
+			return false
 		}
-		creates(es, index, k, buf)
+		go func() {
+			time.Sleep(1 * time.Millisecond)
+			res, err := es.Create(index, "idx_"+k, &buf)
+			if err != nil {
+				fmt.Println(err, "Error create response")
+			}
+			wg.Done()
+			defer res.Body.Close()
+			fmt.Println(res.String())
+		}()
 	}
-}
-
-func creates(es elasticsearch.Client, index string, k string, buf bytes.Buffer) {
-	res, err := es.Create(index, "id_"+k, &buf)
-	if err != nil {
-		fmt.Println(err, "Error create response")
-	}
-	defer res.Body.Close()
-	fmt.Println(res.String())
+	wg.Wait()
+	return true
 }
 
 func Search(es elasticsearch.Client, index string, title string) {
