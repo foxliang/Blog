@@ -137,6 +137,9 @@ func Search(es elasticsearch.Client, index string, title string) {
 		es.Search.WithIndex(index),
 		es.Search.WithBody(&buf),
 		es.Search.WithTrackTotalHits(true),
+		es.Search.WithFrom(0),
+		es.Search.WithSize(10),
+		es.Search.WithSort("time:desc"),
 		es.Search.WithPretty(),
 	)
 	if err != nil {
