@@ -40,3 +40,5 @@ docker run -p 5601:5601 -p 9200:9200 -p 5044:5044 -e ES_MIN_MEM=128m -e ES_MAX_M
 
 ![images](https://github.com/foxliang/Blog/blob/master/images/elk_demo.png)
 
+
+详细看: https://blog.csdn.net/qq_35349114/article/details/109806972
