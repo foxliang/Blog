@@ -15,7 +15,7 @@ docker run -d --name zookeeper -p 2181:2181 -t wurstmeister/zookeeper
 docker run --name kafka -p 9092:9092  --link zookeeper:zookeeper    -e KAFKA_ADVERTISED_HOST_NAME=localhost  -e KAFKA_ZOOKEEPER_CONNECT=zookeeper:2181 -t wurstmeister/kafka```
 ```
 
-这里连接的时候可能会出现超时情况
+- 这里连接的时候可能会出现超时情况
 
 可以修改ZooKeeper的连接超时时间
 ```
