@@ -12,9 +12,9 @@ func write() {
 	c1 := &student.Class{
 		Num: 1,
 		Students: []*student.Student{
-			{Name: "xiaoming", Age: 21, Sex: student.Sex_MAN},
-			{Name: "xiaohua", Age: 21, Sex: student.Sex_WOMAN},
-			{Name: "xiaojin", Age: 21, Sex: student.Sex_MAN},
+			{Name: "小明", Age: 21, Sex: student.Sex_MAN},
+			{Name: "小花", Age: 22, Sex: student.Sex_WOMAN},
+			{Name: "小牛", Age: 20, Sex: student.Sex_MAN},
 		},
 	}
 
