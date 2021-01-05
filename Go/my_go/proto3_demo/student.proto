@@ -1,0 +1,25 @@
+//指定版本
+//注意proto3与proto2的写法有些不同
+syntax = "proto3";
+
+//包名，通过protoc生成时go文件时
+package student;
+
+// 班级
+message Class {
+    int32 num = 1;
+    repeated Student students = 2;
+}
+
+// 学生
+message Student {
+    string name = 1;
+    int32 age = 2;
+    Sex sex = 3;
+}
+
+//性别
+enum Sex {
+    MAN = 0;
+    WOMAN = 1;
+}
