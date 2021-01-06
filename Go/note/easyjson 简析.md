@@ -129,3 +129,6 @@ bt {"Id":11,"Name":"qq","School":{"Name":"CUMT","Addr":"xz"},"Birthday":"2021-01
 ss {11 qq {CUMT xz} 2021-01-06 13:39:34.162613917 +0800 CST}
 Since 116.135µs
 ```
+
+
+[完整demo](https://github.com/foxliang/Blog/tree/master/Go/my_go/easyjson_demo)
