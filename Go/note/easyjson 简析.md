@@ -56,7 +56,76 @@ Usage of easyjson:
 -pkg:对包内指定有`//easyjson:json`结构体生成对应的easyjson配置。
 -snke_case:可以下划线的field如`Name_Student`改为`name_student`。
 ```
-### run
+### 使用
+记得在需要使用easyjson的结构体上加上//easyjson:json。 如下：
+
 ```
-easyjson -all <file>.go
+package proto
+
+import "time"
+
+//easyjson:easyjson
+type School struct {
+	Name string `easyjson:"name"`
+	Addr string `easyjson:"addr"`
+}
+
+//easyjson:easyjson
+type Student struct {
+	Id       int       `easyjson:"id"`
+	Name     string    `easyjson:"s_name"`
+	School   School    `easyjson:"s_chool"`
+	Birthday time.Time `easyjson:"birthday"`
+}
+```
+### 在结构体包下执行
+```
+easyjson  -all student.go
+```
+此时在该目录下出现一个新的文件。
+
+### 现在可以写一个测试类啦。
+
+```
+package main
+
+import (
+	easyjson "easyjson/proto"
+	"fmt"
+	"time"
+)
+
+func main() {
+	start := time.Now()
+	//
+	s := easyjson.Student{
+		Id:   11,
+		Name: "qq",
+		School: easyjson.School{
+			Name: "CUMT",
+			Addr: "xz",
+		},
+		Birthday: time.Now(),
+	}
+	bt, err := s.MarshalJSON()
+	if err != nil {
+		fmt.Println("err", err)
+	}
+	fmt.Println("bt", string(bt))
+	//json := `{"id":11,"name":"s_name","s_chool":{"name":"CUMT","addr":"xz"},"birthday":"2017-08-04T20:58:07.9894603+08:00"}`
+	ss := easyjson.Student{}
+	ss.UnmarshalJSON(bt)
+	fmt.Println("ss", ss)
+
+	end := time.Since(start)
+	fmt.Println("Since", end)
+}
+```
+
+运行结果：
+
+```
+bt {"Id":11,"Name":"qq","School":{"Name":"CUMT","Addr":"xz"},"Birthday":"2021-01-06T13:39:34.162613917+08:00"}
+ss {11 qq {CUMT xz} 2021-01-06 13:39:34.162613917 +0800 CST}
+Since 116.135µs
 ```
