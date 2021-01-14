@@ -1,6 +1,6 @@
-Hi, I am Fox, born in 1996. I am a PHP/Go development engineer.
+Hi, I am Fox, born in 1996. I am a Go development engineer.
 
-你好，我是Fox，出生在1996年。我是一名PHP/Go开发工程师。
+你好，我是Fox，出生在1996年。我是一名Go开发工程师。
 
 
 Study Language in order to apply it.
