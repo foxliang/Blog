@@ -1,0 +1,54 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: go-log-deployment
+  labels:
+    app: go-log
+spec:
+  selector:
+    matchLabels:
+      app: go-log
+  replicas: 1
+  minReadySeconds: 5
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+  template:
+    metadata:
+      labels:
+        app: go-log
+    spec:
+      containers:
+        - image: foxliang/go-test-log:v2
+          name: go-test-log
+          imagePullPolicy: Always
+          volumeMounts:
+            - mountPath: /runtime/log
+              name: runtimelog
+          ports:
+            - containerPort: 8089
+              protocol: TCP
+      volumes:
+        - name: runtimelog
+          hostPath:
+            path: /runtime/log
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: go-log-service
+  labels:
+    app: go-log
+spec:
+  selector:
+    app: go-log
+  ports:
+    - name: go-log-port
+      protocol: TCP
+      port: 8089
+      targetPort: 8089
+      nodePort: 31089
+  type: NodePort
