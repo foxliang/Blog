@@ -15,23 +15,23 @@ $ docker push foxliang/go:v1
 
 ## 部署服务
 ```
-kubectl apply -f go.yaml
+$ kubectl apply -f go.yaml
 ```
 
 ### 查询本地服务
 ```
- kubectl get pods
+$ kubectl get pods
 NAME                             READY   STATUS    RESTARTS   AGE
 go-deployment-8675897977-6r9rd   1/1     Running   0          3m25s
 go-deployment-8675897977-c7kv2   1/1     Running   0          3m47s
 go-deployment-8675897977-f7dn2   1/1     Running   0          3m47s
 
- kubectl get service            
+$ kubectl get service            
 NAME         TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)          AGE
 go-service   NodePort    10.98.181.145   <none>        8080:31080/TCP   5m9s
 
 
- minikube service list
+$ minikube service list
 |----------------------|---------------------------|--------------|---------------------------|
 |      NAMESPACE       |           NAME            | TARGET PORT  |            URL            |
 |----------------------|---------------------------|--------------|---------------------------|
