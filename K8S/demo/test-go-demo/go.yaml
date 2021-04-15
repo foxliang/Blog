@@ -25,6 +25,7 @@ spec:
       - image: foxliang/go:v1.3
         name: go
         imagePullPolicy: Always
+        command: ["./main","-v","v1.3"]
         ports:
         - containerPort: 8080
           protocol: TCP
