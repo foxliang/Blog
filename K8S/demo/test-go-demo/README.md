@@ -1,6 +1,6 @@
 # 任务
 ```
-镜像名：foxliang/go
+镜像名：foxliang/go:v
 镜像内容：二进制文件，跑起来是个http服务，监听8080端口，接到请求会打印 This is version:{v} running in pod {hostname}，其中v是可变参数代表版本（字符串1.0这种），可以通过传参数进去
 ```
 
