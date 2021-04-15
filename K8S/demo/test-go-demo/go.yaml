@@ -22,16 +22,12 @@ spec:
         app: go
     spec:
       containers:
-      - image: foxliang/go:v1.1
+      - image: foxliang/go:v1.3
         name: go
         imagePullPolicy: Always
         ports:
         - containerPort: 8080
           protocol: TCP
-        readinessProbe:
-          httpGet:
-            path: /ping
-            port: 8080
 ---
 apiVersion: v1
 kind: Service
