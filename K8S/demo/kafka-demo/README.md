@@ -80,3 +80,5 @@ If you don't see a command prompt, try pressing enter.
 test
 
 ```
+
+4.使用go访问kafka 创建并消费信息
