@@ -1,0 +1,47 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: go-deployment
+  labels:
+    app: go
+spec:
+  selector:
+    matchLabels:
+      app: go
+  replicas: 1
+  minReadySeconds: 5
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+  template:
+    metadata:
+      labels:
+        app: go
+    spec:
+      containers:
+        - image: foxliang/go-mysql:v1
+          name: go-mysql
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8088
+              protocol: TCP
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: go-service
+  labels:
+    app: go
+spec:
+  selector:
+    app: go
+  ports:
+    - name: go-port
+      protocol: TCP
+      port: 8088
+      targetPort: 8088
+      nodePort: 31088
+  type: NodePort
