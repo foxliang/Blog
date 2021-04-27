@@ -49,6 +49,47 @@ $ minikube service list
 # mysql -h192.168.79.2 -P31306 -uroot -p
 123456
 
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
++--------------------+
+4 rows in set (0.01 sec)
+
+mysql> create database test;
+Query OK, 1 row affected (0.10 sec)
+
+mysql> use test;
+Database changed
+mysql> show tables;
+Empty set (0.00 sec)
+
+mysql> CREATE TABLE `go` (
+    ->   `id` int unsigned NOT NULL AUTO_INCREMENT,
+    ->   `name` varchar(10) NOT NULL DEFAULT '' COMMENT 'name',
+    ->   `create_time` int unsigned NOT NULL DEFAULT '0' COMMENT '',
+    ->   `update_time` int unsigned NOT NULL DEFAULT '0' COMMENT '',
+    ->   `up_timestamp` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    ->   PRIMARY KEY (`id`),
+    ->   KEY `idx_create_time` (`create_time`)
+    -> ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC COMMENT='test';
+Query OK, 0 rows affected (0.64 sec)
+
+mysql> show tables;
++----------------+
+| Tables_in_test |
++----------------+
+| go             |
++----------------+
+1 row in set (0.01 sec)
+
+mysql> select * from go;
+Empty set (0.01 sec)
+
 ```
 
 ### 4.测试容器,节点停止再重启看数据是否存在
