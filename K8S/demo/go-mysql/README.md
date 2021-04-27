@@ -12,6 +12,7 @@ kubectl apply -f mysql-config.yaml
 kubectl apply -f mysql-pv.yaml
 kubectl apply -f mysql-pvc.yaml
 kubectl apply -f mysql.yaml
+kubectl apply -f go.yaml
 ```
 
 ### 2.查看服务
@@ -92,8 +93,28 @@ Empty set (0.01 sec)
 
 ```
 
-### 4.测试容器,节点停止再重启看数据是否存在
+### 4.连接api
+```
+#新增
 
+$ curl  http://192.168.79.2:31088/data/create\?name\=1
+"success create"                                      
+
+#获取单条
+
+$ curl  http://192.168.79.2:31088/data/get\?name\=1
+
+{"id":1,"name":"1","create_time":1619507317,"update_time":1619507317}
+
+#获取列表
+
+$ curl  http://192.168.79.2:31088/data/list        
+ 
+[{"id":1,"name":"1","create_time":1619507317,"update_time":1619507317},{"id":2,"name":"33","create_time":1619507325,"update_time":1619507627},{"id":3,"name":"33","create_time":1619507639,"update_time":1619507639},{"id":4,"name":"44","create_time":1619507902,"update_time":1619507902},{"id":5,"name":"44","create_time":1619508242,"update_time":1619508242},{"id":6,"name":"23","create_time":1619510263,"update_time":1619510263},{"id":7,"name":"7","create_time":1619517602,"update_time":1619517602}]       
+```
+
+
+### 5.测试容器,节点停止再重启看数据是否存在
 
 
 如遇到的问题
