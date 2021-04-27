@@ -94,3 +94,37 @@ Empty set (0.01 sec)
 
 ### 4.测试容器,节点停止再重启看数据是否存在
 
+
+
+如遇到的问题
+
+1. Host '172.17.0.1' is not allowed to connect to this MySQL server
+
+说明所连接的用户帐号没有远程连接的权限，只能在本机(localhost)登录。 需更改 mysql 数据库里的 user表里的 host项
+
+把localhost改称%
+
+```
+进入mysql
+
+mysql> use mysql
+
+mysql> update user set host='%' where user = 'root';
+
+mysql> select host from user where user = 'root';
+
++-----------------------+
+
+|host|
+
++-----------------------+
+
+|% |
+
+MySQL> flush privileges;
+
+```
+
+2. Access denied for user 'root'@'172.17.0.1' (using password: YES)
+
+说明密码不对,重新设置或者填写正确的密码,默认为空
