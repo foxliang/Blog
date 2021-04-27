@@ -1,0 +1,14 @@
+kind: PersistentVolume
+apiVersion: v1
+metadata:
+  name: mysql-pv
+spec:
+  accessModes:
+    - ReadWriteOnce        #访问模式定义为只能以读写的方式挂载到单个节点
+  capacity:
+    storage: 100Mi
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: nfs
+  nfs:
+    path: /data/nfs
+    server: 192.168.79.2
