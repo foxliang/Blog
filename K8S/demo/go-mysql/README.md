@@ -32,16 +32,19 @@ mysql-pvc   Bound    mysql-pv   100Mi      RWO            nfs            76m
 
 $ kubectl get pods
 NAME                                    READY   STATUS    RESTARTS   AGE
-mysql-fox-deployment-7676755855-q4ghq   1/1     Running   0          6m59s
+go-deployment-76dfcb4c9d-zz9wc          1/1     Running   0          15h
+mysql-fox-deployment-7676755855-r7c5k   1/1     Running   0          16h
 
 $ kubectl get svc 
 NAME         TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)          AGE
-mysql-fox    NodePort    10.110.211.206   <none>        3306:31306/TCP   7m2s
+go-service   NodePort    10.110.19.174    <none>        8088:31088/TCP   15h
+mysql-fox    NodePort    10.110.190.127   <none>        3306:31306/TCP   16h
 
 $ minikube service list
 |----------------------|---------------------------|---------------------|---------------------------|
 |      NAMESPACE       |           NAME            |     TARGET PORT     |            URL            |
 |----------------------|---------------------------|---------------------|---------------------------|
+| default              | go-service                | go-port/8088        | http://192.168.79.2:31088 |
 | default              | mysql-fox                 | mysql-fox-port/3306 | http://192.168.79.2:31306 |
 ```
 ### 3.连接mysql
