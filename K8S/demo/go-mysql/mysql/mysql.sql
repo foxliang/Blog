@@ -1,3 +1,7 @@
+GCREATE DATABASE IF NOT EXISTS `test`;
+
+USE `test`;
+
 CREATE TABLE `go` (
   `id` int unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(10) NOT NULL DEFAULT '' COMMENT 'name',
