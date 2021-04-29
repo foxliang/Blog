@@ -22,12 +22,19 @@ spec:
         app: go
     spec:
       containers:
-        - image: foxliang/go-mysql:v1
+        - image: foxliang/go-mysql:v1.1
           name: go-mysql
           imagePullPolicy: Always
           ports:
             - containerPort: 8088
               protocol: TCP
+          volumeMounts:
+            - name: config-volume
+              mountPath: /var/config             #mysql 配置
+      volumes:
+        - name: config-volume
+          configMap:
+            name: go-db-config
 ---
 apiVersion: v1
 kind: Service
