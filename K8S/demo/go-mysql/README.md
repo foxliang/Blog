@@ -20,7 +20,8 @@ kubectl apply -f go.yaml
 ```
 $ kubectl get configmap
 NAME               DATA   AGE
-mysql-config       1      76m
+go-db-config       1      29h
+mysql-config       1      46h
 
 $ kubectl get pv       
 NAME         CAPACITY   ACCESS MODES   RECLAIM POLICY   STATUS      CLAIM               STORAGECLASS    REASON   AGE
