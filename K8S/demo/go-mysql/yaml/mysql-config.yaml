@@ -21,3 +21,12 @@ data:
     max_connections=5000
     # 在容器里面需要设置下时区
     default-time-zone='+8:00'
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: go-db-config
+data:
+  config.toml: |
+    mysql-addr='root:123456@tcp(192.168.79.2:31306)/test'
+
