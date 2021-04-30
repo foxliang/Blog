@@ -18,16 +18,22 @@ spec:
           imagePullPolicy: Always
           command:
             - "redis-server"
+            - "/redis/config/redis.conf"
           ports:
             - containerPort: 6379
               protocol: TCP
           volumeMounts:
             - name: redis-persistent-storage
-              mountPath: /var/lib/redis           #要对这个目录做数据持久化
+              mountPath: /var/lib/redis          #要对这个目录做数据持久化
+            - name: redis-config
+              mountPath: /etc/redis
       volumes:
         - name: redis-persistent-storage
           persistentVolumeClaim:
             claimName: redis-pvc       #指定pvc的名称
+        - name: redis-config
+          configMap:
+            name: redis-config
 ---
 apiVersion: v1
 kind: Service
@@ -43,4 +49,12 @@ spec:
   type: NodePort
   selector:
     app: redis-fox
-
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: redis-config
+data:
+  redis.conf: |
+    maxmemory 2mb
+    maxmemory-policy allkeys-lru
