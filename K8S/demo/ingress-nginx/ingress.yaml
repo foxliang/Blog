@@ -1,0 +1,99 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: myapp-deploy
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: myapp
+  template:
+    metadata:
+      labels:
+        app: myapp
+        app.kubernetes.io/name: ingress-nginx
+        app.kubernetes.io/part-of: ingress-nginx
+    spec:
+      containers:
+        - name: myapp
+          image: foxliang/go:v1.4
+          imagePullPolicy: Always
+          command: ["./main","-v","v1.1.0"]
+          ports:
+            - containerPort: 8080
+              protocol: TCP
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: ingress-nginx
+spec:
+  type: NodePort
+  ports:
+    - name: go-port
+      protocol: TCP
+      port: 8080
+      targetPort: 8080
+      nodePort: 30082
+  selector:
+    app: myapp
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: myapp-deploy2
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: myapp2
+  template:
+    metadata:
+      labels:
+        app: myapp2
+    spec:
+      containers:
+        - name: myapp2
+          image: foxliang/go:v1.4
+          imagePullPolicy: Always
+          command: ["./main","-v","v3.1.0"]
+          ports:
+            - containerPort: 8080
+              protocol: TCP
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: ingress-nginx2
+spec:
+  type: NodePort
+  ports:
+    - name: go-port2
+      protocol: TCP
+      port: 8080
+      targetPort: 8080
+      nodePort: 30081
+  selector:
+    app: myapp2
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: ingress-myapp
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+spec:
+  rules:
+    - host: test.ingress.com
+      http:
+        paths:
+          - path: /1
+            pathType: Prefix
+            backend:
+              serviceName: ingress-nginx
+              servicePort: 8080
+          - path: /2
+            pathType: Prefix
+            backend:
+              serviceName: ingress-nginx2
+              servicePort: 8080
