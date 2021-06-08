@@ -22,6 +22,10 @@ gateway	default  	1       	2021-06-08 10:51:50.625881046 +0800 CST	deployed	ngin
 
 ### 部署yaml文件
 
+```
+kubectl apply -f ingress.yaml
+```
+
 ### 查询pod,svc
 
 ```
