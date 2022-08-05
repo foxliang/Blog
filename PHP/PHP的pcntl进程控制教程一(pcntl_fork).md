@@ -11,7 +11,7 @@ Note: 此扩展在 Windows 平台上不可用。
 
 官方文档
 
-pcntl官方文档
+pcntl官方文档(https://www.php.net/manual/zh/book.pcntl.php)
 
 
 代码
