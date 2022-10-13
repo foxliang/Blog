@@ -1,3 +1,6 @@
+### github模式
+
+
 fork主仓库
 
 Clone 自己的仓库
